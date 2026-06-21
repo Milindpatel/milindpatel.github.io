@@ -235,8 +235,12 @@ function applyOverrides(data: PortfolioData): PortfolioData {
   if (ov.projects)       data.projects = ov.projects
 
   if (Array.isArray(ov.experience)) {
+    // Match by company + title so promotions (same company, new title) can both
+    // modify the old role and add the new one. A patch with no match is prepended.
     for (const patch of ov.experience as Experience[]) {
-      const idx = data.experience.findIndex(e => e.company === patch.company)
+      const idx = data.experience.findIndex(
+        e => e.company === patch.company && (!patch.title || e.title === patch.title),
+      )
       if (idx >= 0) data.experience[idx] = { ...data.experience[idx], ...patch }
       else data.experience.unshift(patch)
     }

@@ -1,6 +1,6 @@
 {
   "name": "Milindkumar Patel",
-  "title": ".NET Developer & Data Engineer",
+  "title": "Web Development Manager",
   "summary": ".NET Web/Application Developer with 5+ years of strong experience in all stages of advanced Development. Knowledgeable in the user interface, testing, and debugging processes. Bringing forth expertise in design, installation, testing and maintenance of systems. Equipped with diverse and promising skillset. Proficient in as assortment of technologies, including AWD BPM, SSIS, ASP.NET, .NET CORE Restful API, IBM BPM, JavaScript (Angular), and Microsoft SQL Server. Able to effectively self-manage during independent projects, as well as collaborate in the team setting. Familiarity with Agile Scrum methodology.",
   "contact": {
     "email": "milindpatel4416@gmail.com",
@@ -10,8 +10,8 @@
   },
   "experience": [
     {
-      "title": "Web Development Manager",
       "company": "Rexall",
+      "title": "Web Development Manager",
       "location": "Toronto",
       "startDate": "Jan 2026",
       "endDate": "Present",
@@ -33,6 +33,36 @@
         "CI/CD",
         "Agile / Scrum",
         "Team Leadership"
+      ]
+    },
+    {
+      "title": "Lead Developer",
+      "company": "Rexall",
+      "location": "Toronto",
+      "startDate": "July 2022",
+      "endDate": "Dec 2025",
+      "bullets": [
+        "Worked in highly collaborative operations team to streamline the process of implementing security confidential Azure cloud environment and introduced best practices for remediation.",
+        "Involved in setting up and configuring Microsoft Azure and AWS cloud computing platform components.",
+        "Creating code drops/patches for deployment in pre-production and production environment for applications within secure system.",
+        "Co-ordinate with external team members and other stake holders to understand the impact of their changes to complete release work.",
+        "Performing code merge activities for different ASP.NET C# applications.",
+        "Helping developers to resolve any technical issue, troubleshooting, project Risk and Issue identification and management.",
+        "Analyze functional requirements and provide design solution with latest .NET framework with MS SQL database."
+      ],
+      "tech": [
+        "ASP.NET Core",
+        "ASP.NET Frameworks",
+        "C#",
+        "MS SQL Server",
+        "Azure DevOps",
+        "Angular 2+ (Angular 12)",
+        "React 18",
+        "JavaScript",
+        "JSON",
+        "HTML5",
+        "CSS3",
+        "T-SQL"
       ]
     },
     {
@@ -236,5 +266,5 @@
       ]
     }
   ],
-  "lastUpdated": "2026-06-21T21:30:53.119Z"
+  "lastUpdated": "2026-06-21T21:38:49.272Z"
 }

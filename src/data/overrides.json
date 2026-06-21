@@ -1,4 +1,5 @@
 {
+  "title": "Web Development Manager",
   "experience": [
     {
       "company": "Rexall",
@@ -25,6 +26,11 @@
         "Agile / Scrum",
         "Team Leadership"
       ]
+    },
+    {
+      "company": "Rexall",
+      "title": "Lead Developer",
+      "endDate": "Dec 2025"
     }
   ]
 }
