@@ -5,9 +5,10 @@ interface HeroProps {
   name: string
   roles: string[]
   contact: Contact
+  available: boolean
 }
 
-export default function Hero({ name, roles, contact }: HeroProps) {
+export default function Hero({ name, roles, contact, available }: HeroProps) {
   const [roleIdx, setRoleIdx]   = useState(0)
   const [displayed, setDisplayed] = useState('')
   const [deleting, setDeleting] = useState(false)
@@ -54,10 +55,12 @@ export default function Hero({ name, roles, contact }: HeroProps) {
 
       <div className="relative max-w-5xl mx-auto px-4 sm:px-6 py-28 w-full">
 
-        <div className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full mb-10">
-          <span className="w-1.5 h-1.5 bg-blue-400 rounded-full animate-pulse" aria-hidden="true" />
-          Available for opportunities
-        </div>
+        {available && (
+          <div className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full mb-10">
+            <span className="w-1.5 h-1.5 bg-blue-400 rounded-full animate-pulse" aria-hidden="true" />
+            Available for opportunities
+          </div>
+        )}
 
         <h1 className="text-6xl sm:text-8xl font-extrabold leading-none mb-6 tracking-tight">
           <span className="text-white">{name.split(' ')[0]}&nbsp;</span>

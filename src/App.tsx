@@ -14,6 +14,7 @@ import AdminLogin from './components/AdminLogin'
 import { isAdminSession, setAdminSession } from './lib/auth'
 
 const defaultData = builtIn as PortfolioData
+const AVAIL_KEY = 'portfolio-available'
 
 function loadInitial(): { data: PortfolioData; custom: boolean } {
   try {
@@ -23,10 +24,20 @@ function loadInitial(): { data: PortfolioData; custom: boolean } {
   return { data: defaultData, custom: false }
 }
 
+function loadAvailable(fallback: boolean): boolean {
+  try {
+    const v = localStorage.getItem(AVAIL_KEY)
+    if (v === '1') return true
+    if (v === '0') return false
+  } catch { /* ignore */ }
+  return fallback
+}
+
 export default function App() {
   const [{ data: portfolio, custom }, setState] = useState(loadInitial)
   const [isAdmin, setIsAdmin] = useState(isAdminSession)
   const [loginOpen, setLoginOpen] = useState(false)
+  const [available, setAvailable] = useState(() => loadAvailable(defaultData.available ?? true))
 
   // Typewriter roles come straight from the résumé's job titles.
   const roles = Array.from(
@@ -62,10 +73,31 @@ export default function App() {
     setIsAdmin(false)
   }
 
+  function toggleAvailable() {
+    const next = !available
+    setAvailable(next)
+    try { localStorage.setItem(AVAIL_KEY, next ? '1' : '0') } catch { /* ignore */ }
+  }
+
   const adminControl = isAdmin ? (
-    <button onClick={logout} className="text-gray-500 hover:text-gray-300 transition-colors">
-      Logout
-    </button>
+    <span className="flex items-center gap-4">
+      <span className="flex items-center gap-2">
+        <span className="text-gray-500">Available</span>
+        <button
+          type="button"
+          role="switch"
+          aria-checked={available}
+          aria-label="Toggle availability badge"
+          onClick={toggleAvailable}
+          className={`relative w-9 h-5 rounded-full transition-colors ${available ? 'bg-blue-600' : 'bg-gray-600'}`}
+        >
+          <span className={`absolute top-0.5 left-0.5 w-4 h-4 bg-white rounded-full transition-transform ${available ? 'translate-x-4' : ''}`} />
+        </button>
+      </span>
+      <button onClick={logout} className="text-gray-500 hover:text-gray-300 transition-colors">
+        Logout
+      </button>
+    </span>
   ) : (
     <button onClick={() => setLoginOpen(true)} className="text-gray-600 hover:text-gray-400 transition-colors">
       Admin
@@ -74,7 +106,7 @@ export default function App() {
 
   return (
     <Layout name={portfolio.name} links={links} footerExtra={adminControl}>
-      <Hero name={portfolio.name} roles={roles} contact={portfolio.contact} />
+      <Hero name={portfolio.name} roles={roles} contact={portfolio.contact} available={available} />
       <About summary={portfolio.summary} stats={stats} />
       <Experience experience={portfolio.experience} />
       <Skills skills={portfolio.skills} />

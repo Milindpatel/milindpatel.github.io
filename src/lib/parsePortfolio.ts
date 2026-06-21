@@ -194,6 +194,7 @@ export function applyOverrides(data: PortfolioData, ov: Partial<PortfolioData>):
   if (ov.name)           data.name = ov.name
   if (ov.title)          data.title = ov.title
   if (ov.summary)        data.summary = ov.summary
+  if (typeof ov.available === 'boolean') data.available = ov.available
   if (ov.contact)        data.contact = { ...data.contact, ...ov.contact }
   if (ov.skills)         data.skills = ov.skills
   if (ov.education)      data.education = ov.education
