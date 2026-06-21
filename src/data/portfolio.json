@@ -1,7 +1,7 @@
 {
   "name": "Milind Patel",
   "title": "Web Development Manager",
-  "summary": "Web Development Manager and full-stack engineer with 10+ years of experience (since 2015) delivering scalable, secure web applications and leading cross-functional engineering teams. Deep expertise across the .NET ecosystem, modern JavaScript frameworks (Angular, React), cloud platforms (Azure and AWS), and Microsoft SQL Server — paired with a strong track record in Agile delivery, CI/CD, and mentoring high-performing teams.",
+  "summary": "Web Development Manager and full-stack engineer with 10+ years of experience (since 2015) delivering scalable, secure web applications and leading cross-functional engineering teams. Deep expertise across the .NET ecosystem, modern JavaScript frameworks (Angular, React), cloud platforms (Azure and AWS), and Microsoft SQL Server — paired with a strong track record in Agile delivery, CI/CD, and mentoring high-performing teams. A strong advocate for AI-assisted development and Claude prompt engineering, building practical LLM workflows that accelerate delivery and elevate engineering quality.",
   "contact": {
     "email": "milindpatel4416@gmail.com",
     "phone": "647-273-1722",
@@ -20,6 +20,7 @@
         "Own the end-to-end software delivery lifecycle — from requirements and architecture through deployment and post-release support — for secure, mission-critical systems.",
         "Partner with business stakeholders to translate strategic goals into actionable technical roadmaps, prioritized backlogs, and measurable delivery milestones.",
         "Drive adoption of modern web technologies and engineering best practices, including CI/CD pipelines, automated testing, and structured code reviews.",
+        "Champion AI-assisted development and Claude prompt engineering across the team — building reusable prompt workflows for code generation, review, and documentation that accelerate delivery and improve quality.",
         "Oversee Azure cloud infrastructure, release management, and application security, championing best practices for remediation and compliance.",
         "Manage resourcing, hiring, and performance development to build a high-performing, collaborative engineering team."
       ],
@@ -32,6 +33,8 @@
         "MS SQL Server",
         "CI/CD",
         "Agile / Scrum",
+        "Claude",
+        "Prompt Engineering",
         "Team Leadership"
       ]
     },
@@ -178,26 +181,58 @@
   ],
   "skills": [
     {
-      "category": "Front End",
+      "category": "Frontend",
       "items": [
-        "Angular 2+",
-        "Bootstrap",
+        "React",
+        "Angular",
         "TypeScript",
-        "ES6",
-        "CSS3",
+        "JavaScript (ES6+)",
         "HTML5",
-        "XML"
+        "CSS3",
+        "Bootstrap",
+        "Responsive Design"
       ]
     },
     {
-      "category": "Back End",
+      "category": "Backend",
       "items": [
-        ".NET Core",
-        ".NET Framework 4.x",
-        "ASP.NET MVC",
-        ".NET CORE Restful API",
         "C#",
+        "ASP.NET Core",
+        "ASP.NET MVC",
+        ".NET Framework",
+        ".NET Core Web API",
+        "RESTful APIs",
         "JSON"
+      ]
+    },
+    {
+      "category": "AI & Prompt Engineering",
+      "items": [
+        "Claude",
+        "Prompt Engineering",
+        "LLM Integration",
+        "AI-Assisted Development",
+        "Anthropic API"
+      ]
+    },
+    {
+      "category": "Cloud & DevOps",
+      "items": [
+        "Microsoft Azure",
+        "AWS",
+        "Azure DevOps",
+        "Git",
+        "TFS",
+        "CI/CD"
+      ]
+    },
+    {
+      "category": "Databases",
+      "items": [
+        "MS SQL Server",
+        "Oracle",
+        "T-SQL",
+        "SSIS"
       ]
     },
     {
@@ -208,31 +243,16 @@
       ]
     },
     {
-      "category": "Database",
+      "category": "Practices & Leadership",
       "items": [
-        "MSSQL Server",
-        "ORACLE",
-        "SQL Server Integration Services (SSIS)",
-        "T-SQL"
-      ]
-    },
-    {
-      "category": "DevOps",
-      "items": [
-        "Git",
-        "TFS (Microsoft)",
-        "CI/CD"
-      ]
-    },
-    {
-      "category": "SDLC",
-      "items": [
-        "Agile Methodology",
-        "BRD",
+        "Agile / Scrum",
+        "SDLC",
+        "Team Leadership",
+        "Code Review",
         "JIRA",
-        "Azure DevOps",
-        "Object Oriented Programming",
-        "UML"
+        "OOP",
+        "UML",
+        "BRD"
       ]
     }
   ],
@@ -267,5 +287,5 @@
       ]
     }
   ],
-  "lastUpdated": "2026-06-21T22:17:40.099Z"
+  "lastUpdated": "2026-06-21T22:21:39.499Z"
 }

@@ -4,7 +4,37 @@
   "contact": {
     "phone": "647-273-1722"
   },
-  "summary": "Web Development Manager and full-stack engineer with 10+ years of experience (since 2015) delivering scalable, secure web applications and leading cross-functional engineering teams. Deep expertise across the .NET ecosystem, modern JavaScript frameworks (Angular, React), cloud platforms (Azure and AWS), and Microsoft SQL Server — paired with a strong track record in Agile delivery, CI/CD, and mentoring high-performing teams.",
+  "summary": "Web Development Manager and full-stack engineer with 10+ years of experience (since 2015) delivering scalable, secure web applications and leading cross-functional engineering teams. Deep expertise across the .NET ecosystem, modern JavaScript frameworks (Angular, React), cloud platforms (Azure and AWS), and Microsoft SQL Server — paired with a strong track record in Agile delivery, CI/CD, and mentoring high-performing teams. A strong advocate for AI-assisted development and Claude prompt engineering, building practical LLM workflows that accelerate delivery and elevate engineering quality.",
+  "skills": [
+    {
+      "category": "Frontend",
+      "items": ["React", "Angular", "TypeScript", "JavaScript (ES6+)", "HTML5", "CSS3", "Bootstrap", "Responsive Design"]
+    },
+    {
+      "category": "Backend",
+      "items": ["C#", "ASP.NET Core", "ASP.NET MVC", ".NET Framework", ".NET Core Web API", "RESTful APIs", "JSON"]
+    },
+    {
+      "category": "AI & Prompt Engineering",
+      "items": ["Claude", "Prompt Engineering", "LLM Integration", "AI-Assisted Development", "Anthropic API"]
+    },
+    {
+      "category": "Cloud & DevOps",
+      "items": ["Microsoft Azure", "AWS", "Azure DevOps", "Git", "TFS", "CI/CD"]
+    },
+    {
+      "category": "Databases",
+      "items": ["MS SQL Server", "Oracle", "T-SQL", "SSIS"]
+    },
+    {
+      "category": "Business Process Management",
+      "items": ["AWD BPM", "IBM BPM"]
+    },
+    {
+      "category": "Practices & Leadership",
+      "items": ["Agile / Scrum", "SDLC", "Team Leadership", "Code Review", "JIRA", "OOP", "UML", "BRD"]
+    }
+  ],
   "experience": [
     {
       "company": "Rexall",
@@ -17,12 +47,13 @@
         "Own the end-to-end software delivery lifecycle — from requirements and architecture through deployment and post-release support — for secure, mission-critical systems.",
         "Partner with business stakeholders to translate strategic goals into actionable technical roadmaps, prioritized backlogs, and measurable delivery milestones.",
         "Drive adoption of modern web technologies and engineering best practices, including CI/CD pipelines, automated testing, and structured code reviews.",
+        "Champion AI-assisted development and Claude prompt engineering across the team — building reusable prompt workflows for code generation, review, and documentation that accelerate delivery and improve quality.",
         "Oversee Azure cloud infrastructure, release management, and application security, championing best practices for remediation and compliance.",
         "Manage resourcing, hiring, and performance development to build a high-performing, collaborative engineering team."
       ],
       "tech": [
-        "ASP.NET Core", "C#", "Azure DevOps", "Angular", "React",
-        "MS SQL Server", "CI/CD", "Agile / Scrum", "Team Leadership"
+        "ASP.NET Core", "C#", "Azure DevOps", "Angular", "React", "MS SQL Server",
+        "CI/CD", "Agile / Scrum", "Claude", "Prompt Engineering", "Team Leadership"
       ]
     },
     {
