@@ -1,49 +1,63 @@
 import { useState, useRef } from 'react'
+import type { PortfolioData } from '../types/portfolio'
+import { parseResumeText, applyOverrides } from '../lib/parsePortfolio'
+import overrides from '../data/overrides.json'
 
-type Status = 'idle' | 'uploading' | 'done' | 'error'
+export const STORAGE_KEY = 'portfolio-data-v1'
 
-export default function ResumeUpload() {
+type Status = 'idle' | 'parsing' | 'done' | 'error'
+
+interface ResumeUploadProps {
+  onUpdate: (data: PortfolioData) => void
+  isCustom: boolean
+  onReset: () => void
+}
+
+export default function ResumeUpload({ onUpdate, isCustom, onReset }: ResumeUploadProps) {
   const [open, setOpen]       = useState(false)
   const [dragging, setDragging] = useState(false)
   const [status, setStatus]   = useState<Status>('idle')
   const [message, setMessage] = useState('')
   const inputRef = useRef<HTMLInputElement>(null)
 
-  async function upload(file: File) {
+  async function handleFile(file: File) {
     if (!/\.(pdf|docx)$/i.test(file.name)) {
       setStatus('error'); setMessage('Only PDF or DOCX files are supported.')
       return
     }
-    setStatus('uploading'); setMessage('Parsing resume…')
-    const reader = new FileReader()
-    reader.onload = async () => {
-      try {
-        const base64 = (reader.result as string).split(',')[1]
-        const res = await fetch('/_upload', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ filename: file.name, data: base64 }),
-        })
-        if (res.ok) {
-          setStatus('done'); setMessage('Portfolio updated! Refresh to see changes.')
-        } else {
-          const { error } = await res.json() as { error: string }
-          setStatus('error'); setMessage(error ?? 'Upload failed.')
-        }
-      } catch {
-        setStatus('error'); setMessage('Network error.')
+    setStatus('parsing'); setMessage('Reading and parsing your resume…')
+    try {
+      // Heavy PDF/DOCX libraries are loaded on demand to keep the initial bundle small.
+      const { readResumeFile } = await import('../lib/readResumeFile')
+      const text = await readResumeFile(file)
+      const data = applyOverrides(parseResumeText(text), overrides as Partial<PortfolioData>)
+      if (data.experience.length === 0 && data.skills.length === 0) {
+        setStatus('error')
+        setMessage("Couldn't extract structured content. Try the DOCX version of your resume.")
+        return
       }
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data))
+      onUpdate(data)
+      setStatus('done')
+      setMessage(`Updated from "${file.name}" — ${data.experience.length} roles, ${data.skills.length} skill groups.`)
+    } catch (err) {
+      setStatus('error')
+      setMessage(err instanceof Error ? err.message : 'Failed to parse the resume.')
     }
-    reader.readAsDataURL(file)
+  }
+
+  function reset() {
+    localStorage.removeItem(STORAGE_KEY)
+    onReset()
+    setStatus('idle'); setMessage('')
   }
 
   return (
     <>
-      {/* Floating trigger button */}
       <button
         onClick={() => { setOpen(o => !o); setStatus('idle'); setMessage('') }}
         className="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold px-4 py-3 rounded-full shadow-2xl shadow-blue-900/50 transition-all hover:-translate-y-0.5"
-        aria-label="Upload resume to update portfolio"
+        aria-label="Upload a resume to update the portfolio"
       >
         <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
           <path fillRule="evenodd" clipRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM6.293 6.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L11 5.414V13a1 1 0 11-2 0V5.414L7.707 6.707a1 1 0 01-1.414 0z"/>
@@ -51,13 +65,12 @@ export default function ResumeUpload() {
         Upload Resume
       </button>
 
-      {/* Upload panel */}
       {open && (
         <div className="fixed bottom-20 right-6 z-50 w-80 glass rounded-2xl shadow-2xl p-5 text-white">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <h3 className="font-semibold text-sm">Update Portfolio</h3>
-              <p className="text-gray-400 text-xs mt-0.5">Drop your latest resume to regenerate content</p>
+              <h3 className="font-semibold text-sm">Update from Resume</h3>
+              <p className="text-gray-400 text-xs mt-0.5">Parsed live in your browser — instantly updates this site</p>
             </div>
             <button
               onClick={() => setOpen(false)}
@@ -76,17 +89,11 @@ export default function ResumeUpload() {
             aria-label="Drop zone for resume file"
             onDragOver={e  => { e.preventDefault(); setDragging(true) }}
             onDragLeave={() => setDragging(false)}
-            onDrop={e => {
-              e.preventDefault(); setDragging(false)
-              const f = e.dataTransfer.files[0]
-              if (f) upload(f)
-            }}
+            onDrop={e => { e.preventDefault(); setDragging(false); const f = e.dataTransfer.files[0]; if (f) handleFile(f) }}
             onClick={() => inputRef.current?.click()}
-            onKeyDown={e => e.key === 'Enter' && inputRef.current?.click()}
+            onKeyDown={e => (e.key === 'Enter' || e.key === ' ') && inputRef.current?.click()}
             className={`border-2 border-dashed rounded-xl p-8 text-center cursor-pointer transition-all ${
-              dragging
-                ? 'border-blue-400 bg-blue-500/10'
-                : 'border-gray-700 hover:border-gray-500 hover:bg-white/5'
+              dragging ? 'border-blue-400 bg-blue-500/10' : 'border-gray-700 hover:border-gray-500 hover:bg-white/5'
             }`}
           >
             <input
@@ -94,7 +101,7 @@ export default function ResumeUpload() {
               type="file"
               accept=".pdf,.docx"
               className="sr-only"
-              onChange={e => { const f = e.target.files?.[0]; if (f) upload(f) }}
+              onChange={e => { const f = e.target.files?.[0]; if (f) handleFile(f) }}
             />
             {status === 'idle' && (
               <>
@@ -105,7 +112,7 @@ export default function ResumeUpload() {
                 <p className="text-xs text-gray-500 mt-1">or click to browse</p>
               </>
             )}
-            {status === 'uploading' && (
+            {status === 'parsing' && (
               <div className="flex flex-col items-center gap-2">
                 <svg className="animate-spin text-blue-400" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/>
@@ -132,9 +139,14 @@ export default function ResumeUpload() {
             )}
           </div>
 
-          <p className="text-gray-600 text-xs mt-3 text-center">
-            Dev mode only · not visible in production
-          </p>
+          <div className="flex items-center justify-between mt-3 text-xs">
+            <span className="text-gray-600">Saved to this browser</span>
+            {isCustom && (
+              <button onClick={reset} className="text-blue-400 hover:text-blue-300 font-medium transition-colors">
+                Reset to original
+              </button>
+            )}
+          </div>
         </div>
       )}
     </>

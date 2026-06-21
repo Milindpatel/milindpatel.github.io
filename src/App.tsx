@@ -1,4 +1,5 @@
-import data from './data/portfolio.json'
+import { useState } from 'react'
+import builtIn from './data/portfolio.json'
 import type { PortfolioData } from './types/portfolio'
 import Layout from './components/Layout'
 import Hero from './components/Hero'
@@ -8,12 +9,22 @@ import Skills from './components/Skills'
 import Projects from './components/Projects'
 import Education from './components/Education'
 import Contact from './components/Contact'
-import ResumeUpload from './components/ResumeUpload'
+import ResumeUpload, { STORAGE_KEY } from './components/ResumeUpload'
 
-const portfolio = data as PortfolioData
+const defaultData = builtIn as PortfolioData
+
+function loadInitial(): { data: PortfolioData; custom: boolean } {
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY)
+    if (saved) return { data: JSON.parse(saved) as PortfolioData, custom: true }
+  } catch { /* ignore corrupt storage */ }
+  return { data: defaultData, custom: false }
+}
 
 export default function App() {
-  // Typewriter roles come straight from the resume's job titles.
+  const [{ data: portfolio, custom }, setState] = useState(loadInitial)
+
+  // Typewriter roles come straight from the résumé's job titles.
   const roles = Array.from(
     new Set([portfolio.title, ...portfolio.experience.map(e => e.title)].filter(Boolean)),
   )
@@ -38,7 +49,11 @@ export default function App() {
       {portfolio.projects.length > 0 && <Projects projects={portfolio.projects} />}
       <Education education={portfolio.education} certifications={portfolio.certifications} />
       <Contact contact={portfolio.contact} />
-      {import.meta.env.DEV && <ResumeUpload />}
+      <ResumeUpload
+        onUpdate={data => setState({ data, custom: true })}
+        isCustom={custom}
+        onReset={() => setState({ data: defaultData, custom: false })}
+      />
     </Layout>
   )
 }
