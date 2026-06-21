@@ -9,6 +9,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const ROOT = path.resolve(__dirname, '..')
 const RESUME_DIR = path.join(ROOT, 'public', 'resumes')
 const OUT_FILE = path.join(ROOT, 'src', 'data', 'portfolio.json')
+const OVERRIDES_FILE = path.join(ROOT, 'src', 'data', 'overrides.json')
 
 // ── Section heading detection ─────────────────────────────────────────────────
 // A heading is a short line that matches a known section name (anchored at start).
@@ -216,6 +217,35 @@ async function readDocx(filePath: string): Promise<string> {
   return result.value
 }
 
+// ── Manual overrides ──────────────────────────────────────────────────────────
+// src/data/overrides.json lets you hand-correct parsed data (e.g. a promotion)
+// without losing auto-generation. It is merged on top of the parsed resume.
+// Experience patches are matched by `company`; an unmatched patch is prepended.
+function applyOverrides(data: PortfolioData): PortfolioData {
+  if (!fs.existsSync(OVERRIDES_FILE)) return data
+  const ov = JSON.parse(fs.readFileSync(OVERRIDES_FILE, 'utf8')) as Partial<PortfolioData>
+
+  if (ov.name)    data.name = ov.name
+  if (ov.title)   data.title = ov.title
+  if (ov.summary) data.summary = ov.summary
+  if (ov.contact) data.contact = { ...data.contact, ...ov.contact }
+  if (ov.skills)         data.skills = ov.skills
+  if (ov.education)      data.education = ov.education
+  if (ov.certifications) data.certifications = ov.certifications
+  if (ov.projects)       data.projects = ov.projects
+
+  if (Array.isArray(ov.experience)) {
+    for (const patch of ov.experience as Experience[]) {
+      const idx = data.experience.findIndex(e => e.company === patch.company)
+      if (idx >= 0) data.experience[idx] = { ...data.experience[idx], ...patch }
+      else data.experience.unshift(patch)
+    }
+  }
+
+  console.log(`Applied overrides from ${path.basename(OVERRIDES_FILE)}`)
+  return data
+}
+
 // ── Seed (no resume present) ──────────────────────────────────────────────────
 function seed(): PortfolioData {
   return {
@@ -241,7 +271,7 @@ async function main() {
 
   if (files.length === 0) {
     console.log('No resumes in public/resumes/ — writing seed data.')
-    fs.writeFileSync(OUT_FILE, JSON.stringify(seed(), null, 2))
+    fs.writeFileSync(OUT_FILE, JSON.stringify(applyOverrides(seed()), null, 2))
     return
   }
 
@@ -255,7 +285,7 @@ async function main() {
     ? await readPdf(path.join(RESUME_DIR, latest))
     : await readDocx(path.join(RESUME_DIR, latest))
 
-  const data = parseText(text)
+  const data = applyOverrides(parseText(text))
   fs.writeFileSync(OUT_FILE, JSON.stringify(data, null, 2))
   console.log(`Written: ${OUT_FILE}`)
   console.log(`  Name:           ${data.name}`)

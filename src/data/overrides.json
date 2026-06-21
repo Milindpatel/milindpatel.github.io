@@ -1,0 +1,30 @@
+{
+  "experience": [
+    {
+      "company": "Rexall",
+      "title": "Web Development Manager",
+      "location": "Toronto",
+      "startDate": "Jan 2026",
+      "endDate": "Present",
+      "bullets": [
+        "Lead and mentor a cross-functional team of web developers, setting technical direction, delivery standards, and code-quality practices across all web application projects.",
+        "Own the end-to-end software delivery lifecycle — from requirements and architecture through deployment and post-release support — for secure, mission-critical systems.",
+        "Partner with business stakeholders to translate strategic goals into actionable technical roadmaps, prioritized backlogs, and measurable delivery milestones.",
+        "Drive adoption of modern web technologies and engineering best practices, including CI/CD pipelines, automated testing, and structured code reviews.",
+        "Oversee Azure cloud infrastructure, release management, and application security, championing best practices for remediation and compliance.",
+        "Manage resourcing, hiring, and performance development to build a high-performing, collaborative engineering team."
+      ],
+      "tech": [
+        "ASP.NET Core",
+        "C#",
+        "Azure DevOps",
+        "Angular",
+        "React",
+        "MS SQL Server",
+        "CI/CD",
+        "Agile / Scrum",
+        "Team Leadership"
+      ]
+    }
+  ]
+}
