@@ -1,6 +1,9 @@
 {
   "name": "Milind Patel",
   "title": "Web Development Manager",
+  "contact": {
+    "phone": "647-273-1722"
+  },
   "experience": [
     {
       "company": "Rexall",
