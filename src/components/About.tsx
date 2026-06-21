@@ -2,9 +2,10 @@ import { useInView } from '../hooks/useInView'
 
 interface AboutProps {
   summary: string
+  stats: { value: string; label: string }[]
 }
 
-export default function About({ summary }: AboutProps) {
+export default function About({ summary, stats }: AboutProps) {
   const { ref, inView } = useInView()
   if (!summary) return null
 
@@ -25,11 +26,7 @@ export default function About({ summary }: AboutProps) {
           </p>
 
           <div className="flex flex-col gap-4 min-w-[160px]">
-            {[
-              { value: '5+', label: 'Years Leading Teams' },
-              { value: '20+', label: 'Projects Shipped' },
-              { value: '∞',  label: 'Lines of Code' },
-            ].map(({ value, label }) => (
+            {stats.map(({ value, label }) => (
               <div key={label} className="glass rounded-xl p-4 text-center">
                 <p className="text-2xl font-bold gradient-text">{value}</p>
                 <p className="text-gray-400 text-xs mt-0.5">{label}</p>

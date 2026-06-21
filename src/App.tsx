@@ -33,6 +33,19 @@ export default function App() {
     new Set([portfolio.title, ...portfolio.experience.map(e => e.title)].filter(Boolean)),
   )
 
+  // Stats derived from the résumé so they update automatically with new data.
+  const startYears = portfolio.experience
+    .map(e => Number(e.startDate.match(/\d{4}/)?.[0]))
+    .filter(y => !Number.isNaN(y))
+  const earliestYear = startYears.length ? Math.min(...startYears) : null
+  const companies = new Set(portfolio.experience.map(e => e.company)).size
+
+  const stats = [
+    earliestYear !== null && { value: `${earliestYear}`, label: 'Working Since' },
+    companies > 0         && { value: `${companies}`, label: 'Companies' },
+    portfolio.experience.length > 0 && { value: `${portfolio.experience.length}`, label: 'Roles' },
+  ].filter(Boolean) as { value: string; label: string }[]
+
   const hasEducation = portfolio.education.length > 0 || portfolio.certifications.length > 0
 
   const links = [
@@ -62,7 +75,7 @@ export default function App() {
   return (
     <Layout name={portfolio.name} links={links} footerExtra={adminControl}>
       <Hero name={portfolio.name} roles={roles} contact={portfolio.contact} />
-      <About summary={portfolio.summary} />
+      <About summary={portfolio.summary} stats={stats} />
       <Experience experience={portfolio.experience} />
       <Skills skills={portfolio.skills} />
       {portfolio.projects.length > 0 && <Projects projects={portfolio.projects} />}
