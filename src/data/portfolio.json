@@ -16,13 +16,14 @@
       "startDate": "Jan 2026",
       "endDate": "Present",
       "bullets": [
-        "Lead and mentor a cross-functional team of web developers, setting technical direction, delivery standards, and code-quality practices across all web application projects.",
-        "Own the end-to-end software delivery lifecycle — from requirements and architecture through deployment and post-release support — for secure, mission-critical systems.",
-        "Partner with business stakeholders to translate strategic goals into actionable technical roadmaps, prioritized backlogs, and measurable delivery milestones.",
-        "Drive adoption of modern web technologies and engineering best practices, including CI/CD pipelines, automated testing, and structured code reviews.",
-        "Champion AI-assisted development and Claude prompt engineering across the team — building reusable prompt workflows for code generation, review, and documentation that accelerate delivery and improve quality.",
-        "Oversee Azure cloud infrastructure, release management, and application security, championing best practices for remediation and compliance.",
-        "Manage resourcing, hiring, and performance development to build a high-performing, collaborative engineering team."
+        "Directly lead and manage a team of developers — assigning and prioritizing work, conducting code reviews, mentoring, and owning their technical growth and delivery.",
+        "Leverage AI-assisted development and Claude prompt engineering to accelerate delivery, automate repetitive tasks, and improve code quality across the team.",
+        "Maintain and enhance a security-confidential Azure cloud environment within a highly collaborative operations team, introducing best practices for remediation.",
+        "Set up and configure Microsoft Azure and AWS cloud computing platform components.",
+        "Create code drops and patches for deployment across pre-production and production environments within secure systems.",
+        "Coordinate with external teams and stakeholders to assess the impact of changes and complete release work.",
+        "Perform code-merge activities across multiple ASP.NET C# applications.",
+        "Analyze functional requirements and deliver design solutions using the latest .NET framework with MS SQL Server."
       ],
       "tech": [
         "ASP.NET Core",
@@ -287,5 +288,5 @@
       ]
     }
   ],
-  "lastUpdated": "2026-06-22T02:01:57.006Z"
+  "lastUpdated": "2026-06-22T02:12:12.605Z"
 }
