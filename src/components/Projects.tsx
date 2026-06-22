@@ -1,4 +1,4 @@
-import { useInView } from '../hooks/useInView'
+﻿import { useInView } from '../hooks/useInView'
 import type { Project } from '../types/portfolio'
 
 interface ProjectsProps {
@@ -11,13 +11,13 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (
     <li
       ref={ref as React.RefObject<HTMLLIElement>}
-      className={`glass rounded-2xl p-6 flex flex-col gap-4 hover:bg-white/10 hover:-translate-y-1 transition-all duration-500 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
+      className={`glass rounded-2xl p-6 flex flex-col gap-4 hover:bg-line/10 hover:-translate-y-1 transition-all duration-500 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
       style={{ transitionDelay: `${index * 100}ms` }}
     >
-      <h3 className="font-semibold text-white text-base">{project.name}</h3>
+      <h3 className="font-semibold text-content text-base">{project.name}</h3>
 
       {project.description && (
-        <p className="text-gray-400 text-sm leading-relaxed flex-1">{project.description}</p>
+        <p className="text-muted text-sm leading-relaxed flex-1">{project.description}</p>
       )}
 
       {project.technologies && project.technologies.length > 0 && (
@@ -52,10 +52,10 @@ export default function Projects({ projects }: ProjectsProps) {
   if (projects.length === 0) return null
 
   return (
-    <section id="projects" className="section-pad bg-gray-950" aria-labelledby="projects-heading">
+    <section id="projects" className="section-pad bg-app" aria-labelledby="projects-heading">
       <div className="max-w-5xl mx-auto">
         <p className="text-blue-400 text-sm font-semibold tracking-widest uppercase mb-3">Work</p>
-        <h2 id="projects-heading" className="text-4xl font-bold text-white mb-10">
+        <h2 id="projects-heading" className="text-4xl font-bold text-content mb-10">
           Projects
         </h2>
 

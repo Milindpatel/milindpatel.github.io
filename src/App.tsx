@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import builtIn from './data/portfolio.json'
 import type { PortfolioData } from './types/portfolio'
 import Layout from './components/Layout'
@@ -11,6 +11,7 @@ import Education from './components/Education'
 import Contact from './components/Contact'
 import ResumeUpload, { STORAGE_KEY } from './components/ResumeUpload'
 import AdminLogin from './components/AdminLogin'
+import BackToTop from './components/BackToTop'
 import { isAdminSession, setAdminSession } from './lib/auth'
 
 const defaultData = builtIn as PortfolioData
@@ -39,12 +40,12 @@ export default function App() {
   const [loginOpen, setLoginOpen] = useState(false)
   const [available, setAvailable] = useState(() => loadAvailable(defaultData.available ?? true))
 
-  // Typewriter roles come straight from the résumé's job titles.
+  // Typewriter roles come straight from the rÃ©sumÃ©'s job titles.
   const roles = Array.from(
     new Set([portfolio.title, ...portfolio.experience.map(e => e.title)].filter(Boolean)),
   )
 
-  // Stats derived from the résumé so they update automatically with new data.
+  // Stats derived from the rÃ©sumÃ© so they update automatically with new data.
   const startYears = portfolio.experience
     .map(e => Number(e.startDate.match(/\d{4}/)?.[0]))
     .filter(y => !Number.isNaN(y))
@@ -82,7 +83,7 @@ export default function App() {
   const adminControl = isAdmin ? (
     <span className="flex items-center gap-4">
       <span className="flex items-center gap-2">
-        <span className="text-gray-500">Available</span>
+        <span className="text-faint">Available</span>
         <button
           type="button"
           role="switch"
@@ -94,12 +95,12 @@ export default function App() {
           <span className={`absolute top-0.5 left-0.5 w-4 h-4 bg-white rounded-full transition-transform ${available ? 'translate-x-4' : ''}`} />
         </button>
       </span>
-      <button onClick={logout} className="text-gray-500 hover:text-gray-300 transition-colors">
+      <button onClick={logout} className="text-faint hover:text-muted transition-colors">
         Logout
       </button>
     </span>
   ) : (
-    <button onClick={() => setLoginOpen(true)} className="text-gray-600 hover:text-gray-400 transition-colors">
+    <button onClick={() => setLoginOpen(true)} className="text-faint hover:text-muted transition-colors">
       Admin
     </button>
   )
@@ -113,6 +114,8 @@ export default function App() {
       {portfolio.projects.length > 0 && <Projects projects={portfolio.projects} />}
       <Education education={portfolio.education} certifications={portfolio.certifications} />
       <Contact contact={portfolio.contact} />
+
+      <BackToTop />
 
       {isAdmin && (
         <ResumeUpload

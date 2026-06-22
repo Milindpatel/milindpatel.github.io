@@ -1,4 +1,4 @@
-import { useInView } from '../hooks/useInView'
+﻿import { useInView } from '../hooks/useInView'
 import type { Contact as ContactType } from '../types/portfolio'
 
 interface ContactProps {
@@ -52,7 +52,7 @@ export default function Contact({ contact }: ContactProps) {
   const isLocal = (href: string) => href.startsWith('mailto') || href.startsWith('tel')
 
   return (
-    <section id="contact" className="section-pad relative overflow-hidden bg-gray-950" aria-labelledby="contact-heading">
+    <section id="contact" className="section-pad relative overflow-hidden bg-app" aria-labelledby="contact-heading">
       {/* Background accent */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-700/10 rounded-full blur-3xl" />
@@ -63,10 +63,10 @@ export default function Contact({ contact }: ContactProps) {
         className={`relative max-w-5xl mx-auto text-center transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
       >
         <p className="text-blue-400 text-sm font-semibold tracking-widest uppercase mb-3">Say Hello</p>
-        <h2 id="contact-heading" className="text-4xl sm:text-5xl font-bold text-white mb-4">
+        <h2 id="contact-heading" className="text-4xl sm:text-5xl font-bold text-content mb-4">
           Let's Work Together
         </h2>
-        <p className="text-gray-400 text-lg mb-12 max-w-lg mx-auto">
+        <p className="text-muted text-lg mb-12 max-w-lg mx-auto">
           Open to new opportunities, collaborations, and conversations about building great things on the web.
         </p>
 
@@ -78,7 +78,7 @@ export default function Contact({ contact }: ContactProps) {
                   href={href}
                   {...(isLocal(href) ? {} : { target: '_blank', rel: 'noopener noreferrer' })}
                   aria-label={`${label}${isLocal(href) ? '' : ' (opens in new tab)'}`}
-                  className="inline-flex items-center gap-2.5 glass hover:bg-white/15 text-gray-200 hover:text-white rounded-xl px-5 py-3 text-sm font-medium transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/30"
+                  className="inline-flex items-center gap-2.5 glass hover:bg-line/15 text-content hover:text-content rounded-xl px-5 py-3 text-sm font-medium transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/30"
                 >
                   <Icon />
                   {display}
@@ -89,7 +89,7 @@ export default function Contact({ contact }: ContactProps) {
         )}
 
         {contact.location && (
-          <p className="text-gray-600 text-sm flex items-center justify-center gap-1.5">
+          <p className="text-faint text-sm flex items-center justify-center gap-1.5">
             <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
               <path fillRule="evenodd" clipRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"/>
             </svg>
@@ -97,8 +97,8 @@ export default function Contact({ contact }: ContactProps) {
           </p>
         )}
 
-        <p className="text-gray-700 text-xs mt-6">
-          Portfolio auto-generated from resume · last updated {new Date().getFullYear()}
+        <p className="text-faint text-xs mt-6">
+          Portfolio auto-generated from resume Â· last updated {new Date().getFullYear()}
         </p>
       </div>
     </section>

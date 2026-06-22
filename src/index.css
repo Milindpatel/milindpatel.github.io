@@ -3,7 +3,28 @@
 @tailwind utilities;
 
 @layer base {
+  /* Dark theme (default) */
+  :root, :root.dark {
+    --bg: 2 6 23;          /* gray-950 */
+    --bg-alt: 15 23 42;    /* slate-900 */
+    --content: 255 255 255;
+    --muted: 156 163 175;  /* gray-400 */
+    --faint: 100 116 139;  /* slate-500 */
+    --line: 255 255 255;   /* white, used at low alpha */
+  }
+
+  /* Light theme */
+  :root.light {
+    --bg: 248 250 252;     /* slate-50 */
+    --bg-alt: 241 245 249; /* slate-100 */
+    --content: 15 23 42;   /* slate-900 */
+    --muted: 71 85 105;    /* slate-600 */
+    --faint: 100 116 139;  /* slate-500 */
+    --line: 15 23 42;      /* slate-900, used at low alpha */
+  }
+
   html { scroll-behavior: smooth; }
+  body { background-color: rgb(var(--bg)); }
 
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
@@ -18,18 +39,26 @@
   }
 
   ::-webkit-scrollbar       { width: 6px; }
-  ::-webkit-scrollbar-track { background: #030712; }
-  ::-webkit-scrollbar-thumb { background: #1f2937; border-radius: 3px; }
+  ::-webkit-scrollbar-track { background: rgb(var(--bg)); }
+  ::-webkit-scrollbar-thumb { background: rgb(var(--line) / 0.18); border-radius: 3px; }
 }
 
 @layer utilities {
   .gradient-text {
     @apply bg-gradient-to-r from-blue-400 via-violet-400 to-cyan-400 bg-clip-text text-transparent;
   }
+  /* Glass adapts automatically: white tint in dark, dark tint in light. */
   .glass {
-    @apply bg-white/5 backdrop-blur-xl border border-white/10;
+    background: rgb(var(--line) / 0.05);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgb(var(--line) / 0.10);
   }
   .section-pad {
     @apply py-24 px-4 sm:px-6;
+  }
+  /* Theme-aware color transition for smooth toggling */
+  .theme-transition,
+  .theme-transition * {
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
   }
 }

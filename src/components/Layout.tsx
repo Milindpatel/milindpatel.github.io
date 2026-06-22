@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react'
+﻿import { useState, useEffect } from 'react'
+import ThemeToggle from './ThemeToggle'
 
 interface LayoutProps {
   name: string
@@ -46,15 +47,16 @@ export default function Layout({ name, links, children, footerExtra }: LayoutPro
         />
 
         <nav
-          className="glass border-b border-white/5 px-4 sm:px-6"
+          className="glass border-b border-line/5 px-4 sm:px-6"
           aria-label="Main navigation"
         >
           <div className="max-w-5xl mx-auto flex items-center justify-between h-14">
-            <a href="#hero" className="font-bold text-white text-base tracking-tight">
+            <a href="#hero" className="font-bold text-content text-base tracking-tight">
               {name.split(' ')[0]}
               <span className="gradient-text">.dev</span>
             </a>
 
+            <div className="flex items-center gap-1">
             <ul className="hidden sm:flex gap-1" role="list">
               {links.map(({ label, href }) => (
                 <li key={label}>
@@ -62,8 +64,8 @@ export default function Layout({ name, links, children, footerExtra }: LayoutPro
                     href={href}
                     className={`text-sm px-3 py-1.5 rounded-lg font-medium transition-all ${
                       active === href.slice(1)
-                        ? 'text-white bg-white/10'
-                        : 'text-gray-400 hover:text-white hover:bg-white/5'
+                        ? 'text-content bg-line/10'
+                        : 'text-muted hover:text-content hover:bg-line/5'
                     }`}
                   >
                     {label}
@@ -72,8 +74,10 @@ export default function Layout({ name, links, children, footerExtra }: LayoutPro
               ))}
             </ul>
 
+            <ThemeToggle />
+
             <button
-              className="sm:hidden p-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/10 transition-colors"
+              className="sm:hidden p-2 rounded-lg text-muted hover:text-content hover:bg-line/10 transition-colors"
               aria-label={menuOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={menuOpen}
               onClick={() => setMenuOpen(o => !o)}
@@ -85,19 +89,20 @@ export default function Layout({ name, links, children, footerExtra }: LayoutPro
                 }
               </svg>
             </button>
+            </div>
           </div>
         </nav>
 
         {menuOpen && (
           <ul
-            className="sm:hidden glass border-b border-white/5 px-4 pb-4 pt-2 flex flex-col gap-1"
+            className="sm:hidden glass border-b border-line/5 px-4 pb-4 pt-2 flex flex-col gap-1"
             role="list"
           >
             {links.map(({ label, href }) => (
               <li key={label}>
                 <a
                   href={href}
-                  className="block text-sm font-medium text-gray-300 hover:text-white px-3 py-2 rounded-lg hover:bg-white/5 transition-colors"
+                  className="block text-sm font-medium text-muted hover:text-content px-3 py-2 rounded-lg hover:bg-line/5 transition-colors"
                   onClick={() => setMenuOpen(false)}
                 >
                   {label}
@@ -108,16 +113,16 @@ export default function Layout({ name, links, children, footerExtra }: LayoutPro
         )}
       </header>
 
-      <main id="main-content" className="bg-gray-950">
+      <main id="main-content" className="bg-app">
         {children}
       </main>
 
-      <footer className="bg-gray-950 border-t border-gray-800/50 text-gray-500 text-sm py-8">
+      <footer className="bg-app border-t border-line/10 text-faint text-sm py-8">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row justify-between items-center gap-3">
-          <p>© {new Date().getFullYear()} {name}</p>
+          <p>Â© {new Date().getFullYear()} {name}</p>
           <div className="flex items-center gap-4">
-            <p className="text-gray-600">Built with React · Vite · Tailwind CSS</p>
-            {footerExtra && <span className="text-gray-700" aria-hidden="true">·</span>}
+            <p className="text-faint">Built with React Â· Vite Â· Tailwind CSS</p>
+            {footerExtra && <span className="text-faint" aria-hidden="true">Â·</span>}
             {footerExtra}
           </div>
         </div>

@@ -2,9 +2,17 @@ import type { Config } from 'tailwindcss'
 
 export default {
   content: ['./index.html', './src/**/*.{ts,tsx}'],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
+        // Theme tokens backed by CSS variables (see src/index.css).
+        app:     'rgb(var(--bg) / <alpha-value>)',
+        appAlt:  'rgb(var(--bg-alt) / <alpha-value>)',
+        content: 'rgb(var(--content) / <alpha-value>)',
+        muted:   'rgb(var(--muted) / <alpha-value>)',
+        faint:   'rgb(var(--faint) / <alpha-value>)',
+        line:    'rgb(var(--line) / <alpha-value>)',
         primary: {
           50:  '#eff6ff',
           100: '#dbeafe',
