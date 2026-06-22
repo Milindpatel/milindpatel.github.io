@@ -1,31 +1,25 @@
-// On-device AI assistant — runs a small open model entirely in the visitor's
-// browser via WebLLM (WebGPU). Free for everyone, no API key, no backend, fully
-// private (nothing leaves the device). The model weights download once and are
-// cached by the browser. The heavy library is dynamically imported.
+// AI assistant that talks to a free serverless proxy (Cloudflare Worker → Groq).
+// The proxy holds the API key server-side, so the static site never exposes it
+// and visitors need no key and no download. See worker/README.md to deploy.
 import type { PortfolioData } from '../types/portfolio'
-import type { MLCEngine, InitProgressReport } from '@mlc-ai/web-llm'
 
 export interface ChatMessage {
   role: 'user' | 'assistant'
   content: string
 }
 
-export const LOCAL_MODEL = 'Llama-3.2-1B-Instruct-q4f16_1-MLC'
-export const MODEL_LABEL = 'Llama 3.2 (1B) · on-device'
-export const MODEL_SIZE = '~0.9 GB'
+// ⬇️ After deploying the Worker, set this to its URL (see worker/README.md).
+export const PROXY_URL = 'https://REPLACE_WITH_YOUR_WORKER_URL.workers.dev'
 
-export type { InitProgressReport }
-
-export function webGPUAvailable(): boolean {
-  return typeof navigator !== 'undefined' && 'gpu' in navigator
+export function isConfigured(): boolean {
+  return !PROXY_URL.includes('REPLACE_WITH_YOUR_WORKER_URL')
 }
 
-// Grounded system prompt built from the live portfolio data. Kept tight — small
-// models follow short, explicit instructions best.
+// Grounded system prompt built from the live portfolio data.
 export function buildSystemPrompt(d: PortfolioData): string {
   const lines: Array<string | false | undefined> = []
   lines.push(
-    `You are a helpful assistant on ${d.name}'s portfolio website. Answer questions about ${d.name} using ONLY the facts below. Speak in the third person, be brief (1-3 sentences), and never invent details. If the answer isn't in the facts, say you don't have that information and suggest using the contact section.`,
+    `You are a friendly assistant on ${d.name}'s portfolio website. Answer questions about ${d.name} using ONLY the facts below. Speak in the third person, be concise (1-3 sentences), and never invent details. If the answer isn't in the facts, say you don't have that information and suggest the contact section.`,
     '',
     'FACTS:',
     `Name: ${d.name}. Title: ${d.title}.`,
@@ -48,41 +42,57 @@ export function buildSystemPrompt(d: PortfolioData): string {
   if (d.education.length) {
     lines.push('Education:', ...d.education.map(ed => `- ${ed.degree}, ${ed.institution}${ed.period ? ` (${ed.period})` : ''}${ed.score ? `, score ${ed.score}` : ''}`), '')
   }
-  if (d.certifications.length) {
-    lines.push('Certifications: ' + d.certifications.join('; '), '')
-  }
-  if (d.projects.length) {
-    lines.push('Projects: ' + d.projects.map(p => `${p.name}${p.description ? ` (${p.description})` : ''}`).join('; '), '')
-  }
+  if (d.certifications.length) lines.push('Certifications: ' + d.certifications.join('; '), '')
+  if (d.projects.length) lines.push('Projects: ' + d.projects.map(p => `${p.name}${p.description ? ` (${p.description})` : ''}`).join('; '), '')
   return lines.filter((l): l is string => typeof l === 'string').join('\n')
 }
 
-// Lazily create (and reuse) the WebLLM engine. Reports download/compile progress.
-let enginePromise: Promise<MLCEngine> | null = null
-export function loadEngine(onProgress: (r: InitProgressReport) => void): Promise<MLCEngine> {
-  if (!enginePromise) {
-    enginePromise = (async () => {
-      const webllm = await import('@mlc-ai/web-llm')
-      return webllm.CreateMLCEngine(LOCAL_MODEL, { initProgressCallback: onProgress })
-    })().catch(err => { enginePromise = null; throw err })
-  }
-  return enginePromise
-}
-
-export async function streamLocalChat(opts: {
-  engine: MLCEngine
+// Stream a response from the proxy, parsing the OpenAI-style SSE chunks.
+export async function streamChat(opts: {
   system: string
   messages: ChatMessage[]
   onText: (text: string) => void
+  signal?: AbortSignal
 }): Promise<void> {
-  const completion = await opts.engine.chat.completions.create({
-    messages: [{ role: 'system', content: opts.system }, ...opts.messages],
-    stream: true,
-    temperature: 0.3,
-    max_tokens: 512,
+  const resp = await fetch(PROXY_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ messages: [{ role: 'system', content: opts.system }, ...opts.messages] }),
+    signal: opts.signal,
   })
-  for await (const chunk of completion) {
-    const delta = chunk.choices[0]?.delta?.content ?? ''
-    if (delta) opts.onText(delta)
+
+  if (!resp.ok || !resp.body) {
+    const detail = await resp.text().catch(() => '')
+    throw new Error(describeError(resp.status, detail))
   }
+
+  const reader = resp.body.getReader()
+  const decoder = new TextDecoder()
+  let buffer = ''
+  for (;;) {
+    const { done, value } = await reader.read()
+    if (done) break
+    buffer += decoder.decode(value, { stream: true })
+    const lines = buffer.split('\n')
+    buffer = lines.pop() ?? ''
+    for (const line of lines) {
+      const trimmed = line.trim()
+      if (!trimmed.startsWith('data:')) continue
+      const data = trimmed.slice(5).trim()
+      if (data === '[DONE]') return
+      try {
+        const json = JSON.parse(data) as { choices?: { delta?: { content?: string } }[] }
+        const delta = json.choices?.[0]?.delta?.content
+        if (delta) opts.onText(delta)
+      } catch { /* ignore keep-alive / partial lines */ }
+    }
+  }
+}
+
+function describeError(status: number, detail: string): string {
+  if (status === 403) return 'This chat can only be used from the portfolio site.'
+  if (status === 429) return 'The free AI is busy right now (rate limit). Please try again in a moment.'
+  if (status >= 500) return 'The AI service is temporarily unavailable. Please try again shortly.'
+  if (detail && detail.length < 200) return detail
+  return 'Something went wrong reaching the AI. Please try again.'
 }

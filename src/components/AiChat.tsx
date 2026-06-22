@@ -1,10 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 import type { PortfolioData } from '../types/portfolio'
-import type { MLCEngine } from '@mlc-ai/web-llm'
-import {
-  buildSystemPrompt, loadEngine, streamLocalChat, webGPUAvailable,
-  MODEL_LABEL, MODEL_SIZE, type ChatMessage,
-} from '../lib/aiAssistant'
+import { buildSystemPrompt, streamChat, isConfigured, type ChatMessage } from '../lib/aiAssistant'
 
 interface AiChatProps {
   portfolio: PortfolioData
@@ -17,50 +13,28 @@ const SUGGESTIONS = [
   'Tell me about his AI work',
 ]
 
-type Phase = 'intro' | 'loading' | 'ready' | 'unsupported'
-
 export default function AiChat({ portfolio }: AiChatProps) {
   const [open, setOpen] = useState(false)
-  const [phase, setPhase] = useState<Phase>(() => (webGPUAvailable() ? 'intro' : 'unsupported'))
-  const [progress, setProgress] = useState(0)
-  const [progressText, setProgressText] = useState('')
   const [messages, setMessages] = useState<ChatMessage[]>([])
   const [input, setInput] = useState('')
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState('')
-  const engineRef = useRef<MLCEngine | null>(null)
   const scrollRef = useRef<HTMLDivElement>(null)
+  const configured = isConfigured()
 
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: 'smooth' })
-  }, [messages, busy, phase])
-
-  async function startLoad() {
-    setPhase('loading'); setError('')
-    try {
-      const engine = await loadEngine(report => {
-        setProgress(Math.round((report.progress ?? 0) * 100))
-        setProgressText(report.text ?? '')
-      })
-      engineRef.current = engine
-      setPhase('ready')
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to load the model.')
-      setPhase('intro')
-    }
-  }
+  }, [messages, busy])
 
   async function send(text: string) {
     const question = text.trim()
-    const engine = engineRef.current
-    if (!question || busy || !engine) return
+    if (!question || busy) return
     setError(''); setInput('')
     const next: ChatMessage[] = [...messages, { role: 'user', content: question }]
     setMessages([...next, { role: 'assistant', content: '' }])
     setBusy(true)
     try {
-      await streamLocalChat({
-        engine,
+      await streamChat({
         system: buildSystemPrompt(portfolio),
         messages: next,
         onText: delta => setMessages(prev => {
@@ -99,7 +73,7 @@ export default function AiChat({ portfolio }: AiChatProps) {
               </span>
               <div className="leading-tight">
                 <p className="text-sm font-semibold">Ask AI about {portfolio.name.split(' ')[0]}</p>
-                <p className="text-[10px] text-faint">{MODEL_LABEL} · free &amp; private</p>
+                <p className="text-[10px] text-faint">Free · no sign-up</p>
               </div>
             </div>
             <button onClick={() => setOpen(false)} aria-label="Close chat" className="text-faint hover:text-content p-1">
@@ -109,50 +83,19 @@ export default function AiChat({ portfolio }: AiChatProps) {
             </button>
           </div>
 
-          {phase === 'unsupported' && (
-            <div className="flex-1 flex flex-col items-center justify-center text-center p-6 gap-3">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-faint" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"/>
+          {!configured ? (
+            <div className="flex-1 flex flex-col items-center justify-center text-center p-6 gap-2">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-faint" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085"/>
               </svg>
-              <p className="text-sm text-muted">This on-device AI needs <strong>WebGPU</strong>, which your browser doesn't support. Try the latest <strong>Chrome</strong> or <strong>Edge</strong> on desktop.</p>
+              <p className="text-sm text-muted">The AI assistant isn't connected yet. Deploy the free proxy in <code className="text-faint">worker/</code> and set <code className="text-faint">PROXY_URL</code>.</p>
             </div>
-          )}
-
-          {phase === 'intro' && (
-            <div className="flex-1 overflow-y-auto p-4 space-y-3">
-              <p className="text-sm text-muted">
-                Chat with an AI about {portfolio.name}'s background. The model runs <strong>entirely in your browser</strong> — completely free, no account, and fully private (nothing you type leaves your device).
-              </p>
-              <p className="text-xs text-faint">First use downloads the model ({MODEL_SIZE}, one time — cached afterwards).</p>
-              <button onClick={startLoad} className="w-full bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold rounded-lg py-2.5 transition-colors">
-                Load AI assistant
-              </button>
-              {error && <p className="text-xs text-red-400" role="alert">{error}</p>}
-            </div>
-          )}
-
-          {phase === 'loading' && (
-            <div className="flex-1 flex flex-col items-center justify-center p-6 gap-3 text-center">
-              <svg className="animate-spin text-blue-400" width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/>
-                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/>
-              </svg>
-              <div className="w-full max-w-[14rem]">
-                <div className="h-1.5 rounded-full bg-line/15 overflow-hidden">
-                  <div className="h-full bg-gradient-to-r from-blue-500 to-violet-500 transition-all" style={{ width: `${progress}%` }} />
-                </div>
-                <p className="text-xs text-faint mt-2">{progress}% · downloading & preparing model</p>
-                <p className="text-[10px] text-faint mt-1 truncate" title={progressText}>{progressText}</p>
-              </div>
-            </div>
-          )}
-
-          {phase === 'ready' && (
+          ) : (
             <>
               <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 space-y-3">
                 {messages.length === 0 && (
                   <div className="space-y-3">
-                    <p className="text-sm text-muted">Ready! Ask me anything about {portfolio.name}.</p>
+                    <p className="text-sm text-muted">Hi! Ask me anything about {portfolio.name}'s background.</p>
                     <div className="flex flex-wrap gap-2">
                       {SUGGESTIONS.map(s => (
                         <button key={s} onClick={() => send(s)} className="text-xs px-3 py-1.5 glass rounded-full text-muted hover:text-content hover:bg-line/10 transition-colors">
@@ -201,7 +144,7 @@ export default function AiChat({ portfolio }: AiChatProps) {
                     </svg>
                   </button>
                 </div>
-                <p className="text-[10px] text-faint mt-2 text-center">Runs on your device · free · private</p>
+                <p className="text-[10px] text-faint mt-2 text-center">Free · no sign-up · answers from the resume</p>
               </div>
             </>
           )}
