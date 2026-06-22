@@ -5,7 +5,7 @@
 // Deploy: see worker/README.md. Set the secret with:
 //   wrangler secret put GROQ_API_KEY
 
-const MODEL = 'llama-3.3-70b-versatile' // Groq free model; swap if deprecated
+const MODEL = 'llama-3.1-8b-instant' // Groq free model; swap if deprecated
 const ALLOWED_ORIGINS = [
   'https://milindpatel.github.io',
   'http://localhost:5173',
@@ -39,7 +39,7 @@ export default {
     const upstream = await fetch('https://api.groq.com/openai/v1/chat/completions', {
       method: 'POST',
       headers: {
-        Authorization: `Bearer ${env.GROQ_API_KEY}`,
+        Authorization: `Bearer ${(env.GROQ_API_KEY || '').trim()}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({

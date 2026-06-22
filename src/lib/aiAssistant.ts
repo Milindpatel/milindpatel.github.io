@@ -9,7 +9,7 @@ export interface ChatMessage {
 }
 
 // ⬇️ After deploying the Worker, set this to its URL (see worker/README.md).
-export const PROXY_URL = 'https://REPLACE_WITH_YOUR_WORKER_URL.workers.dev'
+export const PROXY_URL = 'https://milind-portfolio-ai.milindpatel.workers.dev'
 
 export function isConfigured(): boolean {
   return !PROXY_URL.includes('REPLACE_WITH_YOUR_WORKER_URL')
