@@ -44,5 +44,5 @@ function resumeUploadPlugin() {
 
 export default defineConfig({
   plugins: [react(), resumeUploadPlugin()],
-  base: '/Milind-Portfolio/',
+  base: '/',
 })
