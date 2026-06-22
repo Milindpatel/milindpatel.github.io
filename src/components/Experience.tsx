@@ -46,7 +46,7 @@ function ExperienceItem({ job, index }: { job: ExperienceType; index: number }) 
         {job.tech && job.tech.length > 0 && (
           <ul className="flex flex-wrap gap-1.5 mt-4 pt-4 border-t border-line/5" aria-label={`Technologies used at ${job.company}`}>
             {job.tech.map((t, j) => (
-              <li key={j} className="px-2 py-0.5 bg-blue-500/10 text-blue-300 border border-blue-500/20 rounded text-xs font-medium">
+              <li key={j} className="px-2 py-0.5 bg-blue-500/10 text-blue-700 dark:text-blue-300 border border-blue-500/30 dark:border-blue-500/20 rounded text-xs font-medium">
                 {t}
               </li>
             ))}

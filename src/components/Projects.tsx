@@ -23,7 +23,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       {project.technologies && project.technologies.length > 0 && (
         <ul className="flex flex-wrap gap-1.5" aria-label="Technologies used">
           {project.technologies.map((tech, j) => (
-            <li key={j} className="px-2 py-0.5 bg-blue-500/10 text-blue-300 border border-blue-500/20 rounded text-xs font-medium">
+            <li key={j} className="px-2 py-0.5 bg-blue-500/10 text-blue-700 dark:text-blue-300 border border-blue-500/30 dark:border-blue-500/20 rounded text-xs font-medium">
               {tech}
             </li>
           ))}
