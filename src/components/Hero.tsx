@@ -1,11 +1,31 @@
-import { useState, useEffect } from 'react'
+import { Fragment, useState, useEffect } from 'react'
 import type { Contact } from '../types/portfolio'
+import ParticleField from './ParticleField'
 
 interface HeroProps {
   name: string
   roles: string[]
   contact: Contact
   available: boolean
+}
+
+// Colour stops sampled per letter so the accent part of the name sweeps
+// through the brand palette without relying on background-clip tricks.
+const NAME_STOPS = ['#60a5fa', '#a78bfa', '#e879f9', '#22d3ee']
+
+function hexToRgb(hex: string): [number, number, number] {
+  const n = parseInt(hex.slice(1), 16)
+  return [(n >> 16) & 255, (n >> 8) & 255, n & 255]
+}
+
+function letterColor(i: number, total: number): string {
+  if (total <= 1) return NAME_STOPS[0]
+  const t = (i / (total - 1)) * (NAME_STOPS.length - 1)
+  const seg = Math.min(NAME_STOPS.length - 2, Math.floor(t))
+  const f = t - seg
+  const [r1, g1, b1] = hexToRgb(NAME_STOPS[seg])
+  const [r2, g2, b2] = hexToRgb(NAME_STOPS[seg + 1])
+  return `rgb(${Math.round(r1 + (r2 - r1) * f)}, ${Math.round(g1 + (g2 - g1) * f)}, ${Math.round(b1 + (b2 - b1) * f)})`
 }
 
 export default function Hero({ name, roles, contact, available }: HeroProps) {
@@ -42,6 +62,11 @@ export default function Hero({ name, roles, contact, available }: HeroProps) {
     }
   }, [displayed, deleting, roleIdx, roles])
 
+  const words = name.trim().split(/\s+/)
+  const accentTotal = words.slice(1).join('').length
+  let letterIdx = 0
+  let accentIdx = 0
+
   return (
     <section
       id="hero"
@@ -70,32 +95,58 @@ export default function Hero({ name, roles, contact, available }: HeroProps) {
         aria-hidden="true"
       />
 
+      {/* Interactive constellation — particles link up near the cursor */}
+      <ParticleField className="absolute inset-0" />
+
       <div className="relative max-w-5xl mx-auto px-4 sm:px-6 py-28 w-full">
 
         {available ? (
-          <div className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full mb-10">
+          <div className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full mb-10 animate-fade-up">
             <span className="w-1.5 h-1.5 bg-blue-400 rounded-full animate-pulse" aria-hidden="true" />
             Available for opportunities
           </div>
         ) : (
-          <div className="inline-flex items-center gap-2 bg-line/10 border border-line/20 text-faint text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full mb-10">
+          <div className="inline-flex items-center gap-2 bg-line/10 border border-line/20 text-faint text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full mb-10 animate-fade-up">
             <span className="w-1.5 h-1.5 bg-faint rounded-full" aria-hidden="true" />
             Not currently available
           </div>
         )}
 
-        <h1 className="text-6xl sm:text-8xl font-extrabold leading-none mb-6 tracking-tight">
-          <span className="text-content">{name.split(' ')[0]}&nbsp;</span>
-          <span className="gradient-text">{name.split(' ').slice(1).join(' ')}</span>
+        {/* Name rises letter by letter; the surname carries the palette sweep. */}
+        <h1 className="font-display text-6xl sm:text-8xl font-bold leading-none mb-6 tracking-tight text-content">
+          <span className="sr-only">{name}</span>
+          <span aria-hidden="true">
+            {words.map((word, wi) => (
+              <Fragment key={wi}>
+                {wi > 0 && ' '}
+                <span className={`inline-block ${wi > 0 ? 'animate-hue' : ''}`}>
+                  {Array.from(word).map((ch, ci) => {
+                    const delay = 120 + letterIdx++ * 45
+                    const color = wi > 0 ? letterColor(accentIdx++, accentTotal) : undefined
+                    return (
+                      <span key={ci} className="animate-letter" style={{ animationDelay: `${delay}ms`, color }}>
+                        {ch}
+                      </span>
+                    )
+                  })}
+                </span>
+              </Fragment>
+            ))}
+          </span>
         </h1>
 
         {/* Typewriter */}
-        <div className="flex items-center gap-2 mb-10 h-9" aria-live="polite" aria-atomic="true">
+        <div
+          className="flex items-center gap-2 mb-10 h-9 animate-fade-up"
+          style={{ animationDelay: '480ms' }}
+          aria-live="polite"
+          aria-atomic="true"
+        >
           <span className="text-xl sm:text-2xl text-muted font-light">{displayed}</span>
           <span className="inline-block w-0.5 h-7 bg-blue-400 animate-blink" aria-hidden="true" />
         </div>
 
-        <div className="flex flex-wrap gap-4 mb-14">
+        <div className="flex flex-wrap gap-4 mb-14 animate-fade-up" style={{ animationDelay: '620ms' }}>
           <a
             href="#experience"
             className="group inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-content font-semibold px-6 py-3 rounded-xl transition-all hover:shadow-lg hover:shadow-blue-700/30 hover:-translate-y-0.5"
@@ -126,7 +177,7 @@ export default function Hero({ name, roles, contact, available }: HeroProps) {
         </div>
 
         {/* Social strip */}
-        <div className="flex items-center gap-5 text-faint">
+        <div className="flex items-center gap-5 text-faint animate-fade-up" style={{ animationDelay: '780ms' }}>
           {contact.github && (
             <a href={contact.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub profile (opens in new tab)" className="hover:text-content transition-colors">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -160,9 +211,11 @@ export default function Hero({ name, roles, contact, available }: HeroProps) {
       </div>
 
       {/* Scroll cue */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-faint" aria-hidden="true">
-        <span className="text-xs tracking-widest uppercase">Scroll</span>
-        <div className="w-px h-10 bg-gradient-to-b from-gray-700 to-transparent" />
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2.5 text-faint" aria-hidden="true">
+        <span className="text-[10px] tracking-[0.3em] uppercase">Scroll</span>
+        <div className="w-[22px] h-9 rounded-full border border-line/25 flex justify-center pt-1.5">
+          <span className="w-1 h-2 rounded-full bg-blue-400 animate-scroll-dot" />
+        </div>
       </div>
     </section>
   )

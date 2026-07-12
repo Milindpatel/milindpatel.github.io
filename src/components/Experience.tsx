@@ -1,12 +1,23 @@
 import { useInView } from '../hooks/useInView'
+import { useSpotlight } from '../hooks/useSpotlight'
+import SectionHeading from './SectionHeading'
 import type { Experience as ExperienceType } from '../types/portfolio'
 
 interface ExperienceProps {
   experience: ExperienceType[]
+  num: string
 }
+
+const DOT_COLORS = [
+  'bg-blue-500 ring-blue-500/30',
+  'bg-violet-500 ring-violet-500/30',
+  'bg-cyan-500 ring-cyan-500/30',
+]
 
 function ExperienceItem({ job, index }: { job: ExperienceType; index: number }) {
   const { ref, inView } = useInView(0.1)
+  const spotlight = useSpotlight()
+  const isCurrent = /present/i.test(job.endDate)
 
   return (
     <li
@@ -14,12 +25,18 @@ function ExperienceItem({ job, index }: { job: ExperienceType; index: number }) 
       className={`pl-8 relative transition-all duration-700 ${inView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-6'}`}
       style={{ transitionDelay: `${index * 100}ms` }}
     >
+      {isCurrent && (
+        <span
+          className="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-blue-400/70 animate-ping-slow"
+          aria-hidden="true"
+        />
+      )}
       <span
-        className="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-blue-500 border-2 border-gray-950 ring-2 ring-blue-500/30"
+        className={`absolute -left-[9px] top-1.5 w-4 h-4 rounded-full border-2 border-app ring-2 ${DOT_COLORS[index % DOT_COLORS.length]}`}
         aria-hidden="true"
       />
 
-      <div className="glass rounded-2xl p-6 hover:bg-line/10 transition-colors">
+      <div onMouseMove={spotlight} className="glass spotlight rounded-2xl p-6 hover:bg-line/10 transition-colors">
         <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 mb-2">
           <h3 className="text-content font-semibold text-lg">{job.title}</h3>
           <span className="text-xs text-faint whitespace-nowrap font-mono">
@@ -57,18 +74,15 @@ function ExperienceItem({ job, index }: { job: ExperienceType; index: number }) 
   )
 }
 
-export default function Experience({ experience }: ExperienceProps) {
+export default function Experience({ experience, num }: ExperienceProps) {
   if (experience.length === 0) return null
 
   return (
     <section id="experience" className="section-pad bg-app" aria-labelledby="experience-heading">
       <div className="max-w-5xl mx-auto">
-        <p className="text-blue-400 text-sm font-semibold tracking-widest uppercase mb-3">Career</p>
-        <h2 id="experience-heading" className="text-4xl font-bold text-content mb-12">
-          Experience
-        </h2>
+        <SectionHeading num={num} kicker="Career" title="Experience" id="experience-heading" />
 
-        <ol className="relative border-l border-line/10 space-y-8 ml-2" aria-label="Work history">
+        <ol className="timeline space-y-8 ml-2" aria-label="Work history">
           {experience.map((job, i) => (
             <ExperienceItem key={i} job={job} index={i} />
           ))}

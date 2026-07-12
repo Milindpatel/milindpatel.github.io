@@ -51,15 +51,27 @@ export default function App() {
     .map(e => Number(e.startDate.match(/\d{4}/)?.[0]))
     .filter(y => !Number.isNaN(y))
   const earliestYear = startYears.length ? Math.min(...startYears) : null
+  const yearsExp = earliestYear !== null ? Math.max(1, new Date().getFullYear() - earliestYear) : null
   const companies = new Set(portfolio.experience.map(e => e.company)).size
 
   const stats = [
-    earliestYear !== null && { value: `${earliestYear}`, label: 'Working Since' },
-    companies > 0         && { value: `${companies}`, label: 'Companies' },
+    yearsExp !== null && { value: `${yearsExp}+`, label: 'Years Experience' },
+    companies > 0     && { value: `${companies}`, label: 'Companies' },
     portfolio.experience.length > 0 && { value: `${portfolio.experience.length}`, label: 'Roles' },
   ].filter(Boolean) as { value: string; label: string }[]
 
   const hasEducation = portfolio.education.length > 0 || portfolio.certifications.length > 0
+
+  // Chapter numbers for the visible sections (skips hidden ones).
+  const sectionIds = [
+    'about',
+    portfolio.experience.length > 0 && 'experience',
+    portfolio.skills.length > 0     && 'skills',
+    portfolio.projects.length > 0   && 'projects',
+    hasEducation                    && 'education',
+    'contact',
+  ].filter(Boolean) as string[]
+  const numOf = (id: string) => String(sectionIds.indexOf(id) + 1).padStart(2, '0')
 
   const links = [
     { label: 'About',      href: '#about' },
@@ -109,12 +121,12 @@ export default function App() {
   return (
     <Layout name={portfolio.name} links={links} footerExtra={adminControl}>
       <Hero name={portfolio.name} roles={roles} contact={portfolio.contact} available={available} />
-      <About summary={portfolio.summary} stats={stats} />
-      <Experience experience={portfolio.experience} />
-      <Skills skills={portfolio.skills} />
-      {portfolio.projects.length > 0 && <Projects projects={portfolio.projects} />}
-      <Education education={portfolio.education} certifications={portfolio.certifications} />
-      <Contact contact={portfolio.contact} />
+      <About summary={portfolio.summary} stats={stats} num={numOf('about')} />
+      <Experience experience={portfolio.experience} num={numOf('experience')} />
+      <Skills skills={portfolio.skills} num={numOf('skills')} />
+      {portfolio.projects.length > 0 && <Projects projects={portfolio.projects} num={numOf('projects')} />}
+      <Education education={portfolio.education} certifications={portfolio.certifications} num={numOf('education')} />
+      <Contact contact={portfolio.contact} num={numOf('contact')} />
 
       <BackToTop />
       <AiChat portfolio={portfolio} />

@@ -1,8 +1,11 @@
 import { useInView } from '../hooks/useInView'
+import ParticleField from './ParticleField'
+import SectionHeading from './SectionHeading'
 import type { Contact as ContactType } from '../types/portfolio'
 
 interface ContactProps {
   contact: ContactType
+  num: string
 }
 
 function EmailIcon() {
@@ -39,7 +42,7 @@ function GitHubIcon() {
   )
 }
 
-export default function Contact({ contact }: ContactProps) {
+export default function Contact({ contact, num }: ContactProps) {
   const { ref, inView } = useInView()
 
   const links = [
@@ -56,16 +59,21 @@ export default function Contact({ contact }: ContactProps) {
       {/* Background accent */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-700/10 rounded-full blur-3xl" />
+        <ParticleField className="absolute inset-0" density={30000} />
       </div>
 
       <div
         ref={ref as React.RefObject<HTMLDivElement>}
         className={`relative max-w-5xl mx-auto text-center transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
       >
-        <p className="text-blue-400 text-sm font-semibold tracking-widest uppercase mb-3">Say Hello</p>
-        <h2 id="contact-heading" className="text-4xl sm:text-5xl font-bold text-content mb-4">
-          Let's Work Together
-        </h2>
+        <SectionHeading
+          center
+          num={num}
+          kicker="Say Hello"
+          title={<>Let's Work <span className="gradient-text-animated">Together</span></>}
+          id="contact-heading"
+          className="mb-4"
+        />
         <p className="text-muted text-lg mb-12 max-w-lg mx-auto">
           Open to new opportunities, collaborations, and conversations about building great things on the web.
         </p>

@@ -1,13 +1,17 @@
 import { useInView } from '../hooks/useInView'
+import { useSpotlight } from '../hooks/useSpotlight'
+import SectionHeading from './SectionHeading'
 import type { Education as EducationType } from '../types/portfolio'
 
 interface EducationProps {
   education: EducationType[]
   certifications: string[]
+  num: string
 }
 
-export default function Education({ education, certifications }: EducationProps) {
+export default function Education({ education, certifications, num }: EducationProps) {
   const { ref, inView } = useInView()
+  const spotlight = useSpotlight()
   if (education.length === 0 && certifications.length === 0) return null
 
   return (
@@ -16,17 +20,14 @@ export default function Education({ education, certifications }: EducationProps)
         ref={ref as React.RefObject<HTMLDivElement>}
         className={`max-w-5xl mx-auto transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
       >
-        <p className="text-blue-400 text-sm font-semibold tracking-widest uppercase mb-3">Background</p>
-        <h2 id="education-heading" className="text-4xl font-bold text-content mb-10">
-          Education &amp; Certifications
-        </h2>
+        <SectionHeading num={num} kicker="Background" title="Education & Certifications" id="education-heading" className="mb-10" />
 
         <div className="grid lg:grid-cols-3 gap-5">
           {/* Education cards */}
           {education.length > 0 && (
             <ul className="lg:col-span-2 grid sm:grid-cols-2 gap-5" role="list">
               {education.map((ed, i) => (
-                <li key={i} className="glass rounded-2xl p-6 flex flex-col gap-2 hover:bg-line/10 transition-colors">
+                <li key={i} onMouseMove={spotlight} className="glass spotlight rounded-2xl p-6 flex flex-col gap-2 hover:bg-line/10 transition-colors">
                   <div className="flex items-start justify-between gap-3">
                     <span className="w-10 h-10 shrink-0 rounded-xl bg-blue-500/15 text-blue-400 flex items-center justify-center" aria-hidden="true">
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
@@ -51,7 +52,7 @@ export default function Education({ education, certifications }: EducationProps)
 
           {/* Certifications */}
           {certifications.length > 0 && (
-            <div className="glass rounded-2xl p-6">
+            <div onMouseMove={spotlight} className="glass spotlight rounded-2xl p-6">
               <h3 className="text-content font-semibold text-sm mb-4 flex items-center gap-2">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="text-blue-400" aria-hidden="true">
                   <circle cx="12" cy="8" r="6"/><path d="M8.21 13.89L7 22l5-3 5 3-1.21-8.11"/>

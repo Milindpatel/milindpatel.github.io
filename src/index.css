@@ -26,10 +26,13 @@
   html { scroll-behavior: smooth; }
   body { background-color: rgb(var(--bg)); }
 
+  ::selection { background-color: rgb(139 92 246 / 0.35); }
+
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     *, *::before, *::after {
       animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
     }
   }
@@ -47,6 +50,13 @@
   .gradient-text {
     @apply bg-gradient-to-r from-blue-400 via-violet-400 to-cyan-400 bg-clip-text text-transparent;
   }
+  /* Endlessly panning variant — first and last stops match so the loop is seamless. */
+  .gradient-text-animated {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(90deg, #60a5fa, #a78bfa, #e879f9, #22d3ee, #60a5fa);
+    background-size: 300% 100%;
+    animation: gradientPan 7s linear infinite;
+  }
   /* Glass adapts automatically: white tint in dark, dark tint in light. */
   .glass {
     background: rgb(var(--line) / 0.05);
@@ -60,5 +70,78 @@
   .theme-transition,
   .theme-transition * {
     transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Cursor-tracking radial glow. --mx/--my are set by useSpotlight(). */
+  .spotlight {
+    position: relative;
+  }
+  .spotlight::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    background: radial-gradient(340px circle at var(--mx, 50%) var(--my, 50%), rgb(96 165 250 / 0.14), transparent 60%);
+  }
+  .spotlight:hover::before {
+    opacity: 1;
+  }
+  :root.light .spotlight::before {
+    background: radial-gradient(340px circle at var(--mx, 50%) var(--my, 50%), rgb(37 99 235 / 0.10), transparent 60%);
+  }
+
+  /* Full-page film grain for texture. */
+  .grain {
+    position: fixed;
+    inset: 0;
+    z-index: 70;
+    pointer-events: none;
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  :root.light .grain {
+    opacity: 0.035;
+  }
+
+  /* Per-letter entrance used by the hero headline. */
+  .animate-letter {
+    display: inline-block;
+    animation: letterIn 0.65s cubic-bezier(0.22, 0.68, 0.34, 1) both;
+    will-change: transform, filter;
+  }
+
+  /* Gradient rail for the experience timeline (the <ol> is the anchor). */
+  .timeline {
+    position: relative;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 6px;
+    bottom: 6px;
+    width: 1px;
+    background: linear-gradient(to bottom, rgb(59 130 246 / 0.55), rgb(139 92 246 / 0.35) 45%, rgb(34 211 238 / 0.08));
+  }
+}
+
+@keyframes gradientPan {
+  0%   { background-position: 0% 0; }
+  100% { background-position: 300% 0; }
+}
+
+@keyframes letterIn {
+  0% {
+    opacity: 0;
+    transform: translateY(0.55em);
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
   }
 }

@@ -24,7 +24,8 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        sans:    ['Inter', 'system-ui', 'sans-serif'],
+        display: ['Space Grotesk', 'Inter', 'system-ui', 'sans-serif'],
       },
       keyframes: {
         float: {
@@ -43,6 +44,22 @@ export default {
           '0%':   { backgroundPosition: '-200% 0' },
           '100%': { backgroundPosition: '200% 0' },
         },
+        marquee: {
+          to: { transform: 'translateX(-50%)' },
+        },
+        scrollDot: {
+          '0%':       { opacity: '0', transform: 'translateY(0)' },
+          '25%':      { opacity: '1' },
+          '75%':      { opacity: '1' },
+          '100%':     { opacity: '0', transform: 'translateY(0.65rem)' },
+        },
+        pingSlow: {
+          '75%, 100%': { transform: 'scale(2.2)', opacity: '0' },
+        },
+        hueShift: {
+          '0%, 100%': { filter: 'hue-rotate(0deg)' },
+          '50%':      { filter: 'hue-rotate(30deg)' },
+        },
       },
       animation: {
         float:          'float 6s ease-in-out infinite',
@@ -50,6 +67,10 @@ export default {
         blink:          'blink 1s step-end infinite',
         'fade-up':      'fadeUp 0.6s ease both',
         shimmer:        'shimmer 3s linear infinite',
+        marquee:        'marquee 40s linear infinite',
+        'scroll-dot':   'scrollDot 2s ease-in-out infinite',
+        'ping-slow':    'pingSlow 2.4s cubic-bezier(0, 0, 0.2, 1) infinite',
+        hue:            'hueShift 9s ease-in-out infinite',
       },
     },
   },

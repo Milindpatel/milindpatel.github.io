@@ -34,6 +34,9 @@ export default function Layout({ name, links, children, footerExtra }: LayoutPro
 
   return (
     <>
+      {/* Subtle film grain over the whole page */}
+      <div className="grain" aria-hidden="true" />
+
       <header className="fixed top-0 left-0 right-0 z-40">
         {/* Scroll progress bar */}
         <div
@@ -51,9 +54,9 @@ export default function Layout({ name, links, children, footerExtra }: LayoutPro
           aria-label="Main navigation"
         >
           <div className="max-w-5xl mx-auto flex items-center justify-between h-14">
-            <a href="#hero" className="font-bold text-content text-base tracking-tight">
+            <a href="#hero" className="font-display font-bold text-content text-base tracking-tight">
               {name.split(' ')[0]}
-              <span className="gradient-text">.dev</span>
+              <span className="gradient-text-animated">.dev</span>
             </a>
 
             <div className="flex items-center gap-1">
@@ -62,9 +65,9 @@ export default function Layout({ name, links, children, footerExtra }: LayoutPro
                 <li key={label}>
                   <a
                     href={href}
-                    className={`text-sm px-3 py-1.5 rounded-lg font-medium transition-all ${
+                    className={`relative text-sm px-3 py-1.5 rounded-lg font-medium transition-all ${
                       active === href.slice(1)
-                        ? 'text-content bg-line/10'
+                        ? `text-content bg-line/10 after:content-[''] after:absolute after:left-3 after:right-3 after:-bottom-0.5 after:h-px after:bg-gradient-to-r after:from-blue-400 after:via-violet-400 after:to-cyan-400`
                         : 'text-muted hover:text-content hover:bg-line/5'
                     }`}
                   >
@@ -117,8 +120,9 @@ export default function Layout({ name, links, children, footerExtra }: LayoutPro
         {children}
       </main>
 
-      <footer className="bg-app border-t border-line/10 text-faint text-sm py-8">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row justify-between items-center gap-3">
+      <footer className="bg-app text-faint text-sm">
+        <div className="h-px bg-gradient-to-r from-transparent via-blue-500/40 to-transparent" aria-hidden="true" />
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8 flex flex-col sm:flex-row justify-between items-center gap-3">
           <p>© {new Date().getFullYear()} {name}</p>
           <div className="flex items-center gap-4">
             <p className="text-faint">Built with React · Vite · Tailwind CSS</p>
