@@ -64,7 +64,7 @@
     border: 1px solid rgb(var(--line) / 0.10);
   }
   .section-pad {
-    @apply py-24 px-4 sm:px-6;
+    @apply py-14 px-4 sm:px-6;
   }
   /* Theme-aware color transition for smooth toggling */
   .theme-transition,

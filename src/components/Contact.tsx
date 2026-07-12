@@ -71,7 +71,7 @@ export default function Contact({ contact }: ContactProps) {
           id="contact-heading"
           className="mb-4"
         />
-        <p className="text-muted text-lg mb-12 max-w-lg mx-auto">
+        <p className="text-muted text-lg mb-8 max-w-lg mx-auto">
           Open to new opportunities, collaborations, and conversations about building great things on the web.
         </p>
 

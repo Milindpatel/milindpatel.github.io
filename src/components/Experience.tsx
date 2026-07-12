@@ -81,7 +81,7 @@ export default function Experience({ experience }: ExperienceProps) {
       <div className="max-w-5xl mx-auto">
         <SectionHeading title="Experience" id="experience-heading" />
 
-        <ol className="timeline space-y-8 ml-2" aria-label="Work history">
+        <ol className="timeline space-y-6 ml-2" aria-label="Work history">
           {experience.map((job, i) => (
             <ExperienceItem key={i} job={job} index={i} />
           ))}

@@ -19,7 +19,7 @@ export default function Education({ education, certifications }: EducationProps)
         ref={ref as React.RefObject<HTMLDivElement>}
         className={`max-w-5xl mx-auto transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
       >
-        <SectionHeading title="Education & Certifications" id="education-heading" className="mb-10" />
+        <SectionHeading title="Education & Certifications" id="education-heading" className="mb-8" />
 
         <div className="grid lg:grid-cols-3 gap-5">
           {/* Education cards */}

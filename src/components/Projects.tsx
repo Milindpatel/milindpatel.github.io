@@ -82,7 +82,7 @@ export default function Projects({ projects }: ProjectsProps) {
   return (
     <section id="projects" className="section-pad bg-app" aria-labelledby="projects-heading">
       <div className="max-w-5xl mx-auto">
-        <SectionHeading title="Projects" id="projects-heading" className="mb-10" />
+        <SectionHeading title="Projects" id="projects-heading" className="mb-8" />
 
         <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5" role="list">
           {projects.map((project, i) => (

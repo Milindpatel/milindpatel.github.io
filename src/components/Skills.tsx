@@ -26,7 +26,7 @@ export default function Skills({ skills }: SkillsProps) {
       {/* Infinite ticker — decorative; the grid below carries the real content. */}
       {allSkills.length > 3 && (
         <div
-          className="-mx-4 sm:-mx-6 mb-12 overflow-hidden"
+          className="-mx-4 sm:-mx-6 mb-8 overflow-hidden"
           aria-hidden="true"
           style={{
             maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',

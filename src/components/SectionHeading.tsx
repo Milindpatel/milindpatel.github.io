@@ -7,7 +7,7 @@ interface SectionHeadingProps {
   className?: string
 }
 
-export default function SectionHeading({ title, id, center = false, className = 'mb-12' }: SectionHeadingProps) {
+export default function SectionHeading({ title, id, center = false, className = 'mb-8' }: SectionHeadingProps) {
   return (
     <h2
       id={id}
