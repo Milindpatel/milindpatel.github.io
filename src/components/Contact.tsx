@@ -5,7 +5,6 @@ import type { Contact as ContactType } from '../types/portfolio'
 
 interface ContactProps {
   contact: ContactType
-  num: string
 }
 
 function EmailIcon() {
@@ -42,7 +41,7 @@ function GitHubIcon() {
   )
 }
 
-export default function Contact({ contact, num }: ContactProps) {
+export default function Contact({ contact }: ContactProps) {
   const { ref, inView } = useInView()
 
   const links = [
@@ -68,8 +67,6 @@ export default function Contact({ contact, num }: ContactProps) {
       >
         <SectionHeading
           center
-          num={num}
-          kicker="Say Hello"
           title={<>Let's Work <span className="gradient-text-animated">Together</span></>}
           id="contact-heading"
           className="mb-4"

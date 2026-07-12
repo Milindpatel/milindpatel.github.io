@@ -6,10 +6,9 @@ import type { Education as EducationType } from '../types/portfolio'
 interface EducationProps {
   education: EducationType[]
   certifications: string[]
-  num: string
 }
 
-export default function Education({ education, certifications, num }: EducationProps) {
+export default function Education({ education, certifications }: EducationProps) {
   const { ref, inView } = useInView()
   const spotlight = useSpotlight()
   if (education.length === 0 && certifications.length === 0) return null
@@ -20,7 +19,7 @@ export default function Education({ education, certifications, num }: EducationP
         ref={ref as React.RefObject<HTMLDivElement>}
         className={`max-w-5xl mx-auto transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
       >
-        <SectionHeading num={num} kicker="Background" title="Education & Certifications" id="education-heading" className="mb-10" />
+        <SectionHeading title="Education & Certifications" id="education-heading" className="mb-10" />
 
         <div className="grid lg:grid-cols-3 gap-5">
           {/* Education cards */}
@@ -61,8 +60,7 @@ export default function Education({ education, certifications, num }: EducationP
               </h3>
               <ul className="space-y-3" role="list">
                 {certifications.map((cert, i) => (
-                  <li key={i} className="flex gap-2.5 text-muted text-sm leading-snug">
-                    <span className="text-blue-500 mt-0.5 shrink-0" aria-hidden="true">✦</span>
+                  <li key={i} className="text-muted text-sm leading-snug">
                     {cert}
                   </li>
                 ))}

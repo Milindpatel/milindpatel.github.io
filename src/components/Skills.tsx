@@ -5,12 +5,11 @@ import type { SkillGroup } from '../types/portfolio'
 
 interface SkillsProps {
   skills: SkillGroup[]
-  num: string
 }
 
 const DOTS = ['bg-blue-400', 'bg-violet-400', 'bg-cyan-400', 'bg-fuchsia-400']
 
-export default function Skills({ skills, num }: SkillsProps) {
+export default function Skills({ skills }: SkillsProps) {
   const { ref, inView } = useInView(0.1)
   const spotlight = useSpotlight()
   if (skills.length === 0) return null
@@ -21,7 +20,7 @@ export default function Skills({ skills, num }: SkillsProps) {
   return (
     <section id="skills" className="section-pad bg-app" aria-labelledby="skills-heading">
       <div className="max-w-5xl mx-auto">
-        <SectionHeading num={num} kicker="Toolkit" title="Skills" id="skills-heading" className="mb-8" />
+        <SectionHeading title="Skills" id="skills-heading" className="mb-8" />
       </div>
 
       {/* Infinite ticker — decorative; the grid below carries the real content. */}

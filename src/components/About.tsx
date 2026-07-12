@@ -6,7 +6,6 @@ import SectionHeading from './SectionHeading'
 interface AboutProps {
   summary: string
   stats: { value: string; label: string }[]
-  num: string
 }
 
 /** Renders "11+" style values, counting the numeric part up when revealed. */
@@ -18,7 +17,7 @@ function StatValue({ value, active }: { value: string; active: boolean }) {
   return <>{n}{m[2]}</>
 }
 
-export default function About({ summary, stats, num }: AboutProps) {
+export default function About({ summary, stats }: AboutProps) {
   const { ref, inView } = useInView()
   const spotlight = useSpotlight()
   if (!summary) return null
@@ -29,7 +28,7 @@ export default function About({ summary, stats, num }: AboutProps) {
         ref={ref as React.RefObject<HTMLDivElement>}
         className={`max-w-5xl mx-auto transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
       >
-        <SectionHeading num={num} kicker="About" title="Who I am" id="about-heading" className="mb-8" />
+        <SectionHeading title="Who I am" id="about-heading" className="mb-8" />
 
         <div className="grid sm:grid-cols-[1fr_auto] gap-10 items-start">
           <p className="text-lg text-muted leading-relaxed max-w-2xl">

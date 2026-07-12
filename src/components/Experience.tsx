@@ -5,7 +5,6 @@ import type { Experience as ExperienceType } from '../types/portfolio'
 
 interface ExperienceProps {
   experience: ExperienceType[]
-  num: string
 }
 
 const DOT_COLORS = [
@@ -74,13 +73,13 @@ function ExperienceItem({ job, index }: { job: ExperienceType; index: number }) 
   )
 }
 
-export default function Experience({ experience, num }: ExperienceProps) {
+export default function Experience({ experience }: ExperienceProps) {
   if (experience.length === 0) return null
 
   return (
     <section id="experience" className="section-pad bg-app" aria-labelledby="experience-heading">
       <div className="max-w-5xl mx-auto">
-        <SectionHeading num={num} kicker="Career" title="Experience" id="experience-heading" />
+        <SectionHeading title="Experience" id="experience-heading" />
 
         <ol className="timeline space-y-8 ml-2" aria-label="Work history">
           {experience.map((job, i) => (

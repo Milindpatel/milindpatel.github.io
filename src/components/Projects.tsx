@@ -5,7 +5,6 @@ import type { Project } from '../types/portfolio'
 
 interface ProjectsProps {
   projects: Project[]
-  num: string
 }
 
 const canTilt =
@@ -77,13 +76,13 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
   )
 }
 
-export default function Projects({ projects, num }: ProjectsProps) {
+export default function Projects({ projects }: ProjectsProps) {
   if (projects.length === 0) return null
 
   return (
     <section id="projects" className="section-pad bg-app" aria-labelledby="projects-heading">
       <div className="max-w-5xl mx-auto">
-        <SectionHeading num={num} kicker="Work" title="Projects" id="projects-heading" className="mb-10" />
+        <SectionHeading title="Projects" id="projects-heading" className="mb-10" />
 
         <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5" role="list">
           {projects.map((project, i) => (
