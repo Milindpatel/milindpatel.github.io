@@ -21,10 +21,9 @@ export default function Education({ education, certifications }: EducationProps)
       >
         <SectionHeading title="Education & Certifications" id="education-heading" className="mb-8" />
 
-        <div className="grid lg:grid-cols-3 gap-5">
-          {/* Education cards */}
-          {education.length > 0 && (
-            <ul className="lg:col-span-2 grid sm:grid-cols-2 gap-5" role="list">
+        {/* Education cards */}
+        {education.length > 0 && (
+          <ul className="grid sm:grid-cols-2 gap-5" role="list">
               {education.map((ed, i) => (
                 <li key={i} onMouseMove={spotlight} className="glass spotlight rounded-2xl p-6 flex flex-col gap-2 hover:bg-line/10 transition-colors">
                   <div className="flex items-start justify-between gap-3">
@@ -47,37 +46,33 @@ export default function Education({ education, certifications }: EducationProps)
                 </li>
               ))}
             </ul>
-          )}
+        )}
 
-          {/* Certifications */}
-          {certifications.length > 0 && (
-            <div onMouseMove={spotlight} className="glass spotlight rounded-2xl p-6">
-              <h3 className="text-content font-semibold text-sm mb-4 flex items-center gap-2">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="text-blue-400" aria-hidden="true">
-                  <circle cx="12" cy="8" r="6"/><path d="M8.21 13.89L7 22l5-3 5 3-1.21-8.11"/>
-                </svg>
-                Certifications
-              </h3>
-              <ul className="space-y-3" role="list">
-                {certifications.map((cert, i) => {
-                  // "AWS Certified X - Professional" → name + level badge, so
-                  // long names wrap inside a contained card instead of dangling.
-                  const parts = cert.split(/\s+[-–]\s+/)
-                  const name = parts[0]
-                  const level = parts.slice(1).join(' · ')
-                  return (
-                    <li key={i} className="rounded-xl border border-line/10 bg-line/5 px-3.5 py-2.5">
-                      <p className="text-content text-sm font-medium leading-snug">{name}</p>
-                      {level && (
-                        <p className="text-blue-400 text-[11px] font-semibold tracking-wider uppercase mt-1">{level}</p>
-                      )}
-                    </li>
-                  )
-                })}
-              </ul>
-            </div>
-          )}
-        </div>
+        {/* Certifications — one clean line per badge, full width to breathe */}
+        {certifications.length > 0 && (
+          <div className={education.length > 0 ? 'mt-8' : ''}>
+            <h3 className="text-content font-semibold text-sm mb-4 flex items-center gap-2">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="text-blue-400" aria-hidden="true">
+                <circle cx="12" cy="8" r="6"/><path d="M8.21 13.89L7 22l5-3 5 3-1.21-8.11"/>
+              </svg>
+              Certifications
+            </h3>
+            <ul className="flex flex-wrap gap-3" role="list">
+              {certifications.map((cert, i) => (
+                <li
+                  key={i}
+                  onMouseMove={spotlight}
+                  className="spotlight flex items-center gap-2.5 rounded-xl border border-line/10 bg-line/5 hover:border-blue-500/40 transition-colors px-4 py-3 text-sm text-content font-medium"
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="text-blue-400 shrink-0" aria-hidden="true">
+                    <circle cx="12" cy="8" r="6"/><path d="M8.21 13.89L7 22l5-3 5 3-1.21-8.11"/>
+                  </svg>
+                  {cert.replace(/\s-\s/g, ' – ')}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
     </section>
   )
