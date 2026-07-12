@@ -59,11 +59,21 @@ export default function Education({ education, certifications }: EducationProps)
                 Certifications
               </h3>
               <ul className="space-y-3" role="list">
-                {certifications.map((cert, i) => (
-                  <li key={i} className="text-muted text-sm leading-snug">
-                    {cert}
-                  </li>
-                ))}
+                {certifications.map((cert, i) => {
+                  // "AWS Certified X - Professional" → name + level badge, so
+                  // long names wrap inside a contained card instead of dangling.
+                  const parts = cert.split(/\s+[-–]\s+/)
+                  const name = parts[0]
+                  const level = parts.slice(1).join(' · ')
+                  return (
+                    <li key={i} className="rounded-xl border border-line/10 bg-line/5 px-3.5 py-2.5">
+                      <p className="text-content text-sm font-medium leading-snug">{name}</p>
+                      {level && (
+                        <p className="text-blue-400 text-[11px] font-semibold tracking-wider uppercase mt-1">{level}</p>
+                      )}
+                    </li>
+                  )
+                })}
               </ul>
             </div>
           )}
