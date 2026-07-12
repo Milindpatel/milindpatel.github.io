@@ -117,27 +117,46 @@ function parseExperience(lines: string[]): Experience[] {
 function parseEducation(lines: string[]): Education[] {
   const results: Education[] = []
   let current: Education | null = null
+  // A long degree wraps onto the line(s) after the `inst || degree` header, so
+  // plain lines extend the degree until a score/location line closes it.
+  let degreeOpen = false
   for (const line of lines) {
     if (line.includes('||')) {
       if (current) results.push(current)
       const [inst, degree = ''] = line.split('||').map(s => s.trim())
       current = { institution: inst, degree }
+      degreeOpen = true
     } else if (current && /^score/i.test(line)) {
       current.score = line.replace(/^score:?\s*/i, '').trim()
+      degreeOpen = false
     } else if (current && line.includes('|')) {
       const [loc, period = ''] = line.split('|').map(s => s.trim())
       current.location = loc
       if (period) current.period = period
-    } else if (current && !current.degree) {
-      current.degree = line
+      degreeOpen = false
+    } else if (current && degreeOpen) {
+      current.degree = current.degree ? `${current.degree} ${line}` : line
     }
   }
   if (current) results.push(current)
   return results
 }
 
+// PDF extraction wraps long certification names across lines; bullets mark
+// where each cert actually starts, so non-bulleted lines are continuations.
+const CERT_BULLET = /^[•·▪●*]\s*/
 function parseCertifications(lines: string[]): string[] {
-  return lines.map(l => l.trim()).filter(l => l.length > 2)
+  const trimmed = lines.map(l => l.trim()).filter(l => l.length > 2)
+  const bulleted = trimmed.some(l => CERT_BULLET.test(l))
+  const certs: string[] = []
+  for (const line of trimmed) {
+    if (!bulleted || CERT_BULLET.test(line) || certs.length === 0) {
+      certs.push(line.replace(CERT_BULLET, ''))
+    } else {
+      certs[certs.length - 1] += ` ${line}`
+    }
+  }
+  return certs
 }
 
 function parseProjects(lines: string[]): Project[] {
