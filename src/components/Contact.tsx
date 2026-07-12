@@ -1,7 +1,24 @@
+import { useEffect, useState } from 'react'
 import { useInView } from '../hooks/useInView'
 import ParticleField from './ParticleField'
 import SectionHeading from './SectionHeading'
 import type { Contact as ContactType } from '../types/portfolio'
+
+/** Live local clock shown next to the location (currently Toronto-aware). */
+function LocalTime({ location }: { location: string }) {
+  const tz = /toronto|ontario|canada/i.test(location) ? 'America/Toronto' : undefined
+  const [now, setNow] = useState(() => new Date())
+
+  useEffect(() => {
+    if (!tz) return
+    const id = setInterval(() => setNow(new Date()), 30000)
+    return () => clearInterval(id)
+  }, [tz])
+
+  if (!tz) return null
+  const time = new Intl.DateTimeFormat('en-US', { hour: 'numeric', minute: '2-digit', timeZone: tz }).format(now)
+  return <span aria-label={`Local time ${time}`}> · {time} local time</span>
+}
 
 interface ContactProps {
   contact: ContactType
@@ -99,6 +116,7 @@ export default function Contact({ contact }: ContactProps) {
               <path fillRule="evenodd" clipRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"/>
             </svg>
             Based in {contact.location}
+            <LocalTime location={contact.location} />
           </p>
         )}
 

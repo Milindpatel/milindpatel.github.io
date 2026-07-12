@@ -2,10 +2,12 @@ import { useInView } from '../hooks/useInView'
 import { useCountUp } from '../hooks/useCountUp'
 import { useSpotlight } from '../hooks/useSpotlight'
 import SectionHeading from './SectionHeading'
+import GitHubStats from './GitHubStats'
 
 interface AboutProps {
   summary: string
   stats: { value: string; label: string }[]
+  github?: string
 }
 
 /** Renders "11+" style values, counting the numeric part up when revealed. */
@@ -17,7 +19,7 @@ function StatValue({ value, active }: { value: string; active: boolean }) {
   return <>{n}{m[2]}</>
 }
 
-export default function About({ summary, stats }: AboutProps) {
+export default function About({ summary, stats, github }: AboutProps) {
   const { ref, inView } = useInView()
   const spotlight = useSpotlight()
   if (!summary) return null
@@ -31,9 +33,12 @@ export default function About({ summary, stats }: AboutProps) {
         <SectionHeading title="Who I am" id="about-heading" className="mb-8" />
 
         <div className="grid sm:grid-cols-[1fr_auto] gap-10 items-start">
-          <p className="text-lg text-muted leading-relaxed max-w-2xl">
-            {summary}
-          </p>
+          <div className="max-w-2xl">
+            <p className="text-lg text-muted leading-relaxed">
+              {summary}
+            </p>
+            <GitHubStats githubUrl={github} />
+          </div>
 
           <div className="flex flex-col gap-4 min-w-[160px]">
             {stats.map(({ value, label }) => (

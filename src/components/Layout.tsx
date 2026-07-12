@@ -77,6 +77,16 @@ export default function Layout({ name, links, children, footerExtra }: LayoutPro
               ))}
             </ul>
 
+            <button
+              type="button"
+              onClick={() => window.dispatchEvent(new Event('open-command-palette'))}
+              aria-label="Open command palette (Ctrl+K)"
+              className="hidden sm:flex items-center gap-1 ml-1 text-[11px] font-medium text-faint hover:text-content border border-line/15 hover:border-line/30 rounded-md px-2 py-1 transition-colors"
+            >
+              <kbd>Ctrl</kbd>
+              <kbd>K</kbd>
+            </button>
+
             <ThemeToggle />
 
             <button

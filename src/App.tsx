@@ -13,6 +13,8 @@ import ResumeUpload, { STORAGE_KEY } from './components/ResumeUpload'
 import AdminLogin from './components/AdminLogin'
 import BackToTop from './components/BackToTop'
 import AiChat from './components/AiChat'
+import CommandPalette from './components/CommandPalette'
+import MatrixRain from './components/MatrixRain'
 import { isAdminSession, setAdminSession } from './lib/auth'
 
 const defaultData = builtIn as PortfolioData
@@ -110,7 +112,7 @@ export default function App() {
   return (
     <Layout name={portfolio.name} links={links} footerExtra={adminControl}>
       <Hero name={portfolio.name} roles={roles} contact={portfolio.contact} available={available} />
-      <About summary={portfolio.summary} stats={stats} />
+      <About summary={portfolio.summary} stats={stats} github={portfolio.contact.github} />
       <Experience experience={portfolio.experience} />
       <Skills skills={portfolio.skills} />
       {portfolio.projects.length > 0 && <Projects projects={portfolio.projects} />}
@@ -119,6 +121,8 @@ export default function App() {
 
       <BackToTop />
       <AiChat portfolio={portfolio} />
+      <CommandPalette links={links} contact={portfolio.contact} />
+      <MatrixRain />
 
       {isAdmin && (
         <ResumeUpload

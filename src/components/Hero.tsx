@@ -1,6 +1,7 @@
 import { Fragment, useState, useEffect } from 'react'
 import type { Contact } from '../types/portfolio'
 import ParticleField from './ParticleField'
+import { useMagnetic } from '../hooks/useMagnetic'
 
 interface HeroProps {
   name: string
@@ -33,6 +34,7 @@ export default function Hero({ name, roles, contact, available }: HeroProps) {
   const [displayed, setDisplayed] = useState('')
   const [deleting, setDeleting] = useState(false)
   const [offset, setOffset]     = useState(0)
+  const magnetic = useMagnetic()
 
   // Subtle scroll parallax for the background orbs/grid (skipped if reduced motion).
   useEffect(() => {
@@ -149,7 +151,8 @@ export default function Hero({ name, roles, contact, available }: HeroProps) {
         <div className="flex flex-wrap gap-4 mb-14 animate-fade-up" style={{ animationDelay: '620ms' }}>
           <a
             href="#experience"
-            className="group inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-content font-semibold px-6 py-3 rounded-xl transition-all hover:shadow-lg hover:shadow-blue-700/30 hover:-translate-y-0.5"
+            {...magnetic}
+            className="group inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-content font-semibold px-6 py-3 rounded-xl transition-all hover:shadow-lg hover:shadow-blue-700/30"
           >
             View My Work
             <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" className="group-hover:translate-x-0.5 transition-transform">
@@ -158,6 +161,7 @@ export default function Hero({ name, roles, contact, available }: HeroProps) {
           </a>
           <a
             href="#contact"
+            {...magnetic}
             className="inline-flex items-center gap-2 border border-line/20 hover:border-line/40 text-muted hover:text-content font-medium px-6 py-3 rounded-xl transition-all hover:bg-line/5"
           >
             Get in Touch
@@ -167,6 +171,7 @@ export default function Hero({ name, roles, contact, available }: HeroProps) {
             target="_blank"
             rel="noopener noreferrer"
             download
+            {...magnetic}
             className="inline-flex items-center gap-2 border border-line/20 hover:border-line/40 text-muted hover:text-content font-medium px-6 py-3 rounded-xl transition-all hover:bg-line/5"
           >
             <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">

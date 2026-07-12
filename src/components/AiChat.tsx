@@ -26,6 +26,13 @@ export default function AiChat({ portfolio }: AiChatProps) {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: 'smooth' })
   }, [messages, busy])
 
+  // Allow the command palette to open the chat.
+  useEffect(() => {
+    const onOpen = () => setOpen(true)
+    window.addEventListener('open-ai-chat', onOpen)
+    return () => window.removeEventListener('open-ai-chat', onOpen)
+  }, [])
+
   async function send(text: string) {
     const question = text.trim()
     if (!question || busy) return
