@@ -47,6 +47,7 @@
         "Directly lead and manage a team of developers — assigning and prioritizing work, conducting code reviews, mentoring, and owning their technical growth and delivery.",
         "Leverage AI-assisted development and Claude prompt engineering to accelerate delivery, automate repetitive tasks, and improve code quality across the team.",
         "Maintain and enhance a security-confidential Azure cloud environment within a highly collaborative operations team, introducing best practices for remediation.",
+        "Lead PCI DSS compliance audits for the web applications — coordinating with auditors and internal teams, compiling audit evidence, remediating findings, and enforcing secure-coding standards and vulnerability-scan reviews.",
         "Set up and configure Microsoft Azure and AWS cloud computing platform components.",
         "Create code drops and patches for deployment across pre-production and production environments within secure systems.",
         "Coordinate with external teams and stakeholders to assess the impact of changes and complete release work.",
@@ -55,7 +56,7 @@
       ],
       "tech": [
         "ASP.NET Core", "C#", "Azure DevOps", "Angular", "React", "MS SQL Server",
-        "CI/CD", "Agile / Scrum", "Claude", "Prompt Engineering", "Team Leadership"
+        "CI/CD", "Agile / Scrum", "PCI DSS", "Claude", "Prompt Engineering", "Team Leadership"
       ]
     },
     {
@@ -66,6 +67,7 @@
       "endDate": "Jan 2026",
       "bullets": [
         "Streamlined the implementation of a security-confidential Azure cloud environment within a highly collaborative operations team, introducing best practices for remediation.",
+        "Coordinated PCI DSS compliance audits, gathering audit evidence, remediating audit and vulnerability-scan findings, and applying PCI secure-coding practices across ASP.NET C# applications.",
         "Set up and configured Microsoft Azure and AWS cloud computing platform components.",
         "Created code drops and patches for deployment across pre-production and production environments within secure systems.",
         "Coordinated with external teams and stakeholders to assess the impact of changes and complete release work.",
@@ -75,7 +77,7 @@
       ],
       "tech": [
         "ASP.NET Core", "ASP.NET Framework", "C#", "MS SQL Server", "Azure DevOps",
-        "Angular 12", "React 18", "JavaScript", "JSON", "HTML5", "CSS3", "T-SQL"
+        "Angular 12", "React 18", "JavaScript", "JSON", "HTML5", "CSS3", "T-SQL", "PCI DSS"
       ]
     },
     {
