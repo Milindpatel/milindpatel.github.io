@@ -9,7 +9,7 @@
   "skills": [
     {
       "category": "Frontend",
-      "items": ["React", "Angular", "TypeScript", "JavaScript (ES6+)", "HTML5", "CSS3", "Bootstrap", "Responsive Design"]
+      "items": ["Angular", "React", "TypeScript", "JavaScript (ES6+)", "HTML5", "CSS3", "Bootstrap", "Responsive Design"]
     },
     {
       "category": "Backend",
@@ -17,7 +17,7 @@
     },
     {
       "category": "AI & Prompt Engineering",
-      "items": ["Claude", "Prompt Engineering", "LLM Integration", "AI-Assisted Development", "Anthropic API"]
+      "items": ["Claude", "Claude Code", "Anthropic API", "ChatGPT / OpenAI API", "Cursor", "Groq (Llama 3.3)", "Prompt Engineering", "LLM Integration", "RAG / LLM Grounding", "Streaming LLM Responses", "AI-Assisted Development"]
     },
     {
       "category": "Cloud & DevOps",

@@ -185,8 +185,8 @@
     {
       "category": "Frontend",
       "items": [
-        "React",
         "Angular",
+        "React",
         "TypeScript",
         "JavaScript (ES6+)",
         "HTML5",
@@ -211,10 +211,16 @@
       "category": "AI & Prompt Engineering",
       "items": [
         "Claude",
+        "Claude Code",
+        "Anthropic API",
+        "ChatGPT / OpenAI API",
+        "Cursor",
+        "Groq (Llama 3.3)",
         "Prompt Engineering",
         "LLM Integration",
-        "AI-Assisted Development",
-        "Anthropic API"
+        "RAG / LLM Grounding",
+        "Streaming LLM Responses",
+        "AI-Assisted Development"
       ]
     },
     {
@@ -289,5 +295,5 @@
       ]
     }
   ],
-  "lastUpdated": "2026-09-27T17:07:05.721Z"
+  "lastUpdated": "2026-09-27T17:30:31.344Z"
 }
