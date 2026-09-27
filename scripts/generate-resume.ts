@@ -22,6 +22,7 @@ const c = data.contact
 const contactBits = [
   c.email && `<a href="mailto:${esc(c.email)}">${esc(c.email)}</a>`,
   c.phone && `<a href="tel:${c.phone.replace(/[^\d+]/g, '')}">${esc(c.phone)}</a>`,
+  c.website && `<a href="${esc(c.website)}">${esc(c.website.replace(/^https?:\/\//, ''))}</a>`,
   c.github && `<a href="${esc(c.github)}">${esc(c.github.replace(/^https?:\/\//, ''))}</a>`,
   c.location && `<span>${esc(c.location)}</span>`,
 ].filter(Boolean).join('<span class="sep">•</span>')
