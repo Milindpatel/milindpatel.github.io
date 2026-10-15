@@ -5,7 +5,7 @@
     "phone": "647-273-1722",
     "website": "https://milindpatel.github.io"
   },
-  "summary": "Web Development Manager and hands-on senior full-stack engineer with 10+ years of experience (since 2015) designing, building, and shipping secure web applications on .NET, Angular, React, and Microsoft SQL Server across Azure and AWS. Still close to the code every day — from ASP.NET Core Web APIs and T-SQL tuning to Angular/React front ends, release engineering, and CI/CD — while leading a development team through solution design, PR reviews, and delivery. Owns PCI DSS compliance across Rexall's Magento, .NET, and React applications, and champions AI-assisted engineering with Claude and prompt engineering to ship faster without compromising quality.",
+  "summary": "Web Development Manager and hands-on senior full-stack engineer with 10+ years of experience (since 2015) architecting, building, and shipping secure web applications on .NET, Angular, React, and Microsoft SQL Server across Azure and AWS. Lead a blended team of 3 in-house and 2 vendor developers that owns 8 production sites and 12 API integrations, while staying close to the code — from ASP.NET Core Web APIs and Kubernetes deployments behind load balancers to T-SQL tuning and CI/CD. Owns PCI DSS compliance with 4 consecutive years of passed audits, and builds Claude-powered AI agents that take on complex, multi-step engineering work.",
   "skills": [
     {
       "category": "Frontend",
@@ -30,7 +30,9 @@
         ".NET Core Web API",
         "RESTful APIs",
         "JSON",
-        "Dependency Injection"
+        "Dependency Injection",
+        "Google Maps JavaScript API",
+        "Geocoding API"
       ]
     },
     {
@@ -46,7 +48,9 @@
         "LLM Integration",
         "RAG / LLM Grounding",
         "Streaming LLM Responses",
-        "AI-Assisted Development"
+        "AI-Assisted Development",
+        "AI Agents",
+        "Agentic Workflows"
       ]
     },
     {
@@ -57,12 +61,17 @@
         "Azure DevOps",
         "Git",
         "TFS",
-        "CI/CD"
+        "CI/CD",
+        "Kubernetes",
+        "Load Balancing",
+        "Networking (DNS, SSL/TLS, Firewalls)"
       ]
     },
     {
       "category": "Architecture & Patterns",
       "items": [
+        "System Architecture",
+        "High Availability & Scaling",
         "Layered / N-tier Architecture",
         "MVC",
         "SOLID",
@@ -122,28 +131,30 @@
       "startDate": "Jan 2026",
       "endDate": "Present",
       "bullets": [
-        "Lead engineering delivery for a team of developers — driving solution design, PR and code reviews, sprint planning and backlog grooming with Product, and mentoring engineers on clean architecture and secure coding.",
-        "Stay hands-on in the codebase, building and extending ASP.NET Core Web APIs and Angular/React front ends on MS SQL Server, applying Dependency Injection, layered architecture, and SOLID principles to keep services testable and maintainable.",
-        "Own PCI DSS compliance across Rexall's Magento e-commerce sites, .NET applications, and React applications — running audits end to end, compiling evidence with auditors and internal teams, remediating vulnerability-scan findings (OWASP Top 10 issues such as XSS, injection, and insecure configuration), and enforcing secure-coding standards in code review.",
-        "Introduced AI-assisted development with Claude, Claude Code, and prompt engineering — standardizing prompts for code generation, unit-test scaffolding, PR summaries, and technical documentation to shorten turnaround on routine engineering work.",
-        "Harden and evolve a security-confidential Azure environment alongside the operations team — configuring Azure and AWS components, secrets and role-based access, and remediation best practices.",
-        "Run release engineering for multiple ASP.NET C# applications — branching and code-merge strategy, code drops and hotfix patches, and gated promotions from pre-production to production, with impact assessment and rollback planning alongside external teams and stakeholders.",
-        "Translate functional requirements into technical designs — data models, API contracts, and T-SQL stored procedures — on the latest .NET with SQL Server, and tune slow queries through indexing and execution-plan analysis."
+        "Lead engineering delivery for a blended team of 3 in-house and 2 vendor developers — driving solution design, PR and code reviews, sprint planning and backlog grooming with Product, and mentoring engineers on clean architecture and secure coding.",
+        "Own the system architecture and hands-on development of 8 production sites and 12 API integrations — including Google Maps JavaScript API and Geocoding API for location and address features — built on ASP.NET Core Web APIs, Angular/React front ends, and MS SQL Server.",
+        "Run containerized applications on Kubernetes behind load balancers, designing deployments, health probes, horizontal scaling, and traffic routing with the networking team to keep sites highly available through releases and traffic spikes.",
+        "Partner with the networking team on firewall rules, DNS, SSL/TLS certificates, and network segmentation for a security-confidential Azure and AWS environment, introducing remediation best practices.",
+        "Lead PCI DSS compliance across the Magento e-commerce sites, .NET applications, and React applications, passing every PCI audit for 4 consecutive years — compiling evidence with auditors, remediating vulnerability-scan findings (OWASP Top 10), and enforcing secure-coding standards in code review.",
+        "Build AI agents with Claude and Claude Code for complex, multi-step engineering work — codebase analysis, cross-application refactoring, test generation, and audit-evidence preparation — and standardize prompt-engineering practices across the team.",
+        "Run release engineering for multiple ASP.NET C# applications — branching and code-merge strategy, code drops and hotfix patches, and gated promotions from pre-production to production with impact assessment and rollback planning."
       ],
       "tech": [
         "ASP.NET Core",
         "C#",
-        "Azure DevOps",
         "Angular",
         "React",
         "MS SQL Server",
-        "CI/CD",
-        "Agile / Scrum",
+        "Kubernetes",
+        "Load Balancing",
+        "Azure",
+        "AWS",
+        "Azure DevOps",
+        "Google Maps APIs",
         "Magento",
         "PCI DSS",
         "Claude",
-        "Prompt Engineering",
-        "Team Leadership"
+        "AI Agents"
       ]
     },
     {
@@ -153,12 +164,11 @@
       "startDate": "July 2022",
       "endDate": "Jan 2026",
       "bullets": [
-        "Built and maintained full-stack features across Rexall's ASP.NET Core and ASP.NET Framework applications with Angular 12 and React 18 front ends, delivering RESTful APIs, reusable UI components, and responsive pages.",
+        "Built and maintained full-stack features across Rexall's ASP.NET Core and ASP.NET Framework applications with Angular 12 and React 18 front ends, delivering RESTful APIs, reusable UI components, and third-party API integrations.",
         "Designed T-SQL stored procedures, views, and indexes in MS SQL Server, and optimized long-running queries using execution plans to improve page-load and reporting performance.",
-        "Managed PCI DSS compliance across the Magento e-commerce sites, ASP.NET C# applications, and React applications — coordinating audits, gathering evidence, remediating audit and vulnerability-scan findings, and applying PCI secure-coding practices in day-to-day development.",
-        "Streamlined the implementation of a security-confidential Azure cloud environment with the operations team, provisioning and configuring Azure and AWS components and introducing remediation best practices.",
-        "Owned code-merge and release work across multiple ASP.NET C# applications — resolving merge conflicts, preparing code drops and patches for pre-production and production within secure systems, and coordinating change impact with external teams.",
-        "Built and maintained Azure DevOps build and release pipelines, bringing consistent, repeatable deployments to the team's applications.",
+        "Managed PCI DSS compliance across the Magento e-commerce sites, ASP.NET C# applications, and React applications — coordinating audits, gathering evidence, and remediating findings, with every annual audit passed.",
+        "Streamlined a security-confidential Azure cloud environment with the operations and networking teams, provisioning and configuring Azure and AWS components.",
+        "Owned code-merge and release work across multiple ASP.NET C# applications, preparing code drops and patches for pre-production and production and maintaining Azure DevOps build and release pipelines.",
         "Served as the team's technical go-to — debugging production issues across UI, API, and database layers, reviewing pull requests, and leading project risk and issue management."
       ],
       "tech": [
