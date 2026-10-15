@@ -5,35 +5,113 @@
     "phone": "647-273-1722",
     "website": "https://milindpatel.github.io"
   },
-  "summary": "Web Development Manager and full-stack engineer with 10+ years of experience (since 2015) delivering scalable, secure web applications and leading cross-functional engineering teams. Deep expertise across the .NET ecosystem, modern JavaScript frameworks (Angular, React), cloud platforms (Azure and AWS), and Microsoft SQL Server — paired with a strong track record in Agile delivery, CI/CD, and mentoring high-performing teams. A strong advocate for AI-assisted development and Claude prompt engineering, building practical LLM workflows that accelerate delivery and elevate engineering quality.",
+  "summary": "Web Development Manager and hands-on senior full-stack engineer with 10+ years of experience (since 2015) designing, building, and shipping secure web applications on .NET, Angular, React, and Microsoft SQL Server across Azure and AWS. Still close to the code every day — from ASP.NET Core Web APIs and T-SQL tuning to Angular/React front ends, release engineering, and CI/CD — while leading a development team through solution design, PR reviews, and delivery. Owns PCI DSS compliance across Rexall's Magento, .NET, and React applications, and champions AI-assisted engineering with Claude and prompt engineering to ship faster without compromising quality.",
   "skills": [
     {
       "category": "Frontend",
-      "items": ["Angular", "React", "TypeScript", "JavaScript (ES6+)", "HTML5", "CSS3", "Bootstrap", "Responsive Design"]
+      "items": [
+        "Angular",
+        "React",
+        "TypeScript",
+        "JavaScript (ES6+)",
+        "HTML5",
+        "CSS3",
+        "Bootstrap",
+        "Responsive Design"
+      ]
     },
     {
       "category": "Backend",
-      "items": ["C#", "ASP.NET Core", "ASP.NET MVC", ".NET Framework", ".NET Core Web API", "RESTful APIs", "JSON"]
+      "items": [
+        "C#",
+        "ASP.NET Core",
+        "ASP.NET MVC",
+        ".NET Framework",
+        ".NET Core Web API",
+        "RESTful APIs",
+        "JSON",
+        "Dependency Injection"
+      ]
     },
     {
       "category": "AI & Prompt Engineering",
-      "items": ["Claude", "Claude Code", "Anthropic API", "ChatGPT / OpenAI API", "Cursor", "Groq (Llama 3.3)", "Prompt Engineering", "LLM Integration", "RAG / LLM Grounding", "Streaming LLM Responses", "AI-Assisted Development"]
+      "items": [
+        "Claude",
+        "Claude Code",
+        "Anthropic API",
+        "ChatGPT / OpenAI API",
+        "Cursor",
+        "Groq (Llama 3.3)",
+        "Prompt Engineering",
+        "LLM Integration",
+        "RAG / LLM Grounding",
+        "Streaming LLM Responses",
+        "AI-Assisted Development"
+      ]
     },
     {
       "category": "Cloud & DevOps",
-      "items": ["Microsoft Azure", "AWS", "Azure DevOps", "Git", "TFS", "CI/CD"]
+      "items": [
+        "Microsoft Azure",
+        "AWS",
+        "Azure DevOps",
+        "Git",
+        "TFS",
+        "CI/CD"
+      ]
+    },
+    {
+      "category": "Architecture & Patterns",
+      "items": [
+        "Layered / N-tier Architecture",
+        "MVC",
+        "SOLID",
+        "RESTful API Design",
+        "Event-Driven Messaging (RabbitMQ)",
+        "ETL (SSIS)"
+      ]
+    },
+    {
+      "category": "Security & Compliance",
+      "items": [
+        "PCI DSS",
+        "OWASP Top 10",
+        "Secure Coding",
+        "Vulnerability Remediation",
+        "Audit Evidence Management"
+      ]
     },
     {
       "category": "Databases",
-      "items": ["MS SQL Server", "Oracle", "T-SQL", "SSIS"]
+      "items": [
+        "MS SQL Server",
+        "Oracle",
+        "T-SQL",
+        "SSIS",
+        "Stored Procedures",
+        "Query Optimization"
+      ]
     },
     {
       "category": "Business Process Management",
-      "items": ["AWD BPM", "IBM BPM"]
+      "items": [
+        "AWD BPM",
+        "IBM BPM"
+      ]
     },
     {
       "category": "Practices & Leadership",
-      "items": ["Agile / Scrum", "SDLC", "Team Leadership", "Code Review", "JIRA", "OOP", "UML", "BRD"]
+      "items": [
+        "Agile / Scrum",
+        "SDLC",
+        "Team Leadership",
+        "Code Review",
+        "JIRA",
+        "OOP",
+        "UML",
+        "BRD",
+        "Release Management"
+      ]
     }
   ],
   "experience": [
@@ -44,19 +122,28 @@
       "startDate": "Jan 2026",
       "endDate": "Present",
       "bullets": [
-        "Directly lead and manage a team of developers — assigning and prioritizing work, conducting code reviews, mentoring, and owning their technical growth and delivery.",
-        "Leverage AI-assisted development and Claude prompt engineering to accelerate delivery, automate repetitive tasks, and improve code quality across the team.",
-        "Maintain and enhance a security-confidential Azure cloud environment within a highly collaborative operations team, introducing best practices for remediation.",
-        "Manage PCI DSS compliance across Rexall's Magento e-commerce sites, .NET applications, and React applications — leading audits, coordinating with auditors and internal teams, compiling audit evidence, remediating findings, and enforcing secure-coding standards and vulnerability-scan reviews.",
-        "Set up and configure Microsoft Azure and AWS cloud computing platform components.",
-        "Create code drops and patches for deployment across pre-production and production environments within secure systems.",
-        "Coordinate with external teams and stakeholders to assess the impact of changes and complete release work.",
-        "Perform code-merge activities across multiple ASP.NET C# applications.",
-        "Analyze functional requirements and deliver design solutions using the latest .NET framework with MS SQL Server."
+        "Lead engineering delivery for a team of developers — driving solution design, PR and code reviews, sprint planning and backlog grooming with Product, and mentoring engineers on clean architecture and secure coding.",
+        "Stay hands-on in the codebase, building and extending ASP.NET Core Web APIs and Angular/React front ends on MS SQL Server, applying Dependency Injection, layered architecture, and SOLID principles to keep services testable and maintainable.",
+        "Own PCI DSS compliance across Rexall's Magento e-commerce sites, .NET applications, and React applications — running audits end to end, compiling evidence with auditors and internal teams, remediating vulnerability-scan findings (OWASP Top 10 issues such as XSS, injection, and insecure configuration), and enforcing secure-coding standards in code review.",
+        "Introduced AI-assisted development with Claude, Claude Code, and prompt engineering — standardizing prompts for code generation, unit-test scaffolding, PR summaries, and technical documentation to shorten turnaround on routine engineering work.",
+        "Harden and evolve a security-confidential Azure environment alongside the operations team — configuring Azure and AWS components, secrets and role-based access, and remediation best practices.",
+        "Run release engineering for multiple ASP.NET C# applications — branching and code-merge strategy, code drops and hotfix patches, and gated promotions from pre-production to production, with impact assessment and rollback planning alongside external teams and stakeholders.",
+        "Translate functional requirements into technical designs — data models, API contracts, and T-SQL stored procedures — on the latest .NET with SQL Server, and tune slow queries through indexing and execution-plan analysis."
       ],
       "tech": [
-        "ASP.NET Core", "C#", "Azure DevOps", "Angular", "React", "MS SQL Server",
-        "CI/CD", "Agile / Scrum", "Magento", "PCI DSS", "Claude", "Prompt Engineering", "Team Leadership"
+        "ASP.NET Core",
+        "C#",
+        "Azure DevOps",
+        "Angular",
+        "React",
+        "MS SQL Server",
+        "CI/CD",
+        "Agile / Scrum",
+        "Magento",
+        "PCI DSS",
+        "Claude",
+        "Prompt Engineering",
+        "Team Leadership"
       ]
     },
     {
@@ -66,18 +153,29 @@
       "startDate": "July 2022",
       "endDate": "Jan 2026",
       "bullets": [
-        "Streamlined the implementation of a security-confidential Azure cloud environment within a highly collaborative operations team, introducing best practices for remediation.",
-        "Managed PCI DSS compliance across the Magento e-commerce sites, ASP.NET C# applications, and React applications — coordinating audits, gathering audit evidence, remediating audit and vulnerability-scan findings, and applying PCI secure-coding practices.",
-        "Set up and configured Microsoft Azure and AWS cloud computing platform components.",
-        "Created code drops and patches for deployment across pre-production and production environments within secure systems.",
-        "Coordinated with external teams and stakeholders to assess the impact of changes and complete release work.",
-        "Performed code-merge activities across multiple ASP.NET C# applications.",
-        "Supported developers with troubleshooting and technical issues, and led project risk and issue identification and management.",
-        "Analyzed functional requirements and delivered design solutions using the latest .NET framework with MS SQL Server."
+        "Built and maintained full-stack features across Rexall's ASP.NET Core and ASP.NET Framework applications with Angular 12 and React 18 front ends, delivering RESTful APIs, reusable UI components, and responsive pages.",
+        "Designed T-SQL stored procedures, views, and indexes in MS SQL Server, and optimized long-running queries using execution plans to improve page-load and reporting performance.",
+        "Managed PCI DSS compliance across the Magento e-commerce sites, ASP.NET C# applications, and React applications — coordinating audits, gathering evidence, remediating audit and vulnerability-scan findings, and applying PCI secure-coding practices in day-to-day development.",
+        "Streamlined the implementation of a security-confidential Azure cloud environment with the operations team, provisioning and configuring Azure and AWS components and introducing remediation best practices.",
+        "Owned code-merge and release work across multiple ASP.NET C# applications — resolving merge conflicts, preparing code drops and patches for pre-production and production within secure systems, and coordinating change impact with external teams.",
+        "Built and maintained Azure DevOps build and release pipelines, bringing consistent, repeatable deployments to the team's applications.",
+        "Served as the team's technical go-to — debugging production issues across UI, API, and database layers, reviewing pull requests, and leading project risk and issue management."
       ],
       "tech": [
-        "ASP.NET Core", "ASP.NET Framework", "C#", "MS SQL Server", "Azure DevOps",
-        "Angular 12", "React 18", "JavaScript", "JSON", "HTML5", "CSS3", "T-SQL", "Magento", "PCI DSS"
+        "ASP.NET Core",
+        "ASP.NET Framework",
+        "C#",
+        "MS SQL Server",
+        "Azure DevOps",
+        "Angular 12",
+        "React 18",
+        "JavaScript",
+        "JSON",
+        "HTML5",
+        "CSS3",
+        "T-SQL",
+        "Magento",
+        "PCI DSS"
       ]
     },
     {
@@ -87,16 +185,25 @@
       "startDate": "August 2021",
       "endDate": "July 2022",
       "bullets": [
-        "Worked within an Agile team across all phases of the software development lifecycle, delivering solutions to complex business problems.",
-        "Designed automation processes and SQL jobs to generate data based on RabbitMQ integration.",
-        "Designed and developed web applications using Angular 11 and .NET 5.",
-        "Updated Telerik Kendo UI controls to accelerate development and focus on value-generating features.",
-        "Set up and configured Microsoft Azure cloud computing platform components.",
-        "Designed stored procedures with SQL triggers to implement system-wide audit logging."
+        "Designed and developed full-stack web applications with Angular 11 and .NET 5 Web APIs, working within an Agile team across every phase of the SDLC.",
+        "Built a RabbitMQ-based integration — message consumers plus scheduled SQL jobs that process queued events and generate downstream data — decoupling upstream systems from reporting workloads.",
+        "Implemented system-wide audit logging with SQL triggers and stored procedures that capture before/after record changes for traceability and support.",
+        "Upgraded and extended Telerik Kendo UI grids, forms, and charts in Angular, replacing custom controls so the team could focus on value-generating features.",
+        "Set up and configured Microsoft Azure cloud components and Azure DevOps pipelines for development, test, and production environments."
       ],
       "tech": [
-        "ASP.NET Core", "ASP.NET Framework", "C#", "Angular 11", ".NET 5",
-        "MS SQL Server", "Azure DevOps", "JavaScript", "JSON", "HTML5", "CSS3", "T-SQL"
+        "ASP.NET Core",
+        "ASP.NET Framework",
+        "C#",
+        "Angular 11",
+        ".NET 5",
+        "MS SQL Server",
+        "Azure DevOps",
+        "JavaScript",
+        "JSON",
+        "HTML5",
+        "CSS3",
+        "T-SQL"
       ]
     },
     {
@@ -106,16 +213,25 @@
       "startDate": "March 2020",
       "endDate": "August 2021",
       "bullets": [
-        "Collaborated with Product Owners and Scrum Masters to translate user stories into process flows built with the AWD BPM tool.",
-        "Designed automation processes for data filtering using XML logic and Mobius Document Direct.",
-        "Built robust user interfaces for custom applications on a modern .NET backend.",
-        "Created multiple parameterized stored procedures to power reporting and data retrieval.",
-        "Developed SSIS packages and DTS import/export routines to transfer data from SQL Server to client-side destinations.",
-        "Built reusable SSIS packages to extract data from flat files, Excel, and XML sources into SQL Server."
+        "Partnered with Product Owners and Scrum Masters to translate user stories into automated process flows built in the AWD BPM tool.",
+        "Built rule-driven document-filtering automation using XML logic and Mobius Document Direct, removing manual document-handling steps.",
+        "Developed ASP.NET C# user interfaces for custom internal applications on a modern .NET backend.",
+        "Wrote parameterized stored procedures powering reporting and data retrieval across SQL Server and Oracle.",
+        "Built reusable SSIS ETL packages to ingest flat-file, Excel, and XML sources into SQL Server, plus DTS import/export routines delivering SQL Server data to client-side destinations."
       ],
       "tech": [
-        "ASP.NET", "C#", "AWD BPM", "MS SQL Server", "SSIS", "Oracle",
-        "Jira / Confluence", "JavaScript", "JSON", "HTML5", "CSS3", "T-SQL"
+        "ASP.NET",
+        "C#",
+        "AWD BPM",
+        "MS SQL Server",
+        "SSIS",
+        "Oracle",
+        "Jira / Confluence",
+        "JavaScript",
+        "JSON",
+        "HTML5",
+        "CSS3",
+        "T-SQL"
       ]
     },
     {
@@ -125,15 +241,23 @@
       "startDate": "July 2019",
       "endDate": "Dec 2019",
       "bullets": [
-        "Partnered with business analysts to capture data requirements through process blueprints and Visio diagrams.",
-        "Analyzed and designed business process automation using the IBM BPM 8.5 tool.",
-        "Built world-class web application interfaces using Angular and an ASP.NET Core backend.",
-        "Developed Business Process Definitions (BPDs) from business requirements and deployed them to test environments.",
-        "Tested and validated BPDs with positive and negative test cases, comparing expected and actual results through manual and automated testing."
+        "Built Angular front ends backed by ASP.NET Core Web APIs for internal business-process applications.",
+        "Designed and automated business processes in IBM BPM 8.5 — developing Business Process Definitions (BPDs) from requirements and deploying them to test environments.",
+        "Captured data requirements with business analysts through process blueprints and Visio diagrams.",
+        "Validated BPDs with positive and negative test cases, comparing expected and actual results through manual and automated testing."
       ],
       "tech": [
-        "IBM BPM 8.5", "Oracle", "Jira / Confluence", "Microsoft Visio", "HTML5",
-        "CSS3", "JavaScript", "Angular", "ASP.NET Core", "C#", "MS SQL Server"
+        "IBM BPM 8.5",
+        "Oracle",
+        "Jira / Confluence",
+        "Microsoft Visio",
+        "HTML5",
+        "CSS3",
+        "JavaScript",
+        "Angular",
+        "ASP.NET Core",
+        "C#",
+        "MS SQL Server"
       ]
     },
     {
@@ -143,15 +267,21 @@
       "startDate": "Dec 2015",
       "endDate": "July 2019",
       "bullets": [
-        "Contributed as a core team member across design, coding, testing, and debugging operations.",
-        "Served in a client-facing role, translating business requirements into scalable, viable solutions.",
-        "Developed School ERP software that streamlined resource planning and reduced back-office workload through process automation.",
-        "Supported scope definition, planning, estimation, and tracking for API and application development.",
-        "Trained and mentored junior team members, leading the team to maximize business value and achieve IT goals."
+        "Designed and built a School ERP platform on ASP.NET MVC, ASP.NET Core Web API, Angular, and SQL Server that automated school back-office workflows and streamlined resource planning.",
+        "Designed RESTful APIs, SQL Server schemas, and stored procedures, and built responsive Bootstrap UIs across the application.",
+        "Worked directly with clients to turn business requirements into scalable solutions, owning scope definition, estimation, planning, and tracking for API and application development.",
+        "Mentored junior developers through code reviews and pairing, establishing coding standards across design, coding, testing, and debugging."
       ],
       "tech": [
-        "HTML5", "CSS3", "ASP.NET MVC", "ASP.NET Core Web API", "C#",
-        "Angular", "MS SQL Server", "JavaScript", "Bootstrap 3"
+        "HTML5",
+        "CSS3",
+        "ASP.NET MVC",
+        "ASP.NET Core Web API",
+        "C#",
+        "Angular",
+        "MS SQL Server",
+        "JavaScript",
+        "Bootstrap 3"
       ]
     }
   ]
