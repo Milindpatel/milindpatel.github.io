@@ -1,25 +1,12 @@
 {
   "name": "Milind Patel",
-  "title": "Web Development Manager",
+  "title": "Senior Full-Stack Developer",
   "contact": {
     "phone": "647-273-1722",
     "website": "https://milindpatel.github.io"
   },
-  "summary": "Web Development Manager and hands-on senior full-stack engineer with 10+ years of experience (since 2015) architecting, building, and shipping secure web applications on .NET, Angular, React, and Microsoft SQL Server across Azure and AWS. Lead a blended team of 3 in-house and 2 vendor developers that owns 8 production sites and 12 API integrations, while staying close to the code — from ASP.NET Core Web APIs and Kubernetes deployments behind load balancers to T-SQL tuning and CI/CD. Owns PCI DSS compliance with 4 consecutive years of passed audits, and builds Claude-powered AI agents that take on complex, multi-step engineering work.",
+  "summary": "Senior full-stack developer with 10+ years of hands-on experience (since 2015) designing, coding, and shipping secure, high-availability web applications with C#, ASP.NET Core, Angular, React, and Microsoft SQL Server on Azure and AWS. Writes production code daily — REST APIs, front-end features, T-SQL and query tuning, Kubernetes deployments behind load balancers, and CI/CD pipelines — across 8 production sites and 12 API integrations, including Google Maps. Remediates security findings directly in code for 4 consecutive years of passed PCI DSS audits, and builds Claude-powered AI agents for complex, multi-step engineering work. Also serves as technical lead for a blended team of 3 in-house and 2 vendor developers.",
   "skills": [
-    {
-      "category": "Frontend",
-      "items": [
-        "Angular",
-        "React",
-        "TypeScript",
-        "JavaScript (ES6+)",
-        "HTML5",
-        "CSS3",
-        "Bootstrap",
-        "Responsive Design"
-      ]
-    },
     {
       "category": "Backend",
       "items": [
@@ -36,21 +23,16 @@
       ]
     },
     {
-      "category": "AI & Prompt Engineering",
+      "category": "Frontend",
       "items": [
-        "Claude",
-        "Claude Code",
-        "Anthropic API",
-        "ChatGPT / OpenAI API",
-        "Cursor",
-        "Groq (Llama 3.3)",
-        "Prompt Engineering",
-        "LLM Integration",
-        "RAG / LLM Grounding",
-        "Streaming LLM Responses",
-        "AI-Assisted Development",
-        "AI Agents",
-        "Agentic Workflows"
+        "Angular",
+        "React",
+        "TypeScript",
+        "JavaScript (ES6+)",
+        "HTML5",
+        "CSS3",
+        "Bootstrap",
+        "Responsive Design"
       ]
     },
     {
@@ -81,16 +63,6 @@
       ]
     },
     {
-      "category": "Security & Compliance",
-      "items": [
-        "PCI DSS",
-        "OWASP Top 10",
-        "Secure Coding",
-        "Vulnerability Remediation",
-        "Audit Evidence Management"
-      ]
-    },
-    {
       "category": "Databases",
       "items": [
         "MS SQL Server",
@@ -102,24 +74,51 @@
       ]
     },
     {
+      "category": "AI & Prompt Engineering",
+      "items": [
+        "Claude",
+        "Claude Code",
+        "Anthropic API",
+        "ChatGPT / OpenAI API",
+        "Cursor",
+        "Groq (Llama 3.3)",
+        "Prompt Engineering",
+        "LLM Integration",
+        "RAG / LLM Grounding",
+        "Streaming LLM Responses",
+        "AI-Assisted Development",
+        "AI Agents",
+        "Agentic Workflows"
+      ]
+    },
+    {
+      "category": "Security & Compliance",
+      "items": [
+        "PCI DSS",
+        "OWASP Top 10",
+        "Secure Coding",
+        "Vulnerability Remediation",
+        "Audit Evidence Management"
+      ]
+    },
+    {
+      "category": "Practices",
+      "items": [
+        "Agile / Scrum",
+        "SDLC",
+        "Code Review",
+        "Release Management",
+        "OOP",
+        "UML",
+        "JIRA",
+        "Technical Leadership"
+      ]
+    },
+    {
       "category": "Business Process Management",
       "items": [
         "AWD BPM",
         "IBM BPM"
-      ]
-    },
-    {
-      "category": "Practices & Leadership",
-      "items": [
-        "Agile / Scrum",
-        "SDLC",
-        "Team Leadership",
-        "Code Review",
-        "JIRA",
-        "OOP",
-        "UML",
-        "BRD",
-        "Release Management"
       ]
     }
   ],
@@ -131,20 +130,22 @@
       "startDate": "Jan 2026",
       "endDate": "Present",
       "bullets": [
-        "Lead engineering delivery for a blended team of 3 in-house and 2 vendor developers — driving solution design, PR and code reviews, sprint planning and backlog grooming with Product, and mentoring engineers on clean architecture and secure coding.",
-        "Own the system architecture and hands-on development of 8 production sites and 12 API integrations — including Google Maps JavaScript API and Geocoding API for location and address features — built on ASP.NET Core Web APIs, Angular/React front ends, and MS SQL Server.",
-        "Run containerized applications on Kubernetes behind load balancers, designing deployments, health probes, horizontal scaling, and traffic routing with the networking team to keep sites highly available through releases and traffic spikes.",
-        "Partner with the networking team on firewall rules, DNS, SSL/TLS certificates, and network segmentation for a security-confidential Azure and AWS environment, introducing remediation best practices.",
-        "Lead PCI DSS compliance across the Magento e-commerce sites, .NET applications, and React applications, passing every PCI audit for 4 consecutive years — compiling evidence with auditors, remediating vulnerability-scan findings (OWASP Top 10), and enforcing secure-coding standards in code review.",
-        "Build AI agents with Claude and Claude Code for complex, multi-step engineering work — codebase analysis, cross-application refactoring, test generation, and audit-evidence preparation — and standardize prompt-engineering practices across the team.",
-        "Run release engineering for multiple ASP.NET C# applications — branching and code-merge strategy, code drops and hotfix patches, and gated promotions from pre-production to production with impact assessment and rollback planning."
+        "Architect and develop 8 production sites and 12 API integrations end to end — including Google Maps JavaScript API and Geocoding API for location and address features — on ASP.NET Core Web APIs, Angular/React front ends, and MS SQL Server.",
+        "Write production code daily across the stack — C# services with Dependency Injection and layered architecture, reusable Angular/React components, and T-SQL stored procedures — and tune slow queries through indexing and execution-plan analysis.",
+        "Deploy and operate containerized applications on Kubernetes behind load balancers — configuring deployments, health probes, horizontal scaling, and traffic routing, and working with the networking team on DNS, SSL/TLS, and firewall rules for high availability.",
+        "Build AI agents with Claude and Claude Code that handle complex, multi-step engineering work — codebase analysis, cross-application refactoring, test generation, and audit-evidence preparation.",
+        "Fix PCI DSS and vulnerability-scan findings directly in code across the Magento, .NET, and React applications (OWASP Top 10: XSS, injection, insecure configuration), contributing to 4 consecutive years of passed PCI audits.",
+        "Handle code merges, code drops, hotfix patches, and gated pre-production-to-production releases for multiple ASP.NET C# applications through Azure DevOps CI/CD pipelines, with rollback planning.",
+        "Serve as technical lead for a blended team of 3 in-house and 2 vendor developers — setting solution design, reviewing pull requests, planning sprints with Product, and mentoring engineers on clean code and secure coding."
       ],
       "tech": [
-        "ASP.NET Core",
         "C#",
+        "ASP.NET Core",
         "Angular",
         "React",
+        "TypeScript",
         "MS SQL Server",
+        "T-SQL",
         "Kubernetes",
         "Load Balancing",
         "Azure",
@@ -166,10 +167,10 @@
       "bullets": [
         "Built and maintained full-stack features across Rexall's ASP.NET Core and ASP.NET Framework applications with Angular 12 and React 18 front ends, delivering RESTful APIs, reusable UI components, and third-party API integrations.",
         "Designed T-SQL stored procedures, views, and indexes in MS SQL Server, and optimized long-running queries using execution plans to improve page-load and reporting performance.",
-        "Managed PCI DSS compliance across the Magento e-commerce sites, ASP.NET C# applications, and React applications — coordinating audits, gathering evidence, and remediating findings, with every annual audit passed.",
-        "Streamlined a security-confidential Azure cloud environment with the operations and networking teams, provisioning and configuring Azure and AWS components.",
-        "Owned code-merge and release work across multiple ASP.NET C# applications, preparing code drops and patches for pre-production and production and maintaining Azure DevOps build and release pipelines.",
-        "Served as the team's technical go-to — debugging production issues across UI, API, and database layers, reviewing pull requests, and leading project risk and issue management."
+        "Remediated PCI DSS audit and vulnerability-scan findings across the Magento sites, ASP.NET C# applications, and React applications, and gathered audit evidence, with every annual audit passed.",
+        "Provisioned and configured Azure and AWS components for a security-confidential cloud environment alongside the operations and networking teams.",
+        "Owned code merges, code drops, and patches for pre-production and production, and maintained Azure DevOps build and release pipelines.",
+        "Debugged production issues across UI, API, and database layers, reviewed pull requests, and supported developers with technical problems."
       ],
       "tech": [
         "ASP.NET Core",
