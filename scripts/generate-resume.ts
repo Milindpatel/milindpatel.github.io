@@ -84,20 +84,20 @@ const html = `<!doctype html>
   h2 {
     font-size: 11pt; text-transform: uppercase; letter-spacing: 1px;
     color: #0f172a; border-bottom: 1px solid #cbd5e1;
-    padding-bottom: 2px; margin: 12px 0 6px;
+    padding-bottom: 2px; margin: 10px 0 5px;
   }
   section { margin-bottom: 4px; }
   p.summary { margin: 0 0 4px; text-align: justify; }
   .skill-row { display: flex; margin-bottom: 2px; }
   .skill-cat { flex: 0 0 165px; font-weight: 700; color: #0f172a; }
   .skill-items { flex: 1; }
-  .job { margin-bottom: 9px; }
+  .job { margin-bottom: 7px; }
   .job-head { display: flex; justify-content: space-between; align-items: baseline; }
   .job-title { font-weight: 700; font-size: 11pt; color: #0f172a; }
   .job-dates { font-size: 9.5pt; color: #475569; white-space: nowrap; }
   .job-sub { color: #1d4ed8; font-weight: 600; font-size: 10pt; margin-bottom: 4px; }
   ul { margin: 4px 0 0; padding-left: 18px; }
-  li { margin-bottom: 1px; }
+  li { margin-bottom: 0; }
   .job-tech { font-size: 9pt; color: #475569; margin-top: 4px; }
   .edu { margin-bottom: 8px; }
   .edu-head { display: flex; justify-content: space-between; align-items: baseline; }
@@ -106,7 +106,7 @@ const html = `<!doctype html>
   .edu-sub { color: #334155; font-size: 9.5pt; }
   .certs { columns: 2; }
   .proj-tech { font-size: 9pt; color: #475569; }
-  @page { size: letter; margin: 0.45in 0.55in; }
+  @page { size: letter; margin: 0.4in 0.55in; }
   @media print { body { padding: 0; max-width: none; } a { color: #1d4ed8; } }
 </style>
 </head>

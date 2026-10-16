@@ -1,7 +1,7 @@
 {
   "name": "Milind Patel",
   "title": "Senior Full-Stack Developer & Web Development Manager",
-  "summary": "Senior full-stack developer and web development manager with 10+ years of experience (since 2015) designing, building, and maintaining complex, high-availability web systems — C# and ASP.NET Core back ends, Angular and React front ends, and Microsoft SQL Server — on Azure and AWS. Builds Claude-powered AI agents that cut a recurring engineering task from ~2 weeks to about 1 day; together with CI/CD automation and cloud optimization, this work saves an estimated $60K+ a year. Currently architects, maintains, and develops 8 applications (5 customer-facing, 3 internal) and 12 API integrations, runs containerized services on Kubernetes behind load balancers, and set up CI/CD pipelines for 4 Azure App Service applications in 3 days. Has helped pass 4 consecutive annual PCI DSS audits and leads a team of 5 developers (3 in-house, 2 vendor).",
+  "summary": "Senior full-stack developer and web development manager with 10+ years of experience building complex, high-availability web systems with C#, ASP.NET Core, Angular, React, and SQL Server on Azure and AWS. Builds Claude-powered AI agents that cut a recurring engineering task from ~2 weeks to about 1 day. Architects and maintains 8 applications and 12 API integrations, has helped pass 4 consecutive annual PCI DSS audits, leads a team of 5 developers, and has delivered an estimated $60K+ in annual savings.",
   "contact": {
     "email": "milindpatel4416@gmail.com",
     "phone": "647-273-1722",
@@ -17,18 +17,15 @@
       "startDate": "Jan 2026",
       "endDate": "Present",
       "bullets": [
-        "Designed Claude-powered AI agents, now used across the team, for complex multi-step engineering work — cross-application impact analysis, legacy-code refactoring, test generation, and audit-evidence preparation — cutting a recurring monthly task from ~2 weeks to about 1 day (~90% faster) and saving ~850 engineering hours (~$45K) a year.",
-        "Architect, maintain, and develop 8 applications (5 customer-facing, 3 internal) and 12 API integrations — with Angular and React on the front end, ASP.NET Core and ASP.NET Framework on the back end, MS SQL Server, and Magento for e-commerce — authoring design documents and impact analyses for cross-application changes.",
-        "Set up Azure DevOps CI/CD pipelines for 4 applications on Azure App Service in 3 days, replacing 2–4-hour manual releases with automated deployments across pre-production and production and saving ~170 engineering hours (~$9K) a year across 8–12 monthly releases.",
+        "Designed Claude-powered AI agents, now used across the team, for impact analysis, legacy-code refactoring, test generation, and audit-evidence preparation — cutting a recurring monthly task from ~2 weeks to about 1 day (~90% faster) and saving ~850 engineering hours (~$45K) a year.",
+        "Architect, maintain, and develop 8 applications (5 customer-facing, 3 internal) and 12 API integrations — Angular and React front ends, ASP.NET Core and ASP.NET Framework back ends, SQL Server, and Magento.",
+        "Set up Azure DevOps CI/CD pipelines for 4 Azure App Service applications in 3 days, replacing 2–4-hour manual releases and saving ~170 engineering hours (~$9K) a year across 8–12 monthly releases.",
         "Optimized Azure and AWS resources across the application estate, cutting cloud spend by over $10K a year.",
-        "Built location and address features with the Google Maps JavaScript API (interactive maps in the browser) and the Geocoding API (converting addresses into latitude/longitude coordinates), caching geocoded coordinates within Google's 30-day caching limit to reduce API calls and cost.",
-        "Integrated payment token providers for checkout, building and maintaining the payment integrations as in-scope PCI DSS components that meet its secure-coding and audit requirements.",
-        "Designed a resilient integration layer for internal and third-party APIs — an ASP.NET Core Backend-for-Frontend (BFF) API that centralizes calls and response transformation for the Angular and React front ends, with retry, timeout, and circuit-breaker policies.",
-        "Lead the incremental modernization of legacy ASP.NET Framework applications to ASP.NET Core, separating tightly coupled modules into independently deployable services and applying Dependency Injection, the Strategy pattern, and layered architecture to lower regression risk.",
-        "Run containerized ASP.NET Core services on Kubernetes behind load balancers — defining deployments, liveness and readiness probes, and Horizontal Pod Autoscaler rules — and partner with the networking team on DNS, SSL/TLS, and firewall rules.",
-        "Troubleshoot complex production issues spanning the application, database, and network layers using Azure Application Insights and log analysis, driving root-cause fixes.",
-        "Own PCI DSS v4.0.1 compliance across the Magento, .NET, and React applications — remediating vulnerability-scan findings (OWASP Top 10), hardening code and configuration, and compiling audit evidence — passing 4 consecutive annual PCI audits through the moves from PCI DSS v3.2.1 to v4.0 and v4.0.1.",
-        "Lead a blended team of 5 developers (3 in-house, 2 vendor) — running architecture and design reviews, PR reviews, and sprint planning with Product, and joining vendor and security assessments."
+        "Built location and address features with the Google Maps JavaScript and Geocoding APIs, caching results within Google's 30-day limit to cut API cost, and integrated payment token providers as in-scope PCI DSS components.",
+        "Designed an ASP.NET Core Backend-for-Frontend (BFF) integration layer with retry, timeout, and circuit-breaker policies, and lead the incremental modernization of legacy ASP.NET Framework applications to ASP.NET Core.",
+        "Run containerized ASP.NET Core services on Kubernetes behind load balancers (health probes, Horizontal Pod Autoscaler), and troubleshoot production issues across application, database, and network layers with Application Insights.",
+        "Own PCI DSS v4.0.1 compliance across the Magento, .NET, and React applications — remediating OWASP Top 10 findings and compiling audit evidence — passing 4 consecutive annual audits through the moves from v3.2.1 to v4.0 and v4.0.1.",
+        "Lead a team of 5 developers (3 in-house, 2 vendor) through design and PR reviews, sprint planning with Product, and vendor and security assessments."
       ],
       "tech": [
         "Claude",
@@ -37,17 +34,12 @@
         "ASP.NET Core",
         "Angular",
         "React",
-        "TypeScript",
-        "MS SQL Server",
+        "SQL Server",
         "Kubernetes",
-        "Load Balancing",
-        "Azure",
-        "AWS",
-        "Azure DevOps",
         "Azure App Service",
-        "Google Maps JavaScript API",
-        "Geocoding API",
-        "Payment Tokenization",
+        "Azure DevOps",
+        "AWS",
+        "Google Maps APIs",
         "Magento",
         "PCI DSS v4.0.1"
       ]
@@ -59,12 +51,10 @@
       "startDate": "Jul 2022",
       "endDate": "Jan 2026",
       "bullets": [
-        "Developed and maintained full-stack features across Rexall's applications — Angular 12 and React 18 front ends over ASP.NET Core and ASP.NET Framework back ends — building RESTful APIs, reusable UI components, and third-party integrations including Google Maps and payment token providers.",
-        "Resolved database and application bottlenecks by rewriting complex T-SQL stored procedures, adding indexes, and analyzing execution plans, speeding up page loads and long-running reports.",
-        "Remediated PCI DSS audit and vulnerability-scan findings across the Magento sites, ASP.NET C# applications, and React applications, and gathered audit evidence, with every annual audit passed.",
-        "Owned code merges, code drops, and patches across multiple ASP.NET C# applications, and built and maintained Azure DevOps build and release pipelines for consistent, repeatable deployments.",
-        "Provisioned and configured Azure and AWS components for a security-confidential cloud environment alongside the operations and networking teams.",
-        "Troubleshot time-critical production incidents across UI, API, and database layers, restoring service and fixing root causes; reviewed pull requests and supported developers on technical problems."
+        "Developed full-stack features across Rexall's applications with Angular 12, React 18, ASP.NET Core, and ASP.NET Framework, including RESTful APIs and third-party integrations.",
+        "Resolved database bottlenecks by rewriting complex T-SQL stored procedures, adding indexes, and analyzing execution plans, speeding up page loads and long-running reports.",
+        "Remediated PCI DSS audit and vulnerability-scan findings across the Magento, ASP.NET, and React applications and prepared audit evidence, with every annual audit passed.",
+        "Owned code merges, releases, and patches across multiple ASP.NET applications, maintained Azure DevOps pipelines, and provisioned Azure and AWS components with the operations and networking teams."
       ],
       "tech": [
         "C#",
@@ -72,13 +62,9 @@
         "ASP.NET Framework",
         "Angular 12",
         "React 18",
-        "JavaScript",
-        "HTML5",
-        "CSS3",
-        "MS SQL Server",
+        "SQL Server",
         "T-SQL",
         "Azure DevOps",
-        "Google Maps APIs",
         "Magento",
         "PCI DSS"
       ]
@@ -90,27 +76,19 @@
       "startDate": "Aug 2021",
       "endDate": "Jul 2022",
       "bullets": [
-        "Designed and developed full-stack web applications with Angular 11 and .NET 5 Web APIs, working within an Agile team across every phase of the SDLC.",
-        "Built an event-driven integration on RabbitMQ — message consumers plus scheduled SQL jobs that process queued events and generate downstream data — decoupling upstream systems from reporting workloads.",
-        "Implemented system-wide audit logging with SQL triggers and stored procedures that capture before/after record changes for traceability and support.",
-        "Upgraded and extended Telerik Kendo UI for Angular components to speed up UI development, letting the team focus on value-generating features.",
-        "Set up and configured Microsoft Azure cloud components for development, test, and production environments."
+        "Designed and developed full-stack web applications with Angular 11 and .NET 5 Web APIs in an Agile team.",
+        "Built an event-driven RabbitMQ integration with message consumers and scheduled SQL jobs, decoupling upstream systems from reporting workloads.",
+        "Implemented system-wide audit logging with SQL triggers and stored procedures, and extended Kendo UI for Angular components."
       ],
       "tech": [
         "C#",
         ".NET 5",
         "ASP.NET Core",
-        "ASP.NET Framework",
         "Angular 11",
         "Kendo UI for Angular",
         "RabbitMQ",
-        "MS SQL Server",
-        "T-SQL",
-        "Azure",
-        "Azure DevOps",
-        "JavaScript",
-        "HTML5",
-        "CSS3"
+        "SQL Server",
+        "Azure"
       ]
     },
     {
@@ -120,26 +98,18 @@
       "startDate": "Mar 2020",
       "endDate": "Aug 2021",
       "bullets": [
-        "Partnered with Product Owners and Scrum Masters to translate user stories into automated process flows built on the DST AWD (Automated Work Distributor) BPM platform.",
-        "Built rule-driven document-filtering automation using XML logic and ASG Mobius Document Direct, removing manual document-handling steps.",
-        "Built user interfaces for custom internal applications on an ASP.NET C# back end.",
-        "Wrote parameterized stored procedures powering reporting and data retrieval across SQL Server and Oracle.",
-        "Built reusable SSIS ETL packages to ingest flat-file, Excel, and XML sources into SQL Server, plus DTS import/export routines delivering SQL Server data to client-side destinations."
+        "Translated user stories into automated process flows on the DST AWD BPM platform with Product Owners and Scrum Masters.",
+        "Built document-filtering automation with XML logic and ASG Mobius Document Direct, and ASP.NET C# interfaces for internal applications.",
+        "Built reusable SSIS ETL packages and parameterized stored procedures loading flat-file, Excel, and XML data into SQL Server."
       ],
       "tech": [
         "C#",
         "ASP.NET",
         "DST AWD",
-        "ASG Mobius",
-        "XML",
-        "MS SQL Server",
-        "T-SQL",
+        "SQL Server",
         "SSIS",
         "Oracle",
-        "Jira / Confluence",
-        "JavaScript",
-        "HTML5",
-        "CSS3"
+        "Jira / Confluence"
       ]
     },
     {
@@ -149,23 +119,15 @@
       "startDate": "Jul 2019",
       "endDate": "Dec 2019",
       "bullets": [
-        "Built Angular front ends backed by ASP.NET Core Web APIs for internal business-process applications.",
-        "Designed and automated business processes in IBM Business Process Manager (BPM) 8.5 — developing Business Process Definitions (BPDs) from requirements and deploying them to test environments.",
-        "Captured data requirements with business analysts through process blueprints and Visio diagrams.",
-        "Validated BPDs with positive and negative test cases, comparing expected and actual results through manual and automated testing."
+        "Built Angular front ends on ASP.NET Core Web APIs, and designed, built, and tested IBM Business Process Manager 8.5 process definitions from business requirements."
       ],
       "tech": [
-        "IBM BPM 8.5",
-        "Oracle",
-        "Jira / Confluence",
-        "Microsoft Visio",
-        "HTML5",
-        "CSS3",
-        "JavaScript",
         "Angular",
         "ASP.NET Core",
         "C#",
-        "MS SQL Server"
+        "IBM BPM 8.5",
+        "SQL Server",
+        "Oracle"
       ]
     },
     {
@@ -175,21 +137,16 @@
       "startDate": "Dec 2015",
       "endDate": "Jul 2019",
       "bullets": [
-        "Architected and built a multi-module School ERP platform on ASP.NET MVC, ASP.NET Core Web API, Angular, and SQL Server that automated school back-office workflows and streamlined resource planning.",
-        "Designed RESTful APIs, normalized SQL Server schemas, and stored procedures, and built responsive Bootstrap UIs across the application.",
-        "Worked directly with clients to turn business requirements into scalable solutions, owning scope definition, estimation, planning, and tracking for API and application development.",
-        "Mentored junior developers through code reviews and pairing, establishing coding standards across design, coding, testing, and debugging."
+        "Architected and built a multi-module School ERP platform on ASP.NET MVC, ASP.NET Core Web API, Angular, and SQL Server that automated school back-office workflows.",
+        "Owned client requirements, estimation, and delivery tracking, and mentored junior developers through code reviews."
       ],
       "tech": [
-        "HTML5",
-        "CSS3",
+        "C#",
         "ASP.NET MVC",
         "ASP.NET Core Web API",
-        "C#",
         "Angular",
-        "MS SQL Server",
-        "JavaScript",
-        "Bootstrap 3"
+        "SQL Server",
+        "Bootstrap"
       ]
     }
   ],
@@ -202,14 +159,9 @@
         "Claude",
         "Claude Code",
         "Anthropic API",
+        "OpenAI API",
         "Prompt Engineering",
-        "ChatGPT / OpenAI API",
-        "Cursor",
-        "Groq (Llama 3.3)",
-        "LLM Integration",
-        "RAG / LLM Grounding",
-        "Streaming LLM Responses",
-        "AI-Assisted Development"
+        "RAG"
       ]
     },
     {
@@ -217,9 +169,10 @@
       "items": [
         "C#",
         "ASP.NET Core",
-        "ASP.NET Core Web API",
         "ASP.NET MVC",
         ".NET Framework",
+        "Web API",
+        "RESTful APIs",
         "Dependency Injection"
       ]
     },
@@ -232,18 +185,7 @@
         "JavaScript (ES6+)",
         "HTML5",
         "CSS3",
-        "Bootstrap",
-        "Responsive Design"
-      ]
-    },
-    {
-      "category": "APIs & Integrations",
-      "items": [
-        "RESTful APIs",
-        "JSON",
-        "Google Maps JavaScript API",
-        "Geocoding API",
-        "Payment Tokenization"
+        "Bootstrap"
       ]
     },
     {
@@ -254,38 +196,31 @@
         "AWS",
         "Kubernetes",
         "Load Balancing",
-        "Azure DevOps",
-        "CI/CD",
+        "Azure DevOps CI/CD",
         "Git",
-        "TFS",
-        "Azure Application Insights",
-        "Networking (DNS, SSL/TLS, Firewalls)"
+        "Application Insights"
       ]
     },
     {
-      "category": "Architecture & Patterns",
+      "category": "Architecture & Integrations",
       "items": [
         "System Architecture",
-        "High Availability & Scaling",
-        "Backend-for-Frontend (BFF)",
-        "Resilience Patterns (Retry, Circuit Breaker)",
-        "Caching",
-        "Strategy Pattern",
-        "Layered / N-tier Architecture",
-        "SOLID",
-        "Event-Driven Messaging (RabbitMQ)",
-        "Legacy Modernization"
+        "BFF",
+        "Resilience Patterns",
+        "Event-Driven (RabbitMQ)",
+        "Legacy Modernization",
+        "Google Maps & Geocoding APIs",
+        "Payment Tokenization"
       ]
     },
     {
       "category": "Databases",
       "items": [
-        "MS SQL Server",
-        "Oracle",
+        "SQL Server",
         "T-SQL",
-        "Stored Procedures",
         "Query Optimization",
-        "SSIS (ETL)"
+        "Oracle",
+        "SSIS"
       ]
     },
     {
@@ -294,28 +229,18 @@
         "PCI DSS (v3.2.1, v4.0, v4.0.1)",
         "OWASP Top 10",
         "Secure Coding",
-        "Vulnerability Remediation",
-        "Audit Evidence Management"
+        "Vulnerability Remediation"
       ]
     },
     {
       "category": "Practices",
       "items": [
         "Agile / Scrum",
-        "SDLC",
         "Code Review",
         "Release Management",
-        "OOP",
-        "UML",
+        "Technical Leadership",
         "Jira",
-        "Technical Leadership"
-      ]
-    },
-    {
-      "category": "Business Process Management",
-      "items": [
-        "DST AWD (Automated Work Distributor)",
-        "IBM Business Process Manager 8.5"
+        "AWD & IBM BPM"
       ]
     }
   ],
@@ -350,5 +275,5 @@
       ]
     }
   ],
-  "lastUpdated": "2026-10-16T02:15:28.173Z"
+  "lastUpdated": "2026-10-16T02:20:49.882Z"
 }
