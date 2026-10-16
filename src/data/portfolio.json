@@ -1,7 +1,7 @@
 {
   "name": "Milind Patel",
   "title": "Senior Full-Stack Developer",
-  "summary": "Senior full-stack developer with 10+ years of hands-on experience (since 2015) designing, coding, and shipping secure, high-availability web applications with C#, ASP.NET Core, Angular, React, and Microsoft SQL Server on Azure and AWS. Writes production code daily — REST APIs, front-end features, T-SQL and query tuning, Kubernetes deployments behind load balancers, and CI/CD pipelines — across 8 production sites and 12 API integrations, including Google Maps. Remediates security findings directly in code for 4 consecutive years of passed PCI DSS audits, and builds Claude-powered AI agents for complex, multi-step engineering work. Also serves as technical lead for a blended team of 3 in-house and 2 vendor developers.",
+  "summary": "Senior full-stack developer with 10+ years of experience (since 2015) designing, building, and maintaining complex, high-availability web systems with C#, ASP.NET Core, Angular, React, and Microsoft SQL Server on Azure and AWS. Currently architects, maintains, and develops 8 applications and 12 API integrations, including Google Maps, running on Kubernetes behind load balancers, with a focus on scalability, resilience, performance, and security. Has kept these systems PCI DSS compliant through 4 consecutive years of passed audits, builds Claude-powered AI agents for complex engineering work, and leads a blended team of 3 in-house and 2 vendor developers.",
   "contact": {
     "email": "milindpatel4416@gmail.com",
     "phone": "647-273-1722",
@@ -17,13 +17,14 @@
       "startDate": "Jan 2026",
       "endDate": "Present",
       "bullets": [
-        "Architect and develop 8 production sites and 12 API integrations end to end — including Google Maps JavaScript API and Geocoding API for location and address features — on ASP.NET Core Web APIs, Angular/React front ends, and MS SQL Server.",
-        "Write production code daily across the stack — C# services with Dependency Injection and layered architecture, reusable Angular/React components, and T-SQL stored procedures — and tune slow queries through indexing and execution-plan analysis.",
-        "Deploy and operate containerized applications on Kubernetes behind load balancers — configuring deployments, health probes, horizontal scaling, and traffic routing, and working with the networking team on DNS, SSL/TLS, and firewall rules for high availability.",
-        "Build AI agents with Claude and Claude Code that handle complex, multi-step engineering work — codebase analysis, cross-application refactoring, test generation, and audit-evidence preparation.",
-        "Fix PCI DSS and vulnerability-scan findings directly in code across the Magento, .NET, and React applications (OWASP Top 10: XSS, injection, insecure configuration), contributing to 4 consecutive years of passed PCI audits.",
-        "Handle code merges, code drops, hotfix patches, and gated pre-production-to-production releases for multiple ASP.NET C# applications through Azure DevOps CI/CD pipelines, with rollback planning.",
-        "Serve as technical lead for a blended team of 3 in-house and 2 vendor developers — setting solution design, reviewing pull requests, planning sprints with Product, and mentoring engineers on clean code and secure coding."
+        "Architect, maintain, and develop 8 customer-facing applications and 12 API integrations — including Google Maps JavaScript API and Geocoding API for location and address features — on ASP.NET Core, Angular/React, and MS SQL Server, authoring design documents and impact analyses for cross-application changes.",
+        "Designed a resilient integration layer for internal and third-party APIs — a Backend-for-Frontend (BFF) API that centralizes calls and response transformation, with retry, timeout, and circuit-breaker policies and caching of repeat geocoding lookups to reduce external calls and API cost.",
+        "Lead the incremental modernization of legacy ASP.NET Framework applications to ASP.NET Core, separating tightly coupled modules into independently deployable services and applying Dependency Injection, the Strategy pattern, and layered architecture to lower regression risk.",
+        "Run the applications as containerized workloads on Kubernetes behind load balancers — defining deployments, readiness and liveness probes, and horizontal autoscaling — and partner with the networking team on DNS, SSL/TLS, and firewall rules to keep sites available through releases and traffic spikes.",
+        "Troubleshoot complex production issues spanning the application, database, and network layers using Azure Application Insights and log analysis, driving root-cause fixes and post-incident improvements.",
+        "Own PCI DSS compliance across the Magento, .NET, and React applications — remediating vulnerability-scan findings (OWASP Top 10), hardening code and configuration, and compiling audit evidence — passing every PCI audit for 4 consecutive years.",
+        "Design Claude-powered AI agents for complex, multi-step engineering work — cross-application impact analysis, legacy-code refactoring, test generation, and audit-evidence preparation — and wrote team guidance on prompt engineering and token-efficient Claude usage.",
+        "Lead a blended team of 3 in-house and 2 vendor developers — running architecture and design reviews, PR reviews, and sprint planning with Product, and joining vendor and security assessments with cross-functional teams."
       ],
       "tech": [
         "C#",
@@ -32,12 +33,12 @@
         "React",
         "TypeScript",
         "MS SQL Server",
-        "T-SQL",
         "Kubernetes",
         "Load Balancing",
         "Azure",
         "AWS",
         "Azure DevOps",
+        "Application Insights",
         "Google Maps APIs",
         "Magento",
         "PCI DSS",
@@ -52,12 +53,12 @@
       "startDate": "July 2022",
       "endDate": "Jan 2026",
       "bullets": [
-        "Built and maintained full-stack features across Rexall's ASP.NET Core and ASP.NET Framework applications with Angular 12 and React 18 front ends, delivering RESTful APIs, reusable UI components, and third-party API integrations.",
-        "Designed T-SQL stored procedures, views, and indexes in MS SQL Server, and optimized long-running queries using execution plans to improve page-load and reporting performance.",
-        "Remediated PCI DSS audit and vulnerability-scan findings across the Magento sites, ASP.NET C# applications, and React applications, and gathered audit evidence, with every annual audit passed.",
+        "Developed and maintained full-stack features across Rexall's ASP.NET Core and ASP.NET Framework applications with Angular 12 and React 18, building RESTful APIs, reusable UI components, and third-party integrations including Google Maps.",
+        "Resolved database and application bottlenecks by rewriting complex T-SQL stored procedures, adding indexes, and analyzing execution plans, speeding up page loads and long-running reports.",
+        "Remediated PCI DSS audit and vulnerability-scan findings across the Magento sites, ASP.NET C# applications, and React applications and gathered audit evidence, with every annual audit passed.",
+        "Owned code merges, code drops, and patches across multiple ASP.NET C# applications, and built and maintained Azure DevOps build and release pipelines for consistent, repeatable deployments.",
         "Provisioned and configured Azure and AWS components for a security-confidential cloud environment alongside the operations and networking teams.",
-        "Owned code merges, code drops, and patches for pre-production and production, and maintained Azure DevOps build and release pipelines.",
-        "Debugged production issues across UI, API, and database layers, reviewed pull requests, and supported developers with technical problems."
+        "Troubleshot time-critical production incidents across UI, API, and database layers, restoring service and fixing root causes; reviewed pull requests and supported developers on technical problems."
       ],
       "tech": [
         "ASP.NET Core",
@@ -84,7 +85,7 @@
       "endDate": "July 2022",
       "bullets": [
         "Designed and developed full-stack web applications with Angular 11 and .NET 5 Web APIs, working within an Agile team across every phase of the SDLC.",
-        "Built a RabbitMQ-based integration — message consumers plus scheduled SQL jobs that process queued events and generate downstream data — decoupling upstream systems from reporting workloads.",
+        "Built an event-driven integration on RabbitMQ — message consumers plus scheduled SQL jobs that process queued events and generate downstream data — decoupling upstream systems from reporting workloads.",
         "Implemented system-wide audit logging with SQL triggers and stored procedures that capture before/after record changes for traceability and support.",
         "Upgraded and extended Telerik Kendo UI grids, forms, and charts in Angular, replacing custom controls so the team could focus on value-generating features.",
         "Set up and configured Microsoft Azure cloud components and Azure DevOps pipelines for development, test, and production environments."
@@ -165,8 +166,8 @@
       "startDate": "Dec 2015",
       "endDate": "July 2019",
       "bullets": [
-        "Designed and built a School ERP platform on ASP.NET MVC, ASP.NET Core Web API, Angular, and SQL Server that automated school back-office workflows and streamlined resource planning.",
-        "Designed RESTful APIs, SQL Server schemas, and stored procedures, and built responsive Bootstrap UIs across the application.",
+        "Architected and built a multi-module School ERP platform on ASP.NET MVC, ASP.NET Core Web API, Angular, and SQL Server that automated school back-office workflows and streamlined resource planning.",
+        "Designed RESTful APIs, normalized SQL Server schemas, and stored procedures, and built responsive Bootstrap UIs across the application.",
         "Worked directly with clients to turn business requirements into scalable solutions, owning scope definition, estimation, planning, and tracking for API and application development.",
         "Mentored junior developers through code reviews and pairing, establishing coding standards across design, coding, testing, and debugging."
       ],
@@ -223,7 +224,8 @@
         "CI/CD",
         "Kubernetes",
         "Load Balancing",
-        "Networking (DNS, SSL/TLS, Firewalls)"
+        "Networking (DNS, SSL/TLS, Firewalls)",
+        "Azure Application Insights"
       ]
     },
     {
@@ -231,11 +233,15 @@
       "items": [
         "System Architecture",
         "High Availability & Scaling",
+        "Backend-for-Frontend (BFF)",
+        "Resilience Patterns (Retry, Circuit Breaker)",
+        "Caching",
+        "Strategy Pattern",
         "Layered / N-tier Architecture",
-        "MVC",
         "SOLID",
         "RESTful API Design",
         "Event-Driven Messaging (RabbitMQ)",
+        "Legacy Modernization",
         "ETL (SSIS)"
       ]
     },
@@ -330,5 +336,5 @@
       ]
     }
   ],
-  "lastUpdated": "2026-10-15T23:45:29.927Z"
+  "lastUpdated": "2026-10-16T00:24:28.781Z"
 }
