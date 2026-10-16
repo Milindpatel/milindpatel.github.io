@@ -207,7 +207,11 @@ export function parseResumeText(text: string): PortfolioData {
 // ── Manual overrides ──────────────────────────────────────────────────────────
 // Merge an overrides object on top of parsed data. Experience patches match an
 // existing role by company + startDate (stable key), then company + title, then
-// company; an unmatched patch is prepended (e.g. a promotion).
+// company; an unmatched patch is prepended (e.g. a promotion). Dates compare by
+// 3-letter month + year, so "August 2021" in the resume matches "Aug 2021".
+const sameDate = (a: string, b: string) =>
+  a.replace(/^([A-Za-z]{3})[A-Za-z]*/, '$1') === b.replace(/^([A-Za-z]{3})[A-Za-z]*/, '$1')
+
 export function applyOverrides(data: PortfolioData, ov: Partial<PortfolioData>): PortfolioData {
   if (!ov) return data
   if (ov.name)           data.name = ov.name
@@ -224,7 +228,7 @@ export function applyOverrides(data: PortfolioData, ov: Partial<PortfolioData>):
     for (const patch of ov.experience as Experience[]) {
       const idx = data.experience.findIndex(e =>
         e.company === patch.company &&
-        (patch.startDate ? e.startDate === patch.startDate
+        (patch.startDate ? sameDate(e.startDate, patch.startDate)
           : patch.title ? e.title === patch.title
             : true),
       )

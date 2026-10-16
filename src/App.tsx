@@ -49,11 +49,20 @@ export default function App() {
   )
 
   // Stats derived from the résumé so they update automatically with new data.
-  const startYears = portfolio.experience
-    .map(e => Number(e.startDate.match(/\d{4}/)?.[0]))
-    .filter(y => !Number.isNaN(y))
-  const earliestYear = startYears.length ? Math.min(...startYears) : null
-  const yearsExp = earliestYear !== null ? Math.max(1, new Date().getFullYear() - earliestYear) : null
+  // Count whole years from the earliest start month, so "Dec 2015" reads 10+ (not 11+) in 2026.
+  const MONTHS = 'janfebmaraprmayjunjulaugsepoctnovdec'
+  const startMonths = portfolio.experience
+    .map(e => {
+      const year = Number(e.startDate.match(/\d{4}/)?.[0])
+      const month = MONTHS.indexOf(e.startDate.slice(0, 3).toLowerCase()) / 3
+      return year * 12 + (month >= 0 && Number.isInteger(month) ? month : 0)
+    })
+    .filter(m => !Number.isNaN(m))
+  const earliestMonth = startMonths.length ? Math.min(...startMonths) : null
+  const now = new Date()
+  const yearsExp = earliestMonth !== null
+    ? Math.max(1, Math.floor((now.getFullYear() * 12 + now.getMonth() - earliestMonth) / 12))
+    : null
   const companies = new Set(portfolio.experience.map(e => e.company)).size
 
   const stats = [
