@@ -1,7 +1,7 @@
 {
   "name": "Milind Patel",
   "title": "Senior Full-Stack Developer & Web Development Manager",
-  "summary": "Senior full-stack developer and web development manager with 10+ years of experience (since 2015) designing, building, and maintaining complex, high-availability web systems — C# and ASP.NET Core back ends, Angular and React front ends, and Microsoft SQL Server — on Azure and AWS. Builds Claude-powered AI agents that cut complex engineering work from weeks to about 1 day. Currently architects, maintains, and develops 8 applications (5 customer-facing, 3 internal) and 12 API integrations, runs containerized services on Kubernetes behind load balancers, and set up CI/CD pipelines for 4 Azure App Service applications in 3 days. Has helped pass 4 consecutive annual PCI DSS audits and leads a team of 5 developers (3 in-house, 2 vendor).",
+  "summary": "Senior full-stack developer and web development manager with 10+ years of experience (since 2015) designing, building, and maintaining complex, high-availability web systems — C# and ASP.NET Core back ends, Angular and React front ends, and Microsoft SQL Server — on Azure and AWS. Builds Claude-powered AI agents that cut a recurring engineering task from ~2 weeks to about 1 day; together with CI/CD automation and cloud optimization, this work saves an estimated $60K+ a year. Currently architects, maintains, and develops 8 applications (5 customer-facing, 3 internal) and 12 API integrations, runs containerized services on Kubernetes behind load balancers, and set up CI/CD pipelines for 4 Azure App Service applications in 3 days. Has helped pass 4 consecutive annual PCI DSS audits and leads a team of 5 developers (3 in-house, 2 vendor).",
   "contact": {
     "email": "milindpatel4416@gmail.com",
     "phone": "647-273-1722",
@@ -17,9 +17,10 @@
       "startDate": "Jan 2026",
       "endDate": "Present",
       "bullets": [
-        "Designed Claude-powered AI agents, now used across the team, for complex multi-step engineering work — cross-application impact analysis, legacy-code refactoring, test generation, and audit-evidence preparation — cutting tasks that took weeks of manual effort to about 1 day.",
+        "Designed Claude-powered AI agents, now used across the team, for complex multi-step engineering work — cross-application impact analysis, legacy-code refactoring, test generation, and audit-evidence preparation — cutting a recurring monthly task from ~2 weeks to about 1 day (~90% faster) and saving ~850 engineering hours (~$45K) a year.",
         "Architect, maintain, and develop 8 applications (5 customer-facing, 3 internal) and 12 API integrations — with Angular and React on the front end, ASP.NET Core and ASP.NET Framework on the back end, MS SQL Server, and Magento for e-commerce — authoring design documents and impact analyses for cross-application changes.",
-        "Set up Azure DevOps CI/CD pipelines for 4 applications on Azure App Service in 3 days, giving each app automated, repeatable builds and deployments across pre-production and production.",
+        "Set up Azure DevOps CI/CD pipelines for 4 applications on Azure App Service in 3 days, replacing 2–4-hour manual releases with automated deployments across pre-production and production and saving ~170 engineering hours (~$9K) a year across 8–12 monthly releases.",
+        "Optimized Azure and AWS resources across the application estate, cutting cloud spend by over $10K a year.",
         "Built location and address features with the Google Maps JavaScript API (interactive maps in the browser) and the Geocoding API (converting addresses into latitude/longitude coordinates), caching geocoded coordinates within Google's 30-day caching limit to reduce API calls and cost.",
         "Integrated payment token providers for checkout, building and maintaining the payment integrations as in-scope PCI DSS components that meet its secure-coding and audit requirements.",
         "Designed a resilient integration layer for internal and third-party APIs — an ASP.NET Core Backend-for-Frontend (BFF) API that centralizes calls and response transformation for the Angular and React front ends, with retry, timeout, and circuit-breaker policies.",
@@ -349,5 +350,5 @@
       ]
     }
   ],
-  "lastUpdated": "2026-10-16T02:01:02.886Z"
+  "lastUpdated": "2026-10-16T02:11:08.783Z"
 }
