@@ -19,7 +19,7 @@
       "bullets": [
         "Architect, maintain, and develop 8 applications (5 customer-facing, 3 internal) and 12 API integrations — with Angular and React on the front end, ASP.NET Core and ASP.NET Framework on the back end, MS SQL Server, and Magento for e-commerce — authoring design documents and impact analyses for cross-application changes.",
         "Built location and address features with the Google Maps JavaScript API (interactive maps in the browser) and the Geocoding API (converting addresses into latitude/longitude coordinates), caching geocoded coordinates within Google's 30-day caching limit to reduce API calls and cost.",
-        "Integrated Bambora (now Worldline) and Moneris as payment token providers for checkout, building and maintaining the payment integrations as in-scope PCI DSS components that meet its secure-coding and audit requirements.",
+        "Integrated Bambora and Moneris as payment token providers for checkout, building and maintaining the payment integrations as in-scope PCI DSS components that meet its secure-coding and audit requirements.",
         "Designed a resilient integration layer for internal and third-party APIs — an ASP.NET Core Backend-for-Frontend (BFF) API that centralizes calls and response transformation for the Angular and React front ends, with retry, timeout, and circuit-breaker policies.",
         "Lead the incremental modernization of legacy ASP.NET Framework applications to ASP.NET Core, separating tightly coupled modules into independently deployable services and applying Dependency Injection, the Strategy pattern, and layered architecture to lower regression risk.",
         "Run containerized ASP.NET Core services on Kubernetes behind load balancers — defining deployments, liveness and readiness probes, and Horizontal Pod Autoscaler rules — and partner with the networking team on DNS, SSL/TLS, and firewall rules.",
@@ -42,7 +42,7 @@
         "Azure DevOps",
         "Google Maps JavaScript API",
         "Geocoding API",
-        "Bambora (Worldline)",
+        "Bambora",
         "Moneris",
         "Magento",
         "PCI DSS",
@@ -223,7 +223,7 @@
         "JSON",
         "Google Maps JavaScript API",
         "Geocoding API",
-        "Bambora (Worldline)",
+        "Bambora",
         "Moneris",
         "Payment Tokenization"
       ]
@@ -349,5 +349,5 @@
       ]
     }
   ],
-  "lastUpdated": "2026-10-16T00:55:03.027Z"
+  "lastUpdated": "2026-10-16T00:57:01.619Z"
 }
