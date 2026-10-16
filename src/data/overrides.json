@@ -5,7 +5,7 @@
     "phone": "647-273-1722",
     "website": "https://milindpatel.github.io"
   },
-  "summary": "Senior full-stack developer with 10+ years of experience (since 2015) designing, building, and maintaining complex, high-availability web systems with C#, ASP.NET Core, Angular, React, and Microsoft SQL Server on Azure and AWS. Currently architects, maintains, and develops 8 applications and 12 API integrations, including Google Maps, running on Kubernetes behind load balancers, with a focus on scalability, resilience, performance, and security. Has kept these systems PCI DSS compliant through 4 consecutive years of passed audits, builds Claude-powered AI agents for complex engineering work, and leads a blended team of 3 in-house and 2 vendor developers.",
+  "summary": "Senior full-stack developer with 10+ years of experience (since 2015) designing, building, and maintaining complex, high-availability web systems with C#, ASP.NET Core, Angular, React, and Microsoft SQL Server on Azure and AWS. Currently architects, maintains, and develops 8 applications and 12 API integrations — including Google Maps location services and Bambora and Moneris payment tokenization — running on Kubernetes behind load balancers, with a focus on scalability, resilience, performance, and security. Has kept these systems PCI DSS compliant through 4 consecutive years of passed audits, builds Claude-powered AI agents for complex engineering work, and leads a blended team of 3 in-house and 2 vendor developers.",
   "skills": [
     {
       "category": "Backend",
@@ -100,6 +100,7 @@
       "category": "Security & Compliance",
       "items": [
         "PCI DSS",
+        "Payment Tokenization (Bambora, Moneris)",
         "OWASP Top 10",
         "Secure Coding",
         "Vulnerability Remediation",
@@ -135,14 +136,16 @@
       "startDate": "Jan 2026",
       "endDate": "Present",
       "bullets": [
-        "Architect, maintain, and develop 8 customer-facing applications and 12 API integrations — including Google Maps JavaScript API and Geocoding API for location and address features — on ASP.NET Core, Angular/React, and MS SQL Server, authoring design documents and impact analyses for cross-application changes.",
-        "Designed a resilient integration layer for internal and third-party APIs — a Backend-for-Frontend (BFF) API that centralizes calls and response transformation, with retry, timeout, and circuit-breaker policies and caching of repeat geocoding lookups to reduce external calls and API cost.",
-        "Lead the incremental modernization of legacy ASP.NET Framework applications to ASP.NET Core, separating tightly coupled modules into independently deployable services and applying Dependency Injection, the Strategy pattern, and layered architecture to lower regression risk.",
-        "Run the applications as containerized workloads on Kubernetes behind load balancers — defining deployments, readiness and liveness probes, and horizontal autoscaling — and partner with the networking team on DNS, SSL/TLS, and firewall rules to keep sites available through releases and traffic spikes.",
-        "Troubleshoot complex production issues spanning the application, database, and network layers using Azure Application Insights and log analysis, driving root-cause fixes and post-incident improvements.",
+        "Architect, maintain, and develop 8 customer-facing applications and 12 API integrations on ASP.NET Core, Angular/React, and MS SQL Server, authoring design documents and impact analyses for cross-application changes.",
+        "Built location and address features with the Google Maps JavaScript API and Geocoding API — interactive maps and conversion of customer addresses into map coordinates — caching repeat geocoding lookups to reduce API calls and cost.",
+        "Integrated the Bambora and Moneris payment gateways and set up payment tokenization, replacing card numbers with secure tokens so cardholder data is not stored in Rexall's applications and checkout stays PCI DSS compliant.",
+        "Designed a resilient integration layer for internal and third-party APIs — a Backend-for-Frontend (BFF) API that centralizes calls and response transformation, with retry, timeout, and circuit-breaker policies.",
+        "Lead the incremental modernization of legacy ASP.NET Framework applications to ASP.NET Core, separating tightly coupled modules into independently deployable services and applying Dependency Injection, the Strategy pattern, and layered architecture.",
+        "Run the applications as containerized workloads on Kubernetes behind load balancers — defining deployments, readiness and liveness probes, and horizontal autoscaling — and partner with the networking team on DNS, SSL/TLS, and firewall rules.",
+        "Troubleshoot complex production issues spanning the application, database, and network layers using Azure Application Insights and log analysis, driving root-cause fixes.",
         "Own PCI DSS compliance across the Magento, .NET, and React applications — remediating vulnerability-scan findings (OWASP Top 10), hardening code and configuration, and compiling audit evidence — passing every PCI audit for 4 consecutive years.",
-        "Design Claude-powered AI agents for complex, multi-step engineering work — cross-application impact analysis, legacy-code refactoring, test generation, and audit-evidence preparation — and wrote team guidance on prompt engineering and token-efficient Claude usage.",
-        "Lead a blended team of 3 in-house and 2 vendor developers — running architecture and design reviews, PR reviews, and sprint planning with Product, and joining vendor and security assessments with cross-functional teams."
+        "Design Claude-powered AI agents for complex, multi-step engineering work — cross-application impact analysis, legacy-code refactoring, test generation, and audit-evidence preparation — and authored team guidance on prompt engineering.",
+        "Lead a blended team of 3 in-house and 2 vendor developers — running architecture and design reviews, PR reviews, and sprint planning with Product, and joining vendor and security assessments."
       ],
       "tech": [
         "C#",
@@ -156,8 +159,10 @@
         "Azure",
         "AWS",
         "Azure DevOps",
-        "Application Insights",
-        "Google Maps APIs",
+        "Google Maps JavaScript API",
+        "Geocoding API",
+        "Bambora",
+        "Moneris",
         "Magento",
         "PCI DSS",
         "Claude",
@@ -171,7 +176,7 @@
       "startDate": "July 2022",
       "endDate": "Jan 2026",
       "bullets": [
-        "Developed and maintained full-stack features across Rexall's ASP.NET Core and ASP.NET Framework applications with Angular 12 and React 18, building RESTful APIs, reusable UI components, and third-party integrations including Google Maps.",
+        "Developed and maintained full-stack features across Rexall's ASP.NET Core and ASP.NET Framework applications with Angular 12 and React 18, building RESTful APIs, reusable UI components, and third-party integrations including Google Maps and payment gateways.",
         "Resolved database and application bottlenecks by rewriting complex T-SQL stored procedures, adding indexes, and analyzing execution plans, speeding up page loads and long-running reports.",
         "Remediated PCI DSS audit and vulnerability-scan findings across the Magento sites, ASP.NET C# applications, and React applications and gathered audit evidence, with every annual audit passed.",
         "Owned code merges, code drops, and patches across multiple ASP.NET C# applications, and built and maintained Azure DevOps build and release pipelines for consistent, repeatable deployments.",
