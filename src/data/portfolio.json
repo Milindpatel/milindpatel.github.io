@@ -1,7 +1,7 @@
 {
   "name": "Milind Patel",
-  "title": "Senior Full-Stack Developer",
-  "summary": "Senior full-stack developer with 10+ years of experience (since 2015) designing, building, and maintaining complex, high-availability web systems — C# and ASP.NET Core back ends, Angular and React front ends, and Microsoft SQL Server — on Azure and AWS. Currently architects, maintains, and develops 8 applications (5 customer-facing, 3 internal) and 12 API integrations, including Google Maps location and address services and Bambora and Moneris payment tokenization. Runs containerized services on Kubernetes behind load balancers, with a focus on scalability, resilience, performance, and security. Has kept Rexall's applications PCI DSS compliant through 4 consecutive years of passed audits, builds Claude-powered AI agents for complex engineering work, and leads a blended team of 3 in-house and 2 vendor developers.",
+  "title": "Senior Full-Stack Developer & Web Development Manager",
+  "summary": "Senior full-stack developer and web development manager with 10+ years of experience (since 2015) designing, building, and maintaining complex, high-availability web systems — C# and ASP.NET Core back ends, Angular and React front ends, and Microsoft SQL Server — on Azure and AWS. Currently architects, maintains, and develops 8 applications (5 customer-facing, 3 internal) and 12 API integrations, including Google Maps location and address services and Bambora and Moneris payment tokenization. Runs containerized services on Kubernetes behind load balancers, with a focus on scalability, resilience, performance, and security. Has kept Rexall's applications PCI DSS compliant through 4 consecutive years of passed audits, builds Claude-powered AI agents for complex engineering work, and leads a blended team of 3 in-house and 2 vendor developers.",
   "contact": {
     "email": "milindpatel4416@gmail.com",
     "phone": "647-273-1722",
@@ -349,5 +349,5 @@
       ]
     }
   ],
-  "lastUpdated": "2026-10-16T00:42:50.699Z"
+  "lastUpdated": "2026-10-16T00:46:16.706Z"
 }
