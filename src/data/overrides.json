@@ -105,7 +105,7 @@
     {
       "category": "Security & Compliance",
       "items": [
-        "PCI DSS (v3.2.1, v4.0)",
+        "PCI DSS (v3.2.1, v4.0, v4.0.1)",
         "OWASP Top 10",
         "Secure Coding",
         "Vulnerability Remediation",
@@ -151,7 +151,7 @@
         "Lead the incremental modernization of legacy ASP.NET Framework applications to ASP.NET Core, separating tightly coupled modules into independently deployable services and applying Dependency Injection, the Strategy pattern, and layered architecture to lower regression risk.",
         "Run containerized ASP.NET Core services on Kubernetes behind load balancers — defining deployments, liveness and readiness probes, and Horizontal Pod Autoscaler rules — and partner with the networking team on DNS, SSL/TLS, and firewall rules.",
         "Troubleshoot complex production issues spanning the application, database, and network layers using Azure Application Insights and log analysis, driving root-cause fixes.",
-        "Own PCI DSS compliance across the Magento, .NET, and React applications — remediating vulnerability-scan findings (OWASP Top 10), hardening code and configuration, and compiling audit evidence — passing 4 consecutive annual PCI audits through the move from PCI DSS v3.2.1 to v4.0.",
+        "Own PCI DSS v4.0.1 compliance across the Magento, .NET, and React applications — remediating vulnerability-scan findings (OWASP Top 10), hardening code and configuration, and compiling audit evidence — passing 4 consecutive annual PCI audits through the moves from PCI DSS v3.2.1 to v4.0 and v4.0.1.",
         "Lead a blended team of 5 developers (3 in-house, 2 vendor) — running architecture and design reviews, PR reviews, and sprint planning with Product, and joining vendor and security assessments."
       ],
       "tech": [
@@ -173,7 +173,7 @@
         "Geocoding API",
         "Payment Tokenization",
         "Magento",
-        "PCI DSS"
+        "PCI DSS v4.0.1"
       ]
     },
     {
