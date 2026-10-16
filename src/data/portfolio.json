@@ -1,7 +1,7 @@
 {
   "name": "Milind Patel",
   "title": "Senior Full-Stack Developer & Web Development Manager",
-  "summary": "Senior full-stack developer and web development manager with 10+ years of experience (since 2015) designing, building, and maintaining complex, high-availability web systems — C# and ASP.NET Core back ends, Angular and React front ends, and Microsoft SQL Server — on Azure and AWS. Builds Claude-powered AI agents and agentic workflows that take on complex, multi-step engineering work, from cross-application impact analysis to legacy-code refactoring. Currently architects, maintains, and develops 8 applications (5 customer-facing, 3 internal) and 12 API integrations, including Google Maps location and address services and Bambora and Moneris as payment token providers. Runs containerized services on Kubernetes behind load balancers, with a focus on scalability, resilience, performance, and security. Has kept Rexall's applications PCI DSS compliant through 4 consecutive years of passed audits and leads a blended team of 3 in-house and 2 vendor developers.",
+  "summary": "Senior full-stack developer and web development manager with 10+ years of experience (since 2015) designing, building, and maintaining complex, high-availability web systems — C# and ASP.NET Core back ends, Angular and React front ends, and Microsoft SQL Server — on Azure and AWS. Builds Claude-powered AI agents and agentic workflows that take on complex, multi-step engineering work, from cross-application impact analysis to legacy-code refactoring. Currently architects, maintains, and develops 8 applications (5 customer-facing, 3 internal) and 12 API integrations, including Google Maps location and address services and payment token provider integrations. Runs containerized services on Kubernetes behind load balancers, with a focus on scalability, resilience, performance, and security. Has kept Rexall's applications PCI DSS compliant through 4 consecutive years of passed audits and leads a blended team of 3 in-house and 2 vendor developers.",
   "contact": {
     "email": "milindpatel4416@gmail.com",
     "phone": "647-273-1722",
@@ -20,7 +20,7 @@
         "Design Claude-powered AI agents for complex, multi-step engineering work — cross-application impact analysis, legacy-code refactoring, test generation, and audit-evidence preparation — and author team guidance on prompt engineering.",
         "Architect, maintain, and develop 8 applications (5 customer-facing, 3 internal) and 12 API integrations — with Angular and React on the front end, ASP.NET Core and ASP.NET Framework on the back end, MS SQL Server, and Magento for e-commerce — authoring design documents and impact analyses for cross-application changes.",
         "Built location and address features with the Google Maps JavaScript API (interactive maps in the browser) and the Geocoding API (converting addresses into latitude/longitude coordinates), caching geocoded coordinates within Google's 30-day caching limit to reduce API calls and cost.",
-        "Integrated Bambora and Moneris as payment token providers for checkout, building and maintaining the payment integrations as in-scope PCI DSS components that meet its secure-coding and audit requirements.",
+        "Integrated payment token providers for checkout, building and maintaining the payment integrations as in-scope PCI DSS components that meet its secure-coding and audit requirements.",
         "Designed a resilient integration layer for internal and third-party APIs — an ASP.NET Core Backend-for-Frontend (BFF) API that centralizes calls and response transformation for the Angular and React front ends, with retry, timeout, and circuit-breaker policies.",
         "Lead the incremental modernization of legacy ASP.NET Framework applications to ASP.NET Core, separating tightly coupled modules into independently deployable services and applying Dependency Injection, the Strategy pattern, and layered architecture to lower regression risk.",
         "Run containerized ASP.NET Core services on Kubernetes behind load balancers — defining deployments, liveness and readiness probes, and Horizontal Pod Autoscaler rules — and partner with the networking team on DNS, SSL/TLS, and firewall rules.",
@@ -44,8 +44,7 @@
         "Azure DevOps",
         "Google Maps JavaScript API",
         "Geocoding API",
-        "Bambora",
-        "Moneris",
+        "Payment Tokenization",
         "Magento",
         "PCI DSS"
       ]
@@ -241,8 +240,6 @@
         "JSON",
         "Google Maps JavaScript API",
         "Geocoding API",
-        "Bambora",
-        "Moneris",
         "Payment Tokenization"
       ]
     },
@@ -349,5 +346,5 @@
       ]
     }
   ],
-  "lastUpdated": "2026-10-16T00:59:54.684Z"
+  "lastUpdated": "2026-10-16T01:16:10.812Z"
 }
