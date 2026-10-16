@@ -39,8 +39,8 @@
         "JSON",
         "Google Maps JavaScript API",
         "Geocoding API",
-        "Bambora",
-        "Moneris",
+        "Bambora (Worldline)",
+        "Moneris (Hosted Tokenization, Vault)",
         "Payment Tokenization"
       ]
     },
@@ -106,7 +106,7 @@
     {
       "category": "Security & Compliance",
       "items": [
-        "PCI DSS",
+        "PCI DSS (v3.2.1, v4.0)",
         "OWASP Top 10",
         "Secure Coding",
         "Vulnerability Remediation",
@@ -129,27 +129,27 @@
     {
       "category": "Business Process Management",
       "items": [
-        "AWD BPM",
-        "IBM BPM"
+        "DST AWD (Automated Work Distributor)",
+        "IBM Business Process Manager 8.5"
       ]
     }
   ],
   "experience": [
     {
-      "company": "Rexall",
+      "company": "Rexall Pharmacy Group",
       "title": "Web Development Manager",
       "location": "Mississauga, ON",
       "startDate": "Jan 2026",
       "endDate": "Present",
       "bullets": [
         "Architect, maintain, and develop 8 applications (5 customer-facing, 3 internal) and 12 API integrations — with Angular and React on the front end, ASP.NET Core and ASP.NET Framework on the back end, MS SQL Server, and Magento for e-commerce — authoring design documents and impact analyses for cross-application changes.",
-        "Built location and address features with the Google Maps JavaScript API (interactive maps in the browser) and the Geocoding API (converting customer addresses into coordinates), caching repeat geocoding lookups to reduce API calls and cost.",
-        "Integrated the Bambora and Moneris payment gateways and set up payment tokenization, replacing card numbers with secure tokens so cardholder data is never stored in Rexall's applications — reducing PCI DSS scope and keeping checkout compliant.",
+        "Built location and address features with the Google Maps JavaScript API (interactive maps in the browser) and the Geocoding API (converting addresses into latitude/longitude coordinates), caching geocoded coordinates within Google's 30-day caching limit to reduce API calls and cost.",
+        "Integrated the Bambora (now Worldline) and Moneris payment gateways with tokenization — card details are exchanged for gateway-issued tokens (Bambora payment profiles, Moneris Vault data keys) so card numbers are never stored on Rexall's servers, reducing PCI DSS scope.",
         "Designed a resilient integration layer for internal and third-party APIs — an ASP.NET Core Backend-for-Frontend (BFF) API that centralizes calls and response transformation for the Angular and React front ends, with retry, timeout, and circuit-breaker policies.",
         "Lead the incremental modernization of legacy ASP.NET Framework applications to ASP.NET Core, separating tightly coupled modules into independently deployable services and applying Dependency Injection, the Strategy pattern, and layered architecture to lower regression risk.",
-        "Run containerized ASP.NET Core services on Kubernetes behind load balancers — defining deployments, readiness and liveness probes, and horizontal autoscaling — and partner with the networking team on DNS, SSL/TLS, and firewall rules.",
+        "Run containerized ASP.NET Core services on Kubernetes behind load balancers — defining deployments, liveness and readiness probes, and Horizontal Pod Autoscaler rules — and partner with the networking team on DNS, SSL/TLS, and firewall rules.",
         "Troubleshoot complex production issues spanning the application, database, and network layers using Azure Application Insights and log analysis, driving root-cause fixes.",
-        "Own PCI DSS compliance across the Magento, .NET, and React applications — remediating vulnerability-scan findings (OWASP Top 10), hardening code and configuration, and compiling audit evidence — continuing a 4-year record of passed PCI audits.",
+        "Own PCI DSS compliance across the Magento, .NET, and React applications — remediating vulnerability-scan findings (OWASP Top 10), hardening code and configuration, and compiling audit evidence — continuing a 4-year record of passed PCI audits through the move from PCI DSS v3.2.1 to v4.0.",
         "Design Claude-powered AI agents for complex, multi-step engineering work — cross-application impact analysis, legacy-code refactoring, test generation, and audit-evidence preparation — and author team guidance on prompt engineering.",
         "Lead a blended team of 3 in-house and 2 vendor developers — running architecture and design reviews, PR reviews, and sprint planning with Product, and joining vendor and security assessments."
       ],
@@ -167,7 +167,7 @@
         "Azure DevOps",
         "Google Maps JavaScript API",
         "Geocoding API",
-        "Bambora",
+        "Bambora (Worldline)",
         "Moneris",
         "Magento",
         "PCI DSS",
@@ -176,7 +176,7 @@
       ]
     },
     {
-      "company": "Rexall",
+      "company": "Rexall Pharmacy Group",
       "title": "Lead Developer",
       "location": "Mississauga, ON",
       "startDate": "Jul 2022",
@@ -216,7 +216,7 @@
         "Designed and developed full-stack web applications with Angular 11 and .NET 5 Web APIs, working within an Agile team across every phase of the SDLC.",
         "Built an event-driven integration on RabbitMQ — message consumers plus scheduled SQL jobs that process queued events and generate downstream data — decoupling upstream systems from reporting workloads.",
         "Implemented system-wide audit logging with SQL triggers and stored procedures that capture before/after record changes for traceability and support.",
-        "Upgraded and extended Telerik Kendo UI controls in Angular to speed up UI development, letting the team focus on value-generating features.",
+        "Upgraded and extended Telerik Kendo UI for Angular components to speed up UI development, letting the team focus on value-generating features.",
         "Set up and configured Microsoft Azure cloud components for development, test, and production environments."
       ],
       "tech": [
@@ -225,7 +225,7 @@
         "ASP.NET Core",
         "ASP.NET Framework",
         "Angular 11",
-        "Telerik Kendo UI",
+        "Kendo UI for Angular",
         "RabbitMQ",
         "MS SQL Server",
         "T-SQL",
@@ -243,8 +243,8 @@
       "startDate": "Mar 2020",
       "endDate": "Aug 2021",
       "bullets": [
-        "Partnered with Product Owners and Scrum Masters to translate user stories into automated process flows built in the AWD BPM tool.",
-        "Built rule-driven document-filtering automation using XML logic and Mobius Document Direct, removing manual document-handling steps.",
+        "Partnered with Product Owners and Scrum Masters to translate user stories into automated process flows built on the DST AWD (Automated Work Distributor) BPM platform.",
+        "Built rule-driven document-filtering automation using XML logic and ASG Mobius Document Direct, removing manual document-handling steps.",
         "Built user interfaces for custom internal applications on an ASP.NET C# back end.",
         "Wrote parameterized stored procedures powering reporting and data retrieval across SQL Server and Oracle.",
         "Built reusable SSIS ETL packages to ingest flat-file, Excel, and XML sources into SQL Server, plus DTS import/export routines delivering SQL Server data to client-side destinations."
@@ -252,8 +252,8 @@
       "tech": [
         "C#",
         "ASP.NET",
-        "AWD BPM",
-        "Mobius Document Direct",
+        "DST AWD",
+        "ASG Mobius",
         "XML",
         "MS SQL Server",
         "T-SQL",
@@ -273,7 +273,7 @@
       "endDate": "Dec 2019",
       "bullets": [
         "Built Angular front ends backed by ASP.NET Core Web APIs for internal business-process applications.",
-        "Designed and automated business processes in IBM BPM 8.5 — developing Business Process Definitions (BPDs) from requirements and deploying them to test environments.",
+        "Designed and automated business processes in IBM Business Process Manager (BPM) 8.5 — developing Business Process Definitions (BPDs) from requirements and deploying them to test environments.",
         "Captured data requirements with business analysts through process blueprints and Visio diagrams.",
         "Validated BPDs with positive and negative test cases, comparing expected and actual results through manual and automated testing."
       ],
@@ -319,15 +319,15 @@
   "education": [
     {
       "institution": "Lambton College",
-      "degree": "Post-Graduate Certificate, Mobile Application Design and Development",
+      "degree": "Ontario College Graduate Certificate, Mobile Application Design and Development",
       "location": "Toronto, ON",
       "period": "Sep 2016 – Apr 2018",
       "score": "3.8/4.0"
     },
     {
       "institution": "A. D. Patel Institute of Technology (Gujarat Technological University)",
-      "degree": "Bachelor of Engineering, Computer Engineering",
-      "location": "Gujarat, India",
+      "degree": "Bachelor of Engineering (B.E.), Computer Engineering",
+      "location": "Anand, Gujarat, India",
       "period": "Jul 2012 – May 2016",
       "score": "6.94/10"
     }

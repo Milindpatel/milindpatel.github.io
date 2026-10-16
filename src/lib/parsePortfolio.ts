@@ -211,6 +211,9 @@ export function parseResumeText(text: string): PortfolioData {
 // 3-letter month + year, so "August 2021" in the resume matches "Aug 2021".
 const sameDate = (a: string, b: string) =>
   a.replace(/^([A-Za-z]{3})[A-Za-z]*/, '$1') === b.replace(/^([A-Za-z]{3})[A-Za-z]*/, '$1')
+// A patch may use a fuller company name, e.g. "Rexall Pharmacy Group" for "Rexall".
+const sameCompany = (parsed: string, patch: string) =>
+  parsed === patch || (!!parsed && patch.startsWith(parsed))
 
 export function applyOverrides(data: PortfolioData, ov: Partial<PortfolioData>): PortfolioData {
   if (!ov) return data
@@ -227,7 +230,7 @@ export function applyOverrides(data: PortfolioData, ov: Partial<PortfolioData>):
   if (Array.isArray(ov.experience)) {
     for (const patch of ov.experience as Experience[]) {
       const idx = data.experience.findIndex(e =>
-        e.company === patch.company &&
+        sameCompany(e.company, patch.company) &&
         (patch.startDate ? sameDate(e.startDate, patch.startDate)
           : patch.title ? e.title === patch.title
             : true),
