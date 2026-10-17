@@ -31,6 +31,8 @@
         "Claude",
         "AI Agents",
         "C#",
+        "Go",
+        "Python",
         "ASP.NET Core",
         "Angular",
         "React",
@@ -168,6 +170,8 @@
       "category": "Backend",
       "items": [
         "C#",
+        "Python",
+        "Go",
         "ASP.NET Core",
         "ASP.NET MVC",
         ".NET Framework",
@@ -275,5 +279,5 @@
       ]
     }
   ],
-  "lastUpdated": "2026-10-16T02:20:49.882Z"
+  "lastUpdated": "2026-10-17T20:33:50.747Z"
 }

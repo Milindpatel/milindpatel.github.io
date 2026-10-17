@@ -25,6 +25,8 @@
       "category": "Backend",
       "items": [
         "C#",
+        "Python",
+        "Go",
         "ASP.NET Core",
         "ASP.NET MVC",
         ".NET Framework",
@@ -123,6 +125,8 @@
         "Claude",
         "AI Agents",
         "C#",
+        "Go",
+        "Python",
         "ASP.NET Core",
         "Angular",
         "React",
