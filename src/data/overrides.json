@@ -6,7 +6,7 @@
     "website": "https://milindpatel.github.io",
     "location": "Toronto, ON"
   },
-  "summary": "Senior full-stack developer and web development manager with 10+ years of experience building complex, high-availability web systems with C#, ASP.NET Core, Angular, React, and SQL Server on Azure and AWS. Builds Claude-powered AI agents that cut a recurring engineering task from ~2 weeks to about 1 day. Architects and maintains 8 applications and 12 API integrations, has helped pass 4 consecutive annual PCI DSS audits, leads a team of 5 developers, and has delivered an estimated $60K+ in annual savings.",
+  "summary": "Senior full-stack developer and web development manager with 10+ years of experience building complex, high-availability web systems with C#, ASP.NET Core, Angular, React, and SQL Server on Azure and AWS. Builds Claude-powered AI agents in Python that cut a recurring engineering task from ~2 weeks to about 1 day. Architects and maintains 8 applications and 12 API integrations, has helped pass 4 consecutive annual PCI DSS audits, leads a team of 5 developers, and has delivered an estimated $60K+ in annual savings.",
   "skills": [
     {
       "category": "AI & Prompt Engineering",
@@ -111,7 +111,8 @@
       "startDate": "Jan 2026",
       "endDate": "Present",
       "bullets": [
-        "Designed Claude-powered AI agents, now used across the team, for impact analysis, legacy-code refactoring, test generation, and audit-evidence preparation — cutting a recurring monthly task from ~2 weeks to about 1 day (~90% faster) and saving ~850 engineering hours (~$45K) a year.",
+        "Designed Claude-powered AI agents in Python, now used across the team, for impact analysis, legacy-code refactoring, test generation, and audit-evidence preparation — cutting a recurring monthly task from ~2 weeks to about 1 day (~90% faster) and saving ~850 engineering hours (~$45K) a year.",
+        "Built internal services, command-line tools, and automation in Go to support development and operations workflows.",
         "Architect, maintain, and develop 8 applications (5 customer-facing, 3 internal) and 12 API integrations — Angular and React front ends, ASP.NET Core and ASP.NET Framework back ends, SQL Server, and Magento.",
         "Set up Azure DevOps CI/CD pipelines for 4 Azure App Service applications in 3 days, replacing 2–4-hour manual releases and saving ~170 engineering hours (~$9K) a year across 8–12 monthly releases.",
         "Optimized Azure and AWS resources across the application estate, cutting cloud spend by over $10K a year.",
